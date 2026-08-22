@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+
+    /* Welche JavaScript‑Version soll am Ende entstehen?
+       ESNext = immer die neueste moderne JS‑Syntax. */
+    "target": "ESNext",
+
+    /* Welche Funktionen/Umgebungen kennt TypeScript?
+       ESNext = moderne JS‑Features
+       DOM = Browser‑Objekte wie document, window, HTMLElement */
+    "lib": ["ESNext", "DOM"],
+
+
+    /* Wie werden Importe/Exporte behandelt?
+       ESNext = moderne import/export Syntax */
+    "module": "ESNext",
+
+    /* Wie löst TypeScript deine Import‑Pfadnamen auf?
+       Bundler = Verhalten wie Vite/Rollup → optimal für moderne Projekte */
+    "moduleResolution": "Bundler",
+
+    /* Jede Datei wird einzeln kompiliert.
+       Verhindert versteckte Fehler und passt zu Vite. */
+    "isolatedModules": true,
+
+
+    /* Aktiviert alle strikten Typ‑Regeln.
+       Macht deinen Code sicherer und verhindert viele Fehler. */
+    "strict": true,
+
+    /* Überspringt Typprüfung in node_modules.
+       Macht Kompilieren schneller, völlig normal. */
+    "skipLibCheck": true,
+
+    /* TypeScript erzeugt KEIN JavaScript.
+       Vite übernimmt das Kompilieren → TS prüft nur die Typen. */
+    "noEmit": true,
+
+
+    /* Erlaubt einfache Importe von CommonJS‑Modulen.
+       Beispiel: import express from "express"; */
+    "esModuleInterop": true,
+
+    /* Erlaubt das Importieren von JSON‑Dateien.
+       Beispiel: import data from "./data.json"; */
+    "resolveJsonModule": true,
+
+    /* Verhindert Fehler durch unterschiedliche Groß-/Kleinschreibung
+       bei Dateinamen (wichtig für Windows vs. Linux). */
+    "forceConsistentCasingInFileNames": true
+  },
+
+  /* Nur eigenen Code im src‑Ordner prüfen. */
+  "include": ["src"],
+
+  /* node_modules und dist ignorieren (Fremdcode + fertiger Build). */
+  "exclude": ["node_modules", "dist"]
+}
+
+
