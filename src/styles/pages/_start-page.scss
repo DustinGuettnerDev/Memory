@@ -1,0 +1,29 @@
+@use "../abstract/functions" as fct;
+
+.memory {
+    background-color: #2F3131;
+    align-items: center;
+}
+
+.headline1 {
+    font-family: "red-rose", sans-serif;
+    font-weight: 700;
+    font-size: fct.px-to-rem(140);
+    color: white;
+
+    &__addition {
+        font-size: fct.px-to-rem(48);
+    }
+}
+
+.start-button{
+    width: 180px;
+    height: 80px;
+    background-size: 180px 80px;
+    background-image: url("/assets/icons/start-button/inactive.svg");
+
+    &:hover{
+        background-image: url("/assets/icons/start-button/active.svg");
+    }
+}
+
