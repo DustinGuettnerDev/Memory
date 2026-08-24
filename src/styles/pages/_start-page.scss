@@ -1,8 +1,21 @@
 @use "../abstract/functions" as fct;
 
-.memory {
+body {
     background-color: #2F3131;
     align-items: center;
+    position: relative;
+    background-image: url("/assets/imgs/controller.svg");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.start-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 .headline1 {
@@ -16,14 +29,16 @@
     }
 }
 
-.start-button{
+.start-link{
+    aspect-ratio: 180 / 75;
+    height: auto;
     width: 180px;
-    height: 80px;
-    background-size: 180px 80px;
-    background-image: url("/assets/icons/start-button/inactive.svg");
+    background: url("/assets/icons/start-button/inactive.svg") center / cover no-repeat;
 
     &:hover{
         background-image: url("/assets/icons/start-button/active.svg");
     }
 }
+
+
 
