@@ -1,6 +1,8 @@
 @use "../abstract/functions" as fct;
 
 body {
+    display: flex;
+    justify-content: center;
     background-color: #2F3131;
     align-items: center;
     position: relative;

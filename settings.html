@@ -6,21 +6,21 @@
     <title>Settings</title>
 </head>
 <body>
-    <h1>Settings</h1>
-    <section>
-        <h2 class="headline2-">Game themes</h2>
+    <h1 class="headline1">Settings</h1>
+    <section class="settings-selection">
+        <h2 class="settings-selection__game-themes">Game themes</h2>
         <form>
             <label><input type="radio" value="a" name="game-theme">Code vibes theme</label>  
             <label><input type="radio" value="b" name="game-theme">Gaming theme</label>  
         </form>
 
 
-        <h2>Choose player</h2>
+        <h2 class="settings-selection__chosse-player">Choose player</h2>
         <form>
             <label><input type="radio" value="a" name="player-color">Blue</label>  
             <label><input type="radio" value="b" name="player-color">Yellow</label>  
         </form>
-        <h2>Board size</h2>
+        <h2 class="settings-selection__board-size">Board size</h2>
         <form>
             <label><input type="radio" value="a" name="board-size">16 cards</label>  
             <label><input type="radio" value="b" name="board-size">24 cards</label>  
@@ -37,7 +37,7 @@
 
 
     <section></section>
-
+    <script type="module" src="src/scripts/settings.ts"></script>
     <script type="module" src="src/main.ts"></script>
 </body>
 </html>
