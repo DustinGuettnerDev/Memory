@@ -5,7 +5,7 @@
     &::before{
         content: "";
         width: 30px;
-        height: 30px;
+        aspect-ratio: 1/1;
         background-image: url($path);
         background-position: center;
         background-repeat: no-repeat;
@@ -16,7 +16,13 @@
 }
 
 body {
+
+    margin: 100px 500px;
+}
+
+.content-wrapper {
     display: flex;
+    justify-content: space-between;
 }
 
 .headline1 {
@@ -24,18 +30,28 @@ body {
     font-family: "red-rose", sans-serif;
 }
 
+
 .settings-selection {
     font-family: almarai, sans-serif;
+    padding-left: 40px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px
+    }
 }
 
-.settings-selection__game-themes {
-    @include addIconToSelectionHeadline("public/assets/icons/palette.svg");
+.settings-theme__headline2 {
+    @include addIconToSelectionHeadline("/assets/icons/settings/palette.svg");
+    margin-top: 0;
 }
 
-.settings-selection__chosse-player {
-    @include addIconToSelectionHeadline("public/assets/icons/chess-pawn.svg");
+.settings-player-color__headline2 {
+    @include addIconToSelectionHeadline("/assets/icons/settings/chess-pawn.svg");
 }
 
-.settings-selection__board-size {
-    @include addIconToSelectionHeadline("public/assets/icons/board.svg");
+.settings-board-size__headline2 {
+    @include addIconToSelectionHeadline("/assets/icons/settings/board.svg");
 }
+

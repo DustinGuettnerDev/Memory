@@ -6,7 +6,7 @@ body {
     background-color: #2F3131;
     align-items: center;
     position: relative;
-    background-image: url("/assets/imgs/controller.svg");
+    background-image: url("/assets/imgs/start-page/controller.svg");
     background-repeat: no-repeat;
     background-position: left bottom;
 }
@@ -16,8 +16,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .headline1 {
@@ -35,10 +33,10 @@ body {
     aspect-ratio: 180 / 75;
     height: auto;
     width: 180px;
-    background: url("/assets/icons/start-button/inactive.svg") center / cover no-repeat;
+    background: url("/assets/icons/start-page/start-button/inactive.svg") center / cover no-repeat;
 
     &:hover{
-        background-image: url("/assets/icons/start-button/active.svg");
+        background-image: url("/assets/icons/start-page/start-button/active.svg");
     }
 }
 
