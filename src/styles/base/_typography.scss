@@ -46,3 +46,15 @@
     font-weight: 700;
     
 }
+
+@mixin font-red-rose-54-700{
+    font-family: "red-rose", sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+}
+
+@mixin font-almarai-20-400{
+  font-family: "almarai", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}

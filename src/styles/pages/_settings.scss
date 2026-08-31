@@ -1,6 +1,10 @@
+@use "../abstract/mixins" as mx;
+@use "../base/typography" as typo;
+
 @mixin addIconToSelectionHeadline($path){
     position: relative;
     font-weight: 700;
+    font-size: 24px;
 
     &::before{
         content: "";
@@ -15,10 +19,6 @@
     }
 }
 
-body {
-
-    margin: 100px 500px;
-}
 
 .content-wrapper {
     display: flex;
@@ -26,13 +26,13 @@ body {
 }
 
 .headline1 {
-    font-size: 54px;
-    font-family: "red-rose", sans-serif;
+    margin-top: 128px;
+    @include typo.font-red-rose-54-700;
 }
 
 
 .settings-selection {
-    font-family: almarai, sans-serif;
+    @include typo.font-almarai-20-400;
     padding-left: 40px;
 
     form {
@@ -44,14 +44,14 @@ body {
 
 .settings-theme__headline2 {
     @include addIconToSelectionHeadline("/assets/icons/settings/palette.svg");
-    margin-top: 0;
 }
 
 .settings-player-color__headline2 {
     @include addIconToSelectionHeadline("/assets/icons/settings/chess-pawn.svg");
+    margin-top: 48px;
 }
 
 .settings-board-size__headline2 {
     @include addIconToSelectionHeadline("/assets/icons/settings/board.svg");
+    margin-top: 48px;
 }
-
