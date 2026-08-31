@@ -1,10 +1,11 @@
 @use "../abstract/functions" as fct;
+@use "../abstract/mixins" as mx;
+@use "../abstract/variables" as var;
+@use "../base/typography" as typo;
 
 body {
-    display: flex;
-    justify-content: center;
+    @include mx.flex-center-center;
     background-color: #2F3131;
-    align-items: center;
     position: relative;
     background-image: url("/assets/imgs/start-page/controller.svg");
     background-repeat: no-repeat;
@@ -12,16 +13,13 @@ body {
 }
 
 .start-page {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
+    display: flex;
     align-items: center;
 }
 
 .headline1 {
-    font-family: "red-rose", sans-serif;
-    font-weight: 700;
-    font-size: fct.px-to-rem(140);
+    @include typo.font-red-rose-140-700;
     color: white;
 
     &__addition {
@@ -30,15 +28,44 @@ body {
 }
 
 .start-link{
-    aspect-ratio: 180 / 75;
-    height: auto;
-    width: 180px;
-    background: url("/assets/icons/start-page/start-button/inactive.svg") center / cover no-repeat;
+    @include mx.flex-center-center;
+    @include typo.font-red-rose-40-700;
+    margin-bottom: 5px;
+    height: 95px;
+    width: 240px;
+    background-color: var.$yellow-tone;
+    gap: 20px;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
 
-    &:hover{
-        background-image: url("/assets/icons/start-page/start-button/active.svg");
+    &::before {
+        content: url(../../../public/assets/icons/start-page/start-button/controller.svg);
+        position: relative;
+        top: 4px;
+        transition: transform 0.3s ease-in-out;
     }
+
+    &::after {
+        content: "\2192";
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+        width: 260px;
+        height: 100px;
+        margin-bottom: 0;
+
+        &::before {
+            transform: rotate(-30deg);
+        }
+
+        &::after {
+            transform: scale(1.4);
+        }
+    }
+
 }
+
+
 
 
 

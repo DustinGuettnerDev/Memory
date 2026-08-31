@@ -1,3 +1,5 @@
+@use "../abstract/functions" as fct;
+
 @font-face {
   font-family: "red-rose";
   src: url("/assets/fonts/red-rose/RedRose-VariableFont_wght.ttf") format("truetype");
@@ -30,4 +32,17 @@
   src: url('/assets/fonts/almarai/Almarai-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
+}
+
+@mixin font-red-rose-40-700{
+    font-family: "red-rose", sans-serif;
+    font-size: fct.px-to-rem(40);
+    font-weight: 700;
+}
+
+@mixin font-red-rose-140-700{
+    font-family: "red-rose", sans-serif;
+    font-size: fct.px-to-rem(140);
+    font-weight: 700;
+    
 }
