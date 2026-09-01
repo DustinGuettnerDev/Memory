@@ -2,6 +2,7 @@
 @use "../abstract/mixins" as mx;
 @use "../abstract/variables" as var;
 @use "../base/typography" as typo;
+@use "../components/links" as link;
 
 body {
     @include mx.flex-center-center;
@@ -27,42 +28,11 @@ body {
     }
 }
 
-.start-link{
-    @include mx.flex-center-center;
+.start-link {
     @include typo.font-red-rose-40-700;
-    margin-bottom: 5px;
+    @include link.primary-link($gap: 20px, $before-content: "/assets/icons/start-page/controller.svg", $before-animation: rotate(-30deg),$before-position: 4px, $after-content: "\2192", $after-animation: scale(1.2));
     height: 95px;
     width: 240px;
-    background-color: var.$yellow-tone;
-    gap: 20px;
-    transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
-
-    &::before {
-        content: url(../../../public/assets/icons/start-page/start-button/controller.svg);
-        position: relative;
-        top: 4px;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    &::after {
-        content: "\2192";
-        transition: transform 0.3s ease-in-out;
-    }
-
-    &:hover {
-        width: 260px;
-        height: 100px;
-        margin-bottom: 0;
-
-        &::before {
-            transform: rotate(-30deg);
-        }
-
-        &::after {
-            transform: scale(1.4);
-        }
-    }
-
 }
 
 

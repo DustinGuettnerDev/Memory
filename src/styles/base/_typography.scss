@@ -34,23 +34,29 @@
   font-style: normal;
 }
 
+@mixin font-red-rose-20-700 {
+  font-family: "red-rose", sans-serif;
+  font-size: fct.px-to-rem(20);
+  font-weight: 700;
+}
+
 @mixin font-red-rose-40-700{
-    font-family: "red-rose", sans-serif;
-    font-size: fct.px-to-rem(40);
-    font-weight: 700;
+  font-family: "red-rose", sans-serif;
+  font-size: fct.px-to-rem(40);
+  font-weight: 700;
 }
 
 @mixin font-red-rose-140-700{
-    font-family: "red-rose", sans-serif;
-    font-size: fct.px-to-rem(140);
-    font-weight: 700;
+  font-family: "red-rose", sans-serif;
+  font-size: fct.px-to-rem(140);
+  font-weight: 700;
     
 }
 
 @mixin font-red-rose-54-700{
-    font-family: "red-rose", sans-serif;
-    font-size: 54px;
-    font-weight: 700;
+  font-family: "red-rose", sans-serif;
+  font-size: 54px;
+  font-weight: 700;
 }
 
 @mixin font-almarai-20-400{

@@ -1,5 +1,7 @@
 @use "../abstract/mixins" as mx;
 @use "../base/typography" as typo;
+@use "../abstract/variables" as var;
+@use "../components/links" as link;
 
 @mixin addIconToSelectionHeadline($path){
     position: relative;
@@ -54,4 +56,31 @@
 .settings-board-size__headline2 {
     @include addIconToSelectionHeadline("/assets/icons/settings/board.svg");
     margin-top: 48px;
+}
+
+.selected {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column
+}
+
+.start-board {
+    @include mx.flex-space-around-center;
+    @include typo.font-almarai-20-400;
+    margin-top: 40px;
+    background-color: #F6F6F6;
+    height: 100px;
+    width: 600px;
+    padding: 0 20px;
+
+
+    &__button {
+        @include typo.font-red-rose-20-700;
+        @include link.primary-link($gap: 10px, $before-content: "/assets/icons/settings/play.svg", $before-animation: rotate(-15deg), $before-position:2px);
+        height: 70px;
+        width: 120px;
+
+    }
+    
 }

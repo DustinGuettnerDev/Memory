@@ -1,0 +1,50 @@
+@use "../abstract/mixins" as mx;
+@use "../abstract/variables" as var;
+
+a {
+    @include mx.flex-center-center;
+    border: 0;
+    text-decoration: none;
+    color: black;
+}
+
+@mixin primary-link ($gap:null, $before-content:null, $before-animation:null, $before-position:null, $after-content:null, $after-animation:null, $after-position:null){
+    height: 95px;
+    width: 240px;
+    background-color: var.$yellow-tone;
+    gap: $gap;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &::before,
+    &::after {
+        display: inline-block;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &::before {
+        content: url($before-content);
+        position: relative;
+        top: $before-position;
+    }
+
+    &::after {
+        content: $after-content;
+        position: relative;
+        top: $after-position;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+
+        &::before {
+            transform: $before-animation;
+        }
+
+        &::after {
+            transform: $after-animation;
+        }
+    }
+
+}
