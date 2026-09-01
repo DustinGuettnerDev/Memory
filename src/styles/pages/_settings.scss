@@ -73,6 +73,7 @@
     height: 100px;
     width: 600px;
     padding: 0 20px;
+    border-radius: 5px;
 
 
     &__button {
@@ -81,6 +82,13 @@
         height: 70px;
         width: 120px;
 
+    }
+
+    &__line {
+        background-color: var.$yellow-tone;
+        height: 70px;
+        width: 8px;
+        transform: rotate(15deg);
     }
     
 }

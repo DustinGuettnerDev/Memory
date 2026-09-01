@@ -6,6 +6,7 @@ a {
     border: 0;
     text-decoration: none;
     color: black;
+    border-radius: 5px;
 }
 
 @mixin primary-link ($gap:null, $before-content:null, $before-animation:null, $before-position:null, $after-content:null, $after-animation:null, $after-position:null){
@@ -15,7 +16,6 @@ a {
     gap: $gap;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    border-radius: 5px;
 
     &::before,
     &::after {
