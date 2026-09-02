@@ -13,4 +13,6 @@ function loadTemplates(): void {
     }
 }
 
+
+
 initSettings();

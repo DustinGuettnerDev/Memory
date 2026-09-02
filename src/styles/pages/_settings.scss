@@ -3,7 +3,7 @@
 @use "../abstract/variables" as var;
 @use "../components/links" as link;
 
-@mixin addIconToSelectionHeadline($path){
+@mixin add-icon-to-selection-headline($path){
     position: relative;
     font-weight: 700;
     font-size: 24px;
@@ -21,6 +21,18 @@
     }
 }
 
+@mixin settings-section($icon-path, $margin-top: 0) {
+  &__headline2 {
+    @include add-icon-to-selection-headline($icon-path);
+    margin-top: $margin-top;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
 
 .content-wrapper {
     display: flex;
@@ -44,18 +56,16 @@
     }
 }
 
-.settings-theme__headline2 {
-    @include addIconToSelectionHeadline("/assets/icons/settings/palette.svg");
+.settings-theme {
+  @include settings-section("/assets/icons/settings/palette.svg");
 }
 
-.settings-player-color__headline2 {
-    @include addIconToSelectionHeadline("/assets/icons/settings/chess-pawn.svg");
-    margin-top: 48px;
+.settings-player-color {
+  @include settings-section("/assets/icons/settings/chess-pawn.svg", 48px);
 }
 
-.settings-board-size__headline2 {
-    @include addIconToSelectionHeadline("/assets/icons/settings/board.svg");
-    margin-top: 48px;
+.settings-board-size {
+  @include settings-section("/assets/icons/settings/board.svg", 48px);
 }
 
 .selected {
