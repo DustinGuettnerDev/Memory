@@ -1,53 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
-</head>
-<body>
-    <h1 id="headline1-id" class="headline1">Settings</h1>
-    <div class="content-wrapper">
-        <section id="settings-selection-id" class="settings-selection">
-            <section class="settings-theme">
-                <h2 class="settings-theme__headline2">Game themes</h2>
-                <form>
-                    <label class="settings-theme__label"><input type="radio" value="a" name="game-theme">Code vibes theme</label>
-                    <label class="settings-theme__label"><input type="radio" value="b" name="game-theme">Gaming theme</label>
-                </form>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Settings</title>
+    </head>
+    <body>
+        <h1 id="headline1-id" class="headline1">Settings</h1>
+        <div class="content-wrapper">
+            <section id="settings-selection-id" class="settings-selection">
+                <section class="settings-theme">
+                    <h2 class="settings-theme__headline2">Game themes</h2>
+                    <form id="settings-theme-form-id">
+                        <label class="settings-theme__label"
+                            ><input
+                                type="radio"
+                                value="a"
+                                name="game-theme"
+                            />Code vibes theme</label
+                        >
+                        <label class="settings-theme__label"
+                            ><input
+                                type="radio"
+                                value="b"
+                                name="game-theme"
+                            />Gaming theme</label
+                        >
+                    </form>
+                </section>
+                <section class="settings-player-color">
+                    <h2 class="settings-player-color__headline2">
+                        Choose player
+                    </h2>
+                    <form id="settings-player-color-form-id">
+                        <label class="settings-player-color__label"
+                            ><input
+                                type="radio"
+                                value="a"
+                                name="player-color"
+                            />Blue</label
+                        >
+                        <label class="settings-player-color__label"
+                            ><input
+                                type="radio"
+                                value="b"
+                                name="player-color"
+                            />Yellow</label
+                        >
+                    </form>
+                </section>
+                <section class="settings-board-size">
+                    <h2 class="settings-board-size__headline2">Board size</h2>
+                    <form id="settings-board-size-form-id">
+                        <label class="settings-board-size__label"
+                            ><input
+                                type="radio"
+                                value="a"
+                                name="board-size"
+                            />16 cards</label
+                        >
+                        <label class="settings-board-size__label"
+                            ><input
+                                type="radio"
+                                value="b"
+                                name="board-size"
+                            />24 cards</label
+                        >
+                        <label class="settings-board-size__label"
+                            ><input
+                                type="radio"
+                                value="b"
+                                name="board-size"
+                            />36 cards</label
+                        >
+                    </form>
+                </section>
             </section>
-            <section class="settings-player-color">
-                <h2 class="settings-player-color__headline2">Choose player</h2>
-                <form>
-                    <label class="settings-player-color__label"><input type="radio" value="a" name="player-color">Blue</label>
-                    <label class="settings-player-color__label"><input type="radio" value="b" name="player-color">Yellow</label>
-                </form>
-            </section>
-            <section class="settings-board-size">
-                <h2 class="settings-board-size__headline2">Board size</h2>
-                <form>
-                    <label class="settings-board-size__label"><input type="radio" value="a" name="board-size">16 cards</label>
-                    <label class="settings-board-size__label"><input type="radio" value="b" name="board-size">24 cards</label>
-                    <label class="settings-board-size__label"><input type="radio" value="b" name="board-size">36 cards</label>
-                </form>
-            </section>
-        </section>
 
-        <section class="selected">
-            <img src="/assets/imgs/settings/theme/gaming-preview.png" alt="">
+            <section class="selected">
+                <img
+                    src="/assets/imgs/settings/theme/gaming-preview.png"
+                    alt=""
+                />
 
-            <div class="start-board">
-                <div>Game theme</div>
-                <div class="start-board__line"></div>
-                <div>Player</div>
-                <div class="start-board__line"></div>
-                <div>Board size</div>
-                <a class="start-board__button">Start</a>
-            </div>
-        </section>
-    </div>
-    
-    <script type="module" src="src/main.ts"></script>
-    <script type="module" src="src/scripts/settings.ts"></script>
-</body>
+                <div class="start-board">
+                    <div id="start-board-game-theme-id">Game theme</div>
+                    <div class="start-board__line"></div>
+                    <div id="start-board-player-id">Player</div>
+                    <div class="start-board__line"></div>
+                    <div id="start-board-board-size-id">Board size</div>
+                    <a class="start-board__button">Start</a>
+                </div>
+            </section>
+        </div>
+
+        <script type="module" src="src/main.ts"></script>
+        <script type="module" src="src/scripts/settings.ts"></script>
+    </body>
 </html>
