@@ -9,7 +9,15 @@ a {
     border-radius: 5px;
 }
 
-@mixin primary-link ($gap:null, $before-content:null, $before-animation:null, $before-position:null, $after-content:null, $after-animation:null, $after-position:null){
+@mixin primary-link(
+    $gap: null,
+    $before-content: null,
+    $before-animation: null,
+    $before-position: null,
+    $after-content: null,
+    $after-animation: null,
+    $after-position: null
+) {
     height: 95px;
     width: 240px;
     background-color: var.$yellow-tone;
@@ -46,5 +54,4 @@ a {
             transform: $after-animation;
         }
     }
-
 }
