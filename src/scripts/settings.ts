@@ -1,12 +1,16 @@
 import "../styles/pages/_settings.scss";
 import { createFigure1 } from "../scripts/templates";
 import { saveInLocalStorage } from "./localStorage";
-let settingsArray: string[] = ["", "", ""];
 
-const formObject = {
-    "settings-theme-form-id": "start-board-game-theme-id",
-    "settings-player-color-form-id": "start-board-player-color-id",
-    "settings-board-size-form-id": "start-board-board-size-id",
+const settingsObject: Record<string, string> = {
+    "settings-game-theme": "",
+    "settings-player-color": "",
+    "settings-board-size": "",
+};
+
+const gameThemePathObject: Record<string, string> = {
+    "Code vibes theme": "public/assets/imgs/settings/theme/code-vibes-preview.png",
+    "Gaming theme": "public/assets/imgs/settings/theme/gaming-preview.png",
 };
 
 function initSettings(): void {
@@ -24,15 +28,12 @@ function loadTemplates(): void {
 }
 
 function initForms() {
-    const formObjectKeys = Object.keys(formObject);
-    const formObjectValue = Object.values(formObject);
-
-    for (let index = 0; index < formObjectKeys.length; index++) {
-        initFormRadioSelection(formObjectKeys[index], formObjectValue[index], index);
-    }
+    initFormRadioSelection("settings-theme-form-id", "start-board-game-theme-id", "settings-game-theme");
+    initFormRadioSelection("settings-player-color-form-id", "start-board-player-color-id", "settings-player-color");
+    initFormRadioSelection("settings-board-size-form-id", "start-board-board-size-id", "settings-board-size");
 }
 
-function initFormRadioSelection(formId: string, outputId: string, index: number) {
+function initFormRadioSelection(formId: string, outputId: string, key: string) {
     const formRef = document.getElementById(formId)!;
     const labelArray = formRef.querySelectorAll("label");
     const startBoardThemeRef = document.getElementById("start-board-game-theme-id")!;
@@ -51,12 +52,13 @@ function initFormRadioSelection(formId: string, outputId: string, index: number)
             setValues();
             addOrnamentToSelectedSetting();
             addOrnamentsToStartBoard();
+            if (key !== "settings-game-theme") return;
+            updatePreviewImg();
 
             function setValues() {
-                actualValue = clickedLabel!.innerText;
-                settingsArray[index] = actualValue;
-                const keyName = Object.keys(formObject)[index].replace("-form-id", "");
-                saveInLocalStorage(keyName, actualValue);
+                actualValue = clickedLabel!.querySelector("input")!.value;
+                settingsObject[key] = actualValue;
+                saveInLocalStorage(key, actualValue);
                 outputRef.innerText = actualValue;
             }
 
@@ -82,6 +84,12 @@ function initFormRadioSelection(formId: string, outputId: string, index: number)
                         });
                     });
                 }
+            }
+
+            function updatePreviewImg() {
+                const previewImageRef = document.getElementById("preview-img-id") as HTMLImageElement;
+                const gameThemeValue = settingsObject[key];
+                previewImageRef.src = gameThemePathObject[gameThemeValue];
             }
         });
     }
