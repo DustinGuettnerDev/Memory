@@ -1,6 +1,7 @@
 @use "../abstract/mixins" as mx;
 @use "../abstract/variables" as var;
 
+// Base link styles
 a {
     @include mx.flex-center-center;
     border: 0;
@@ -9,6 +10,7 @@ a {
     border-radius: 5px;
 }
 
+// Primary link mixin
 @mixin primary-link(
     $gap: null,
     $before-content: null,

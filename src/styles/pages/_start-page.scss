@@ -4,15 +4,17 @@
 @use "../base/typography" as typo;
 @use "../components/links" as link;
 
+// Page background and layout
 body {
     @include mx.flex-center-center;
-    background-color: #2F3131;
+    background-color: #2f3131;
     position: relative;
     background-image: url("/assets/imgs/start-page/controller.svg");
     background-repeat: no-repeat;
     background-position: left bottom;
 }
 
+// Start page content
 .start-page {
     flex-direction: column;
     display: flex;
@@ -30,12 +32,14 @@ body {
 
 .start-link {
     @include typo.font-red-rose-40-700;
-    @include link.primary-link($gap: 20px, $before-content: "/assets/icons/start-page/controller.svg", $before-animation: rotate(-30deg),$before-position: 4px, $after-content: "\2192", $after-animation: scale(1.2));
+    @include link.primary-link(
+        $gap: 20px,
+        $before-content: "/assets/icons/start-page/controller.svg",
+        $before-animation: rotate(-30deg),
+        $before-position: 4px,
+        $after-content: "\2192",
+        $after-animation: scale(1.2)
+    );
     height: 95px;
     width: 240px;
 }
-
-
-
-
-

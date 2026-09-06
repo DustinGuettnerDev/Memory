@@ -1,8 +1,15 @@
 import { importOutOfLocalStorage } from "./localStorage";
+
+/**
+ * Initializes the game page.
+ */
 function initGame() {
     loadSettings();
 }
 
+/**
+ * Loads the saved game settings from local storage.
+ */
 function loadSettings() {
     const settingsGameTheme: string = importOutOfLocalStorage("settings-theme");
     const settingsPlayerColor: string = importOutOfLocalStorage("settings-player-color");

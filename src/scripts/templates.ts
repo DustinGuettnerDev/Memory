@@ -1,3 +1,8 @@
+/**
+ * Creates the HTML markup for a line-and-square ornament.
+ * @param options - Configures the ornament dimensions and orientation.
+ * @returns The ornament markup.
+ */
 export function createFigure1({
     lineWidth = 80,
     lineHeight = 3,

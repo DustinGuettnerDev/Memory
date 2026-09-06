@@ -3,6 +3,7 @@
 @use "../abstract/variables" as var;
 @use "../components/links" as link;
 
+// Settings mixins
 @mixin add-icon-to-selection-headline($path) {
     position: relative;
     font-weight: 700;
@@ -34,6 +35,7 @@
     }
 }
 
+// Page layout
 .content-wrapper {
     display: flex;
     justify-content: space-between;
@@ -44,6 +46,7 @@
     @include typo.font-red-rose-54-700;
 }
 
+// Settings selection
 .settings-selection {
     @include typo.font-almarai-20-400;
     padding-left: 40px;
@@ -56,7 +59,7 @@
     }
 }
 
-.settings-theme {
+.settings-game-theme {
     @include settings-section("/assets/icons/settings/palette.svg");
 }
 
@@ -68,6 +71,7 @@
     @include settings-section("/assets/icons/settings/board.svg", 48px);
 }
 
+// Settings preview
 .selected {
     display: flex;
     justify-content: center;

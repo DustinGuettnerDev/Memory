@@ -1,3 +1,4 @@
-@function px-to-rem($px, $base: 16){
-    @return calc(($px/$base) * 1rem) 
+// Unit conversion functions
+@function px-to-rem($px, $base: 16) {
+    @return calc(($px/$base) * 1rem);
 }
