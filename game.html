@@ -6,7 +6,25 @@
         <title>Memory - Game</title>
     </head>
     <body>
-        <main class="game-page"></main>
+        <main class="game-page">
+            <header>
+                <section class="playscore">
+                    <div class="playscore__blue">
+                        <div class="playscore__blue-icon"></div>
+                        <div class="playscore__blue-count">1</div>
+                    </div>
+                    <div class="playscore__yellow">
+                        <div class="playscore__yellow-icon"></div>
+                        <div class="playscore__yellow-count">1</div>
+                    </div>
+                </section>
+
+                <section class="current-player"></section>
+
+                <button class="quit-game-button"></button>
+            </header>
+        </main>
+
         <script type="module" src="src/scripts/game.ts"></script>
     </body>
 </html>

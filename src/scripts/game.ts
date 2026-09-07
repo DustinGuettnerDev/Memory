@@ -1,3 +1,4 @@
+import "../styles/pages/_game.scss";
 import { importOutOfLocalStorage } from "./localStorage";
 
 /**

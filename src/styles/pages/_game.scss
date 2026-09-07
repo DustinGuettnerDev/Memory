@@ -1,0 +1,49 @@
+@use "../abstract/variables" as var;
+@use "../abstract/mixins" as mx;
+@use "../base/typography" as typo;
+
+// theme variables
+$background-playscore: #415652;
+
+body {
+    background-color: var.$dark-tone;
+}
+
+header {
+    @include mx.flex-space-around-center;
+}
+
+.playscore {
+    background-color: $background-playscore;
+    border-radius: 5px;
+    @include mx.flex-center-center;
+    width: 200px;
+    gap: 100px;
+    padding: 10px;
+    @include typo.font-red-rose-24-700;
+
+    &__blue,
+    &__yellow {
+        @include mx.flex-center-center;
+        gap: 5px;
+    }
+
+    &__blue-icon,
+    &__yellow-icon {
+        background-size: 20px 20px;
+        height: 20px;
+        width: 20px;
+    }
+
+    &__blue {
+        &-icon {
+            background-image: url(/assets/icons/game/theme/game-vibes/player-icon/blue.svg);
+        }
+    }
+
+    &__yellow {
+        &-icon {
+            background-image: url(/assets/icons/game/theme/game-vibes/player-icon/yellow.svg);
+        }
+    }
+}
