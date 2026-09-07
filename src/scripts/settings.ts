@@ -3,9 +3,9 @@ import { createFigure1 } from "../scripts/templates";
 import { saveInLocalStorage } from "./localStorage";
 
 const settingsObject: Record<string, string> = {
-    "settings-game-theme": "",
-    "settings-player-color": "",
-    "settings-board-size": "",
+    "settings-game-theme": "Code vibes theme",
+    "settings-player-color": "Blue",
+    "settings-board-size": "16 cards",
 };
 
 const gameThemePathObject: Record<string, string> = {
@@ -65,8 +65,10 @@ function initFormRadioSelection(formId: string, outputId: string, key: string) {
      */
     function clickHandler() {
         formRef.addEventListener("change", (event) => {
-            const clickedLabel = event.target instanceof Element ? event.target.closest("label") : null;
-            if (!clickedLabel) return;
+            const targetInput = event.target! as HTMLInputElement;
+            const actualValue = targetInput.value;
+            const clickedLabel = targetInput.closest("label");
+
             setValues();
             addOrnamentToSelectedSetting();
             addOrnamentsToStartBoard();
@@ -77,7 +79,6 @@ function initFormRadioSelection(formId: string, outputId: string, key: string) {
              * Stores the selected value and updates the preview text.
              */
             function setValues() {
-                actualValue = clickedLabel!.querySelector("input")!.value;
                 settingsObject[key] = actualValue;
                 saveInLocalStorage(key, actualValue);
                 outputRef.innerText = actualValue;
