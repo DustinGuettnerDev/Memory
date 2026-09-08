@@ -3,10 +3,21 @@
 @use "../base/typography" as typo;
 
 // theme variables
-$background-playscore: #415652;
+$background-page-color: var.$dark-tone;
+$background-header-color: #415652;
+$quit-button-border-color: #4cc5af;
+$blue-icon: "/assets/icons/game/theme/game-vibes/player-icon/blue.svg";
+$yellow-icon: "/assets/icons/game/theme/game-vibes/player-icon/yellow.svg";
+
+@mixin add-icon($url, $height: 20px, $width: 20px) {
+    background-size: $height $width;
+    height: $height;
+    width: $width;
+    background-image: url($url);
+}
 
 body {
-    background-color: var.$dark-tone;
+    background-color: $background-page-color;
 }
 
 header {
@@ -14,12 +25,11 @@ header {
 }
 
 .playscore {
-    background-color: $background-playscore;
-    border-radius: 5px;
+    background-color: $background-header-color;
     @include mx.flex-center-center;
-    width: 200px;
-    gap: 100px;
-    padding: 10px;
+    width: 250px;
+    gap: 20px;
+    padding: 15px;
     @include typo.font-red-rose-24-700;
 
     &__blue,
@@ -28,22 +38,55 @@ header {
         gap: 5px;
     }
 
-    &__blue-icon,
-    &__yellow-icon {
-        background-size: 20px 20px;
-        height: 20px;
-        width: 20px;
-    }
-
     &__blue {
+        color: #2bb1ff;
         &-icon {
-            background-image: url(/assets/icons/game/theme/game-vibes/player-icon/blue.svg);
+            @include add-icon($blue-icon);
         }
     }
 
     &__yellow {
+        color: #f58e39;
         &-icon {
-            background-image: url(/assets/icons/game/theme/game-vibes/player-icon/yellow.svg);
+            @include add-icon($yellow-icon);
         }
+    }
+}
+
+.current-player {
+    @include typo.font-red-rose-26-400;
+    color: white;
+    gap: 8px;
+    @include mx.flex-center-center;
+
+    &__icon {
+        @include add-icon($blue-icon);
+        position: relative;
+        top: 1px;
+    }
+}
+
+.quit-game-button {
+    background-color: $background-header-color;
+    @include typo.font-red-rose-24-700;
+    color: white;
+    gap: 8px;
+    border: 1px solid #4cc5af;
+    padding: 15px;
+    @include mx.flex-center-center;
+    box-sizing: border-box;
+    height: 60px;
+    width: 200px;
+    transition:
+        border-width 0.1s ease-in-out,
+        box-shadow 0.1s ease-in-out;
+
+    &__icon {
+        @include add-icon("public/assets/icons/game/quit-button/quit.svg", 25px, 25px);
+    }
+
+    &:hover {
+        border-width: 3px;
+        box-shadow: 4px 4px 4px 0px #53533c;
     }
 }
