@@ -8,6 +8,7 @@ $background-header-color: #415652;
 $quit-button-border-color: #4cc5af;
 $blue-icon: "/assets/icons/game/theme/game-vibes/player-icon/blue.svg";
 $yellow-icon: "/assets/icons/game/theme/game-vibes/player-icon/yellow.svg";
+$border-radius: 0px;
 
 @mixin add-icon($url, $height: 20px, $width: 20px) {
     background-size: $height $width;
@@ -26,6 +27,7 @@ header {
 
 .playscore {
     background-color: $background-header-color;
+    border-radius: $border-radius;
     @include mx.flex-center-center;
     width: 250px;
     gap: 20px;
