@@ -8,6 +8,7 @@ let settingsBoardSize: string;
  */
 async function initGame() {
     loadSettings();
+    initButtons();
     await addTheme(settingsGameTheme);
     await import("../styles/pages/_game.scss");
 }
@@ -42,6 +43,15 @@ function adjustmentsGamingTheme() {
     const playscoreColorNames = document.querySelectorAll(".playscore .playscore__color-name");
     playscoreColorNames.forEach((el) => {
         el.remove();
+    });
+}
+
+function initButtons() {
+    const quitGameButtonRef = document.getElementById("quit-game-button-id")!;
+    const dialogRef = document.getElementById("quit-game-dialog-id")! as HTMLDialogElement;
+
+    quitGameButtonRef.addEventListener("click", () => {
+        dialogRef.showModal();
     });
 }
 

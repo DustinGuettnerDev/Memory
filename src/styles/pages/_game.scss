@@ -27,7 +27,7 @@ header {
 .playscore {
     background-color: var(--background-playscore-color);
     border-radius: var(--border-radius);
-    @include mx.flex-center-center;
+    @include mx.flex-space-around-center;
     gap: 20px;
     height: var(--height-playscore);
     width: var(--width-playscore);

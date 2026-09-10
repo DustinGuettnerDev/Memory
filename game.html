@@ -28,11 +28,25 @@
                     </div>
                 </section>
 
-                <button class="quit-game-button">
+                <button id="quit-game-button-id" class="quit-game-button">
                     <div class="quit-game-button__icon"></div>
                     Exit game
                 </button>
             </header>
+
+            <dialog id="quit-game-dialog-id">
+                <p>
+                    Are you sure you want to quit<br />
+                    the game
+                </p>
+
+                <div>
+                    <button>Back to game</button>
+                    <button>Exit game</button>
+                </div>
+            </dialog>
+
+            <section id="cardboard-id" class="cardboard"></section>
         </main>
 
         <script type="module" src="src/main.ts"></script>
