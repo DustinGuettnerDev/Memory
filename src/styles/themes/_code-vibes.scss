@@ -1,61 +1,28 @@
-// theme variables
-$background-page-color: var.$dark-tone;
-$background-header-color: transparent;
-$background-playscore-color: #415652;
-$background-quit-button-color: #415652;
-$quit-button-border-color: #4cc5af;
-$blue-icon: "/assets/icons/game/theme/game-vibes/player-icon/blue.svg";
-$yellow-icon: "/assets/icons/game/theme/game-vibes/player-icon/yellow.svg";
-$icon-size: 20px;
-$border-radius: 0;
-$height-quit-button: 60px;
-$width-quit-button: 200px;
-$height-playscore: 60px;
-$width-playscore: 280px;
-$outline-hover-width-quit-button: 3px;
-$outline-settings-quit-button: 1px solid #4cc5af;
-$filter-icon-current-player: none;
-$filter-icon-hover-quit-button: none;
-$transition-time: 0.1s;
-$box-shadow-quit-button: 4px 4px 4px 2px #54533c;
-$background-current-player-color: none;
-
-$font-family: red-rose;
-$font-weight-playscore: 700;
-$font-size-playscore: 24px;
-$font-weight-current-player: 400;
-$font-size-current-player: 26px;
-$font-weight-quit-button: 700;
-$font-size-quit-button: 24px;
-
-//theme gaming
-$background-page-color: var.$dark-tone;
-$background-header-color: #535d75;
-$background-playscore-color: #ffffff;
-$background-quit-button-color: transparent;
-$quit-button-border-color: #4cc5af;
-$blue-icon: "/assets/icons/game/theme/gaming/player-icon/blue.svg";
-$yellow-icon: "/assets/icons/game/theme/gaming/player-icon/yellow.svg";
-$icon-size: 28px;
-$border-radius: 10px;
-$height-quit-button: 50px;
-$width-quit-button: 180px;
-$height-playscore: 50px;
-$width-playscore: 260px;
-$outline-hover-width-quit-button: 3px;
-$outline-settings-quit-button: 2px solid #e71c4f;
-$filter-icon-current-player: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7498%) hue-rotate(137deg) brightness(101%)
-    contrast(98%);
-$filter-icon-hover-quit-button: brightness(0) saturate(100%) invert(28%) sepia(83%) saturate(2959%) hue-rotate(328deg) brightness(86%)
-    contrast(112%);
-$transition-time: 0;
-$box-shadow-quit-button: 3px 3px 4px 2px #54533c;
-$background-current-player-color: #1faafc;
-
-$font-family: orbitron;
-$font-weight-playscore: 700;
-$font-size-playscore: 30px;
-$font-weight-current-player: 700;
-$font-size-current-player: 32px;
-$font-weight-quit-button: 700;
-$font-size-quit-button: 20px;
+:root {
+    --background-page-color: #2f3131;
+    --background-header-color: transparent;
+    --background-playscore-color: #415652;
+    --background-quit-button-color: #415652;
+    --blue-icon: url("/assets/icons/game/theme/game-vibes/player-icon/blue.svg");
+    --yellow-icon: url("/assets/icons/game/theme/game-vibes/player-icon/yellow.svg");
+    --icon-size: 20px;
+    --border-radius: 0;
+    --height-quit-button: 60px;
+    --width-quit-button: 200px;
+    --height-playscore: 60px;
+    --width-playscore: 280px;
+    --outline-hover-width-quit-button: 3px;
+    --outline-settings-quit-button: 1px solid #4cc5af;
+    --filter-icon-current-player: none;
+    --filter-icon-hover-quit-button: none;
+    --transition-time: 0.1s;
+    --box-shadow-quit-button: 4px 4px 4px 2px #54533c;
+    --background-current-player-color: none;
+    --font-family: red-rose;
+    --font-weight-playscore: 700;
+    --font-size-playscore: 24px;
+    --font-weight-current-player: 400;
+    --font-size-current-player: 26px;
+    --font-weight-quit-button: 700;
+    --font-size-quit-button: 24px;
+}

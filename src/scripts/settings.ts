@@ -16,7 +16,7 @@ const gameThemePathObject: Record<string, string> = {
 /**
  * Initializes the settings page.
  */
-function initSettings(): void {
+function initSettings() {
     loadTemplates();
     initForms();
     initStartButton();
@@ -25,7 +25,7 @@ function initSettings(): void {
 /**
  * Adds decorative templates to the settings page.
  */
-function loadTemplates(): void {
+function loadTemplates() {
     const headline1Ref = document.getElementById("headline1-id");
 
     if (headline1Ref) {
@@ -56,73 +56,76 @@ function initFormRadioSelection(formId: string, outputId: string, key: string) {
     const startBoardSizeRef = document.getElementById("start-board-board-size-id")!;
     const startBoardRef = document.getElementById("start-board-id")!;
     const outputRef = document.getElementById(outputId)!;
-    let actualValue: string;
 
-    clickHandler();
+    formRef.addEventListener("change", handleChange);
 
     /**
-     * Registers the change handler for the form's radio buttons.
+     * Handles a changed radio button.
+     * @param event - The change event from the form.
      */
-    function clickHandler() {
-        formRef.addEventListener("change", (event) => {
-            const targetInput = event.target! as HTMLInputElement;
-            const actualValue = targetInput.value;
-            const clickedLabel = targetInput.closest("label");
+    function handleChange(event: Event) {
+        if (!(event.target instanceof HTMLInputElement)) return;
 
-            setValues();
-            addOrnamentToSelectedSetting();
-            addOrnamentsToStartBoard();
-            if (key !== "settings-game-theme") return;
-            updatePreviewImg();
+        const actualValue = event.target.value;
+        const clickedLabel = event.target.closest("label");
 
-            /**
-             * Stores the selected value and updates the preview text.
-             */
-            function setValues() {
-                settingsObject[key] = actualValue;
-                saveInLocalStorage(key, actualValue);
-                outputRef.innerText = actualValue;
-            }
+        setValues(actualValue);
+        addOrnamentToSelectedSetting(clickedLabel);
+        addOrnamentsToStartBoard();
 
-            /**
-             * Shows the selection ornament on the selected label.
-             */
-            function addOrnamentToSelectedSetting() {
-                labelArray.forEach((el) => {
-                    el.querySelector(".figure1")?.remove();
-                });
-                clickedLabel!.insertAdjacentHTML("beforeend", createFigure1({}));
-            }
+        if (key === "settings-game-theme") {
+            updatePreviewImg(actualValue);
+        }
+    }
 
-            /**
-             * Replaces preview dividers after all settings are selected.
-             */
-            function addOrnamentsToStartBoard() {
-                if (
-                    !(startBoardThemeRef.innerText == "Game theme") &&
-                    !(startBoardPlayerRef.innerText == "Player") &&
-                    !(startBoardSizeRef.innerText == "Board size")
-                ) {
-                    startBoardRef.querySelectorAll(".start-board__line").forEach((el) => {
-                        el.outerHTML = createFigure1({
-                            rotate: 105,
-                            reverse: true,
-                            lineWidth: 50,
-                            lineHeight: 3,
-                        });
-                    });
-                }
-            }
+    /**
+     * Stores the selected value and updates the preview text.
+     * @param actualValue - The newly selected setting value.
+     */
+    function setValues(actualValue: string) {
+        settingsObject[key] = actualValue;
+        saveInLocalStorage(key, actualValue);
+        outputRef.innerText = actualValue;
+    }
 
-            /**
-             * Updates the theme preview image for the selected game theme.
-             */
-            function updatePreviewImg() {
-                const previewImageRef = document.getElementById("preview-img-id") as HTMLImageElement;
-                const gameThemeValue = settingsObject[key];
-                previewImageRef.src = gameThemePathObject[gameThemeValue];
-            }
+    /**
+     * Shows the selection ornament on the selected label.
+     * @param clickedLabel - The label belonging to the selected radio button.
+     */
+    function addOrnamentToSelectedSetting(clickedLabel: Element | null) {
+        labelArray.forEach((element) => {
+            element.querySelector(".figure1")?.remove();
         });
+        clickedLabel?.insertAdjacentHTML("beforeend", createFigure1({}));
+    }
+
+    /**
+     * Replaces preview dividers after all settings are selected.
+     */
+    function addOrnamentsToStartBoard() {
+        if (
+            startBoardThemeRef.innerText !== "Game theme" &&
+            startBoardPlayerRef.innerText !== "Player" &&
+            startBoardSizeRef.innerText !== "Board size"
+        ) {
+            startBoardRef.querySelectorAll(".start-board__line").forEach((element) => {
+                element.outerHTML = createFigure1({
+                    rotate: 105,
+                    reverse: true,
+                    lineWidth: 50,
+                    lineHeight: 3,
+                });
+            });
+        }
+    }
+
+    /**
+     * Updates the theme preview image for the selected game theme.
+     * @param gameThemeValue - The selected game theme name.
+     */
+    function updatePreviewImg(gameThemeValue: string) {
+        const previewImageRef = document.getElementById("preview-img-id") as HTMLImageElement;
+        previewImageRef.src = gameThemePathObject[gameThemeValue];
     }
 }
 
