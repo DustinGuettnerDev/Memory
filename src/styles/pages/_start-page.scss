@@ -2,7 +2,7 @@
 @use "../abstract/mixins" as mx;
 @use "../abstract/variables" as var;
 @use "../base/typography" as typo;
-@use "../components/links" as link;
+@use "../components/links-&-buttons" as li_bu;
 
 // Page background and layout
 body {
@@ -32,7 +32,7 @@ body {
 
 .start-link {
     @include typo.font-red-rose-40-700;
-    @include link.primary-link(
+    @include li_bu.primary-link(
         $gap: 20px,
         $before-content: "/assets/icons/start-page/controller.svg",
         $before-animation: rotate(-30deg),

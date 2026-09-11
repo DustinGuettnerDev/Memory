@@ -57,3 +57,39 @@ a {
         }
     }
 }
+
+@mixin primary-button(
+    $background-color,
+    $font-family,
+    $font-size,
+    $font-weight,
+    $color,
+    $outline,
+    $border-radius,
+    $height,
+    $width,
+    $transition-duration,
+    $outline-hover-width: none,
+    $box-shadow
+) {
+    background-color: $background-color;
+    @include mx.add-font($font-family, $font-size, $font-weight);
+    color: $color;
+    gap: 8px;
+    border: none;
+    outline: $outline;
+    border-radius: $border-radius;
+    @include mx.flex-center-center;
+    box-sizing: border-box;
+    height: $height;
+    width: $width;
+    cursor: pointer;
+    transition:
+        outline-width $transition-duration ease-in-out,
+        box-shadow $transition-duration ease-in-out;
+
+    &:hover {
+        outline-width: $outline-hover-width;
+        box-shadow: $box-shadow;
+    }
+}

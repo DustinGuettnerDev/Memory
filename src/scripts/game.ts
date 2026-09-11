@@ -49,9 +49,13 @@ function adjustmentsGamingTheme() {
 function initButtons() {
     const quitGameButtonRef = document.getElementById("quit-game-button-id")!;
     const dialogRef = document.getElementById("quit-game-dialog-id")! as HTMLDialogElement;
-
+    const backToGameButtonRef = document.getElementById("back-to-game-button-id")!;
     quitGameButtonRef.addEventListener("click", () => {
         dialogRef.showModal();
+    });
+
+    backToGameButtonRef.addEventListener("click", () => {
+        dialogRef.close();
     });
 }
 

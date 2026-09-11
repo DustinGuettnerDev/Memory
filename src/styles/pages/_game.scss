@@ -1,17 +1,5 @@
 @use "../abstract/mixins" as mx;
-
-@mixin add-font($font-family, $font-size, $font-weight) {
-    font-family: $font-family, sans-serif;
-    font-size: $font-size;
-    font-weight: $font-weight;
-}
-
-@mixin add-icon($url, $size: 20px) {
-    background-size: $size $size;
-    height: $size;
-    width: $size;
-    background-image: $url;
-}
+@use "../components/links-&-buttons" as li_bu;
 
 body {
     background-color: var(--background-page-color);
@@ -31,7 +19,7 @@ header {
     gap: 20px;
     height: var(--height-playscore);
     width: var(--width-playscore);
-    @include add-font(var(--font-family), var(--font-size-playscore), var(--font-weight-playscore));
+    @include mx.add-font(var(--font-family), var(--font-size-playscore), var(--font-weight-playscore));
 
     &__blue,
     &__yellow {
@@ -42,26 +30,26 @@ header {
     &__blue {
         color: #2bb1ff;
         &-icon {
-            @include add-icon(var(--blue-icon), var(--icon-size));
+            @include mx.add-icon(var(--blue-icon), var(--icon-size));
         }
     }
 
     &__yellow {
         color: #f58e39;
         &-icon {
-            @include add-icon(var(--yellow-icon), var(--icon-size));
+            @include mx.add-icon(var(--yellow-icon), var(--icon-size));
         }
     }
 }
 
 .current-player {
-    @include add-font(var(--font-family), var(--font-size-current-player), var(--font-weight-current-player));
+    @include mx.add-font(var(--font-family), var(--font-size-current-player), var(--font-weight-current-player));
     color: white;
     gap: 8px;
     @include mx.flex-center-center;
 
     &__icon {
-        @include add-icon(var(--blue-icon), var(--icon-size));
+        @include mx.add-icon(var(--blue-icon), var(--icon-size));
         filter: var(--filter-icon-current-player);
         position: relative;
         top: 1px;
@@ -72,7 +60,7 @@ header {
         }
     }
 }
-.quit-game-button {
+/* .quit-game-button {
     background-color: var(--background-quit-button-color);
     @include add-font(var(--font-family), var(--font-size-quit-button), var(--font-weight-quit-button));
     color: white;
@@ -99,5 +87,82 @@ header {
         .quit-game-button__icon {
             filter: var(--filter-icon-hover-quit-button);
         }
+    }
+} */
+
+.quit-game-button {
+    @include li_bu.primary-button(
+        $background-color: var(--background-quit-button-color),
+        $font-family: var(--font-family),
+        $font-size: var(--font-size-quit-button),
+        $font-weight: var(--font-weight-quit-button),
+        $color: white,
+        $outline: var(--outline-settings-quit-button),
+        $border-radius: var(--border-radius),
+        $height: var(--height-quit-button),
+        $width: var(--width-quit-button),
+        $transition-duration: var(--transition-time),
+        $outline-hover-width: var(--outline-hover-width-quit-button),
+        $box-shadow: var(--box-shadow-quit-button)
+    );
+
+    &__icon {
+        @include mx.add-icon(url("/assets/icons/game/quit-button/quit.svg"), 25px);
+    }
+
+    &:hover {
+        .quit-game-button__icon {
+            filter: var(--filter-icon-hover-quit-button);
+        }
+    }
+}
+
+.quit-game-dialog {
+    &__text {
+        @include mx.add-font("orbitron", 28px, 700);
+        text-align: center;
+    }
+
+    &__menu {
+        @include mx.flex-center-center;
+        gap: 24px;
+    }
+
+    &__back-to-game-button {
+        @include li_bu.primary-button(
+            $background-color: #ed1b76,
+            $font-family: "orbitron",
+            $font-size: 16px,
+            $font-weight: 700,
+            $color: white,
+            $outline: var(--outline-settings-quit-button),
+            $border-radius: var(--border-radius),
+            $height: var(--height-quit-button),
+            $width: var(--width-quit-button),
+            $transition-duration: var(--transition-time),
+            $box-shadow: var(--box-shadow-quit-button)
+        );
+
+        &:hover {
+            color: #ed1b76;
+            background-color: white;
+        }
+    }
+
+    &__exit-game-link {
+        @include li_bu.primary-button(
+            $background-color: #f0e4ef,
+            $font-family: "orbitron",
+            $font-size: 16px,
+            $font-weight: 700,
+            $color: #ed1b76,
+            $outline: var(--outline-settings-quit-button),
+            $border-radius: var(--border-radius),
+            $height: var(--height-quit-button),
+            $width: var(--width-quit-button),
+            $transition-duration: var(--transition-time),
+            $outline-hover-width: var(--outline-hover-width-quit-button),
+            $box-shadow: var(--box-shadow-quit-button)
+        );
     }
 }
