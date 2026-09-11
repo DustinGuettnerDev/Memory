@@ -60,35 +60,6 @@ header {
         }
     }
 }
-/* .quit-game-button {
-    background-color: var(--background-quit-button-color);
-    @include add-font(var(--font-family), var(--font-size-quit-button), var(--font-weight-quit-button));
-    color: white;
-    gap: 8px;
-    border: none;
-    outline: var(--outline-settings-quit-button);
-    border-radius: var(--border-radius);
-    @include mx.flex-center-center;
-    box-sizing: border-box;
-    height: var(--height-quit-button);
-    width: var(--width-quit-button);
-    transition:
-        outline-width var(--transition-time) ease-in-out,
-        box-shadow var(--transition-time) ease-in-out;
-
-    &__icon {
-        @include add-icon(url("/assets/icons/game/quit-button/quit.svg"), 25px);
-    }
-
-    &:hover {
-        outline-width: var(--outline-hover-width-quit-button);
-        box-shadow: var(--box-shadow-quit-button);
-
-        .quit-game-button__icon {
-            filter: var(--filter-icon-hover-quit-button);
-        }
-    }
-} */
 
 .quit-game-button {
     @include li_bu.primary-button(
@@ -118,51 +89,53 @@ header {
 }
 
 .quit-game-dialog {
+    border-radius: var(--border-radius);
+
     &__text {
-        @include mx.add-font("orbitron", 28px, 700);
+        @include mx.add-font(var(--font-family-dialog), var(--font-size-dialog-text), var(--font-weight-dialog-text));
         text-align: center;
     }
 
     &__menu {
         @include mx.flex-center-center;
-        gap: 24px;
+        gap: var(--gap-dialog-menu);
     }
 
     &__back-to-game-button {
         @include li_bu.primary-button(
-            $background-color: #ed1b76,
-            $font-family: "orbitron",
-            $font-size: 16px,
-            $font-weight: 700,
-            $color: white,
+            $background-color: var(--background-back-to-game-button-color),
+            $font-family: var(--font-family-dialog),
+            $font-size: var(--font-size-dialog-button),
+            $font-weight: var(--font-weight-dialog-button),
+            $color: var(--back-to-game-button-color),
             $outline: var(--outline-settings-quit-button),
             $border-radius: var(--border-radius),
             $height: var(--height-quit-button),
             $width: var(--width-quit-button),
             $transition-duration: var(--transition-time),
-            $box-shadow: var(--box-shadow-quit-button)
+            $box-shadow: var(--box-shadow-dialog-button)
         );
 
         &:hover {
-            color: #ed1b76;
-            background-color: white;
+            color: var(--hover-back-to-game-button-color);
+            background-color: var(--background-hover-back-to-game-button-color);
         }
     }
 
     &__exit-game-link {
         @include li_bu.primary-button(
-            $background-color: #f0e4ef,
-            $font-family: "orbitron",
-            $font-size: 16px,
-            $font-weight: 700,
-            $color: #ed1b76,
+            $background-color: var(--background-exit-game-link-color),
+            $font-family: var(--font-family-dialog),
+            $font-size: var(--font-size-dialog-button),
+            $font-weight: var(--font-weight-dialog-button),
+            $color: var(--exit-game-link-color),
             $outline: var(--outline-settings-quit-button),
             $border-radius: var(--border-radius),
             $height: var(--height-quit-button),
             $width: var(--width-quit-button),
             $transition-duration: var(--transition-time),
             $outline-hover-width: var(--outline-hover-width-quit-button),
-            $box-shadow: var(--box-shadow-quit-button)
+            $box-shadow: var(--box-shadow-dialog-button)
         );
     }
 }

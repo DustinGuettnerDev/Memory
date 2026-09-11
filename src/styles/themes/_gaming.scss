@@ -7,7 +7,7 @@
     --blue-icon: url("/assets/icons/game/theme/gaming/player-icon/blue.svg");
     --yellow-icon: url("/assets/icons/game/theme/gaming/player-icon/yellow.svg");
     --icon-size: 28px;
-    --border-radius: 10px;
+    --border-radius: 15px;
     --height-quit-button: 50px;
     --width-quit-button: 180px;
     --height-playscore: 50px;
@@ -30,4 +30,17 @@
     --font-size-quit-button: 20px;
 
     //dialog
+    --font-family-dialog: orbitron;
+    --font-size-dialog-text: 28px;
+    --font-weight-dialog-text: 700;
+    --gap-dialog-menu: 24px;
+    --background-back-to-game-button-color: #ed1b76;
+    --background-hover-back-to-game-button-color: white;
+    --back-to-game-button-color: white;
+    --hover-back-to-game-button-color: #ed1b76;
+    --background-exit-game-link-color: #f0e4ef;
+    --exit-game-link-color: #ed1b76;
+    --font-size-dialog-button: 16px;
+    --font-weight-dialog-button: 700;
+    --box-shadow-dialog-button: 2px 2px 3px 1px #54533c;
 }
