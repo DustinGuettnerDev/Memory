@@ -93,6 +93,8 @@ header {
 }
 
 .quit-game-dialog {
+    @include mx.add-font(var(--dialog-font), var(--dialog-text-size), var(--dialog-text-weight));
+    color: var(--dialog-color);
     border-radius: var(--radius);
     padding: 0;
 
@@ -104,10 +106,8 @@ header {
     }
 
     &__text {
-        @include mx.add-font(var(--dialog-font), var(--dialog-text-size), var(--dialog-text-weight));
         text-align: center;
         margin: 0;
-        color: var(--dialog-color);
     }
 
     &__menu {

@@ -3,6 +3,7 @@
     --color-accent: #ed1b76;
     --color-blue: #1faafc;
     --color-dialog-surface: #f0e4ef;
+    --color-dialog-surface-hover: #dcd9e1;
     --color-dialog-text: #294f60;
     --color-header: #535d75;
     --color-page: #2f3131;
@@ -58,7 +59,6 @@
     --dialog-font: orbitron;
     --dialog-text-size: 28px;
     --dialog-text-weight: 700;
-    --dialog-gap: 24px;
 
     //quit-game-dialog__back-to-game-button
     --back-background: var(--color-accent);
@@ -83,7 +83,7 @@
     --exit-font-size: 16px;
     --exit-font-weight: 700;
     --exit-height: 50px;
-    --exit-hover-background: var(--color-dialog-surface);
+    --exit-hover-background: var(--color-dialog-surface-hover);
     --exit-hover-border-width: 3px;
     --exit-hover-color: var(--color-accent);
     --exit-radius: 15px;
