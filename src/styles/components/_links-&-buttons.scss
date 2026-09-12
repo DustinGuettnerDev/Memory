@@ -64,32 +64,31 @@ a {
     $font-size,
     $font-weight,
     $color,
-    $outline,
+    $border,
     $border-radius,
     $height,
     $width,
-    $transition-duration,
-    $outline-hover-width: none,
-    $box-shadow
+    $border-hover-width,
+    $box-shadow,
+    $hover-background-color,
+    $hover-color
 ) {
     background-color: $background-color;
     @include mx.add-font($font-family, $font-size, $font-weight);
     color: $color;
     gap: 8px;
-    border: none;
-    outline: $outline;
+    border: $border;
     border-radius: $border-radius;
     @include mx.flex-center-center;
     box-sizing: border-box;
     height: $height;
     width: $width;
     cursor: pointer;
-    transition:
-        outline-width $transition-duration ease-in-out,
-        box-shadow $transition-duration ease-in-out;
 
     &:hover {
-        outline-width: $outline-hover-width;
+        background-color: $hover-background-color;
+        border-width: $border-hover-width;
         box-shadow: $box-shadow;
+        color: $hover-color;
     }
 }

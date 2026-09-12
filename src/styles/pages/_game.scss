@@ -2,24 +2,24 @@
 @use "../components/links-&-buttons" as li_bu;
 
 body {
-    background-color: var(--background-page-color);
+    background-color: var(--page-background);
 }
 
 header {
     @include mx.flex-space-around-center;
-    background-color: var(--background-header-color);
+    background-color: var(--header-background);
     padding: 20px;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius);
 }
 
 .playscore {
-    background-color: var(--background-playscore-color);
-    border-radius: var(--border-radius);
+    background-color: var(--playscore-background);
+    border-radius: var(--radius);
     @include mx.flex-space-around-center;
     gap: 20px;
-    height: var(--height-playscore);
-    width: var(--width-playscore);
-    @include mx.add-font(var(--font-family), var(--font-size-playscore), var(--font-weight-playscore));
+    height: var(--playscore-height);
+    width: var(--playscore-width);
+    @include mx.add-font(var(--main-font), var(--playscore-font-size), var(--playscore-font-weight));
 
     &__blue,
     &__yellow {
@@ -43,19 +43,19 @@ header {
 }
 
 .current-player {
-    @include mx.add-font(var(--font-family), var(--font-size-current-player), var(--font-weight-current-player));
+    @include mx.add-font(var(--main-font), var(--current-font-size), var(--current-font-weight));
     color: white;
     gap: 8px;
     @include mx.flex-center-center;
 
     &__icon {
         @include mx.add-icon(var(--blue-icon), var(--icon-size));
-        filter: var(--filter-icon-current-player);
+        filter: var(--current-icon-filter);
         position: relative;
         top: 1px;
 
         &-background {
-            background-color: var(--background-current-player-color);
+            background-color: var(--current-background);
             padding: 5px;
         }
     }
@@ -63,19 +63,23 @@ header {
 
 .quit-game-button {
     @include li_bu.primary-button(
-        $background-color: var(--background-quit-button-color),
-        $font-family: var(--font-family),
-        $font-size: var(--font-size-quit-button),
-        $font-weight: var(--font-weight-quit-button),
-        $color: white,
-        $outline: var(--outline-settings-quit-button),
-        $border-radius: var(--border-radius),
-        $height: var(--height-quit-button),
-        $width: var(--width-quit-button),
-        $transition-duration: var(--transition-time),
-        $outline-hover-width: var(--outline-hover-width-quit-button),
-        $box-shadow: var(--box-shadow-quit-button)
+        $background-color: var(--quit-background),
+        $font-family: var(--main-font),
+        $font-size: var(--quit-font-size),
+        $font-weight: var(--quit-font-weight),
+        $color: var(--quit-color),
+        $border: var(--quit-border),
+        $border-radius: var(--quit-radius),
+        $height: var(--quit-height),
+        $width: var(--quit-width),
+        $border-hover-width: var(--quit-hover-border-width),
+        $box-shadow: var(--quit-shadow),
+        $hover-background-color: var(--quit-hover-background),
+        $hover-color: var(--quit-hover-color)
     );
+    transition:
+        border-width var(--quit-transition) ease-in-out,
+        box-shadow var(--quit-transition) ease-in-out;
 
     &__icon {
         @include mx.add-icon(url("/assets/icons/game/quit-button/quit.svg"), 25px);
@@ -83,59 +87,67 @@ header {
 
     &:hover {
         .quit-game-button__icon {
-            filter: var(--filter-icon-hover-quit-button);
+            filter: var(--quit-hover-icon-filter);
         }
     }
 }
 
 .quit-game-dialog {
-    border-radius: var(--border-radius);
+    border-radius: var(--radius);
+    padding: 0;
+
+    &__wrapper {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
 
     &__text {
-        @include mx.add-font(var(--font-family-dialog), var(--font-size-dialog-text), var(--font-weight-dialog-text));
+        @include mx.add-font(var(--dialog-font), var(--dialog-text-size), var(--dialog-text-weight));
         text-align: center;
+        margin: 0;
+        color: var(--dialog-color);
     }
 
     &__menu {
         @include mx.flex-center-center;
-        gap: var(--gap-dialog-menu);
+        gap: 24px;
     }
 
     &__back-to-game-button {
         @include li_bu.primary-button(
-            $background-color: var(--background-back-to-game-button-color),
-            $font-family: var(--font-family-dialog),
-            $font-size: var(--font-size-dialog-button),
-            $font-weight: var(--font-weight-dialog-button),
-            $color: var(--back-to-game-button-color),
-            $outline: var(--outline-settings-quit-button),
-            $border-radius: var(--border-radius),
-            $height: var(--height-quit-button),
-            $width: var(--width-quit-button),
-            $transition-duration: var(--transition-time),
-            $box-shadow: var(--box-shadow-dialog-button)
+            $background-color: var(--back-background),
+            $font-family: var(--back-font),
+            $font-size: var(--back-font-size),
+            $font-weight: var(--back-font-weight),
+            $color: var(--back-color),
+            $border: var(--back-border),
+            $border-radius: var(--back-radius),
+            $height: var(--back-height),
+            $width: var(--back-width),
+            $box-shadow: var(--back-shadow),
+            $border-hover-width: var(--back-hover-border-width),
+            $hover-background-color: var(--back-hover-background),
+            $hover-color: var(--back-hover-color)
         );
-
-        &:hover {
-            color: var(--hover-back-to-game-button-color);
-            background-color: var(--background-hover-back-to-game-button-color);
-        }
     }
 
     &__exit-game-link {
         @include li_bu.primary-button(
-            $background-color: var(--background-exit-game-link-color),
-            $font-family: var(--font-family-dialog),
-            $font-size: var(--font-size-dialog-button),
-            $font-weight: var(--font-weight-dialog-button),
-            $color: var(--exit-game-link-color),
-            $outline: var(--outline-settings-quit-button),
-            $border-radius: var(--border-radius),
-            $height: var(--height-quit-button),
-            $width: var(--width-quit-button),
-            $transition-duration: var(--transition-time),
-            $outline-hover-width: var(--outline-hover-width-quit-button),
-            $box-shadow: var(--box-shadow-dialog-button)
+            $background-color: var(--exit-background),
+            $font-family: var(--exit-font),
+            $font-size: var(--exit-font-size),
+            $font-weight: var(--exit-font-weight),
+            $color: var(--exit-color),
+            $border: var(--exit-border),
+            $border-radius: var(--exit-radius),
+            $height: var(--exit-height),
+            $width: var(--exit-width),
+            $border-hover-width: var(--exit-hover-border-width),
+            $box-shadow: var(--exit-shadow),
+            $hover-background-color: var(--exit-hover-background),
+            $hover-color: var(--exit-hover-color)
         );
     }
 }
