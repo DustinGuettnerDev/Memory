@@ -92,3 +92,18 @@ a {
         color: $hover-color;
     }
 }
+
+// Disabled/Enabled state for links and buttons
+a.disabled,
+button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+a.enabled,
+button.enabled {
+    pointer-events: auto;
+    opacity: 1;
+    cursor: pointer;
+}

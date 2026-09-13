@@ -15,7 +15,7 @@ async function initGame() {
     await addTheme(gameTheme);
     await import("../styles/pages/_game.scss");
     const game = new Game(gameTheme, playerColor, boardSize);
-    console.log(boardSize);
+    console.log(boardSize, playerColor, gameTheme);
 }
 
 /**
@@ -23,10 +23,10 @@ async function initGame() {
  * @param gameTheme - The theme name stored in local storage.
  */
 async function addTheme(gameTheme: string) {
-    if (gameTheme === "Code vibes theme") {
+    if (gameTheme === "codeVibes") {
         await import("../styles/themes/_code-vibes.scss");
         addTextQuitDialog({ textBack: "Back to game", textQuit: "Exit game" });
-    } else if (gameTheme === "Gaming theme") {
+    } else if (gameTheme === "gaming") {
         await import("../styles/themes/_gaming.scss");
         removeColorNames();
         addTextQuitDialog({ textBack: "No, back to game", textQuit: "Yes, quit game" });
