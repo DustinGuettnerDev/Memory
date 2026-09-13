@@ -2,7 +2,7 @@ import { importOutOfLocalStorage } from "./localStorage";
 import { Game } from "../models/game.class";
 let gameTheme = importOutOfLocalStorage("settings-game-theme");
 let playerColor = importOutOfLocalStorage("settings-player-color");
-let boardSize = importOutOfLocalStorage("settings-board-size");
+let boardSize = Number(importOutOfLocalStorage("settings-board-size"));
 
 const exitButtonRef = document.getElementById("exit-game-link-id");
 const backButtonRef = document.getElementById("back-to-game-button-id");
@@ -43,11 +43,19 @@ function removeColorNames() {
     });
 }
 
+/**
+ * Updates the labels in the quit confirmation dialog.
+ * @param textBack - The text for returning to the game.
+ * @param textQuit - The text for leaving the game.
+ */
 function addTextQuitDialog({ textBack, textQuit }: { textBack: string; textQuit: string }) {
     backButtonRef!.innerText = textBack;
     exitButtonRef!.innerText = textQuit;
 }
 
+/**
+ * Initializes the quit dialog and its buttons.
+ */
 function initButtons() {
     const quitGameButtonRef = document.getElementById("quit-game-button-id")!;
     const dialogRef = document.getElementById("quit-game-dialog-id")! as HTMLDialogElement;

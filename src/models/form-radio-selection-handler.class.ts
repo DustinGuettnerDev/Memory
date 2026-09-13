@@ -26,6 +26,12 @@ export class FormRadioSelectionHandler {
     private previewImageRef: HTMLImageElement;
     private startLinkRef: HTMLElement;
 
+    /**
+     * Creates a handler for one settings radio form.
+     * @param formId - The ID of the settings form.
+     * @param outputId - The ID of the element displaying the selected value.
+     * @param key - The local storage key for the selected setting.
+     */
     constructor(
         formId: string,
         outputId: string,
@@ -96,10 +102,16 @@ export class FormRadioSelectionHandler {
         }
     }
 
+    /**
+     * Enables the link used to start the game.
+     */
     private activateStartLink() {
         this.startLinkRef.classList.add("enabled");
     }
 
+    /**
+     * Replaces the decorative lines on the start board.
+     */
     private addOrnamentsToStartBoard() {
         this.startBoardRef.querySelectorAll(".start-board__line").forEach((element) => {
             element.outerHTML = createFigure1({
