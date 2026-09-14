@@ -7,7 +7,8 @@ import { Helper } from "./helper.class";
  */
 export class Game {
     private readonly cardBoardRef: HTMLElement;
-    private cardLogoPool: string[] = [];
+    private cardBackPool: string[] = [];
+    private cardFront: string = "";
     private readonly cardPaths = cardPaths;
     private readonly cardsPairAmount = 2;
 
@@ -30,14 +31,24 @@ export class Game {
      * Initializes the game.
      */
     private initGame() {
-        this.addRandomCardLogoPathToArray();
-        this.cardLogoPool = Helper.shuffleArray(this.cardLogoPool);
+        this.addCardLogos();
+        this.cardBackPool = Helper.shuffleArray(this.cardBackPool);
+        this.renderCards();
+    }
+
+    private addCardLogos() {
+        this.addFrontLogo();
+        this.addBackLogosToArray();
+    }
+
+    private addFrontLogo() {
+        this.cardFront = cardPaths[this.gameTheme]["front"];
     }
 
     /**
      * Adds randomly selected card logo paths to the pool in pairs.
      */
-    private addRandomCardLogoPathToArray() {
+    private addBackLogosToArray() {
         let usedIndex: number[] = [];
         let logoBackPaths = cardPaths[this.gameTheme]["backs"];
         for (let index = 0; index < this.boardSize / 2; index++) {
@@ -45,15 +56,16 @@ export class Game {
             usedIndex.push(randomIndex);
             let i = 0;
             while (i < this.cardsPairAmount) {
-                this.cardLogoPool.push(Object.entries(logoBackPaths)[randomIndex][1]);
+                this.cardBackPool.push(Object.entries(logoBackPaths)[randomIndex][1]);
                 i++;
             }
         }
     }
 
-    /*private renderCards() {
-        for (let index = 0; index < this.boardSize.length; index++) {
-            this.cardBoardRef!.innerHTML += new Card();
+    private renderCards() {
+        for (let index = 0; index < this.boardSize; index++) {
+            const card = new Card(this.cardFront, this.cardBackPool[index]);
+            this.cardBoardRef.innerHTML += card.render();
         }
-    } */
+    }
 }

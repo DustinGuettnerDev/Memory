@@ -82,7 +82,7 @@ header {
         box-shadow var(--quit-transition) ease-in-out;
 
     &__icon {
-        @include mx.add-icon(url("/assets/icons/game/quit-button/quit.svg"), 25px);
+        @include mx.add-icon(url("/assets/icons/game-page/quit-button/quit.svg"), 25px);
     }
 
     &:hover {

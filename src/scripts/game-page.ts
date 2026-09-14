@@ -14,7 +14,7 @@ async function initGame() {
     initButtons();
     await addTheme(gameTheme);
     await import("../styles/pages/_game.scss");
-    const game = new Game(gameTheme, playerColor, boardSize);
+    new Game(gameTheme, playerColor, boardSize);
     console.log(boardSize, playerColor, gameTheme);
 }
 

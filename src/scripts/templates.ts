@@ -26,3 +26,10 @@ export function createFigure1({
     </div>
   `;
 }
+
+export function createCard(front: string, back: string): string {
+    return `<button class="card">
+                    <img src="${front}" />
+                    <img class="d-none" src="${back}" />
+                </button>`;
+}
