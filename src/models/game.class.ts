@@ -34,6 +34,7 @@ export class Game {
         this.addCardLogos();
         this.cardBackPool = Helper.shuffleArray(this.cardBackPool);
         this.renderCards();
+        this.changeCardsInRowAmount();
     }
 
     private addCardLogos() {
@@ -67,5 +68,10 @@ export class Game {
             const card = new Card(this.cardFront, this.cardBackPool[index]);
             this.cardBoardRef.innerHTML += card.render();
         }
+    }
+
+    private changeCardsInRowAmount() {
+        this.cardBoardRef.classList.toggle("row-of-four", this.boardSize === 16);
+        this.cardBoardRef.classList.toggle("row-of-six", this.boardSize !== 16);
     }
 }

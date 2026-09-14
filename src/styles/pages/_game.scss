@@ -151,3 +151,25 @@ header {
         );
     }
 }
+
+.cardboard-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.cardboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cardboard.row-of-four {
+    width: 550px;
+}
+
+.cardboard.row-of-six {
+    width: 800px;
+}

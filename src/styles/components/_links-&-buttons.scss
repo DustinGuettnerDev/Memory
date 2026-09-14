@@ -10,6 +10,11 @@ a {
     border-radius: 5px;
 }
 
+button {
+    padding: 0;
+    border: 0;
+}
+
 // Primary link mixin
 @mixin primary-link(
     $gap: null,
