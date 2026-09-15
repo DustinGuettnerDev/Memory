@@ -37,11 +37,17 @@ export class Game {
         this.changeCardsInRowAmount();
     }
 
+    /**
+     * Adds the front logo and the shuffled pair logos to the card pool.
+     */
     private addCardLogos() {
         this.addFrontLogo();
         this.addBackLogosToArray();
     }
 
+    /**
+     * Loads the selected front logo path for the current theme.
+     */
     private addFrontLogo() {
         this.cardFront = cardPaths[this.gameTheme]["front"];
     }
@@ -63,6 +69,9 @@ export class Game {
         }
     }
 
+    /**
+     * Renders all memory cards onto the board.
+     */
     private renderCards() {
         for (let index = 0; index < this.boardSize; index++) {
             const card = new Card(this.cardFront, this.cardBackPool[index]);
@@ -70,6 +79,9 @@ export class Game {
         }
     }
 
+    /**
+     * Applies the correct row layout depending on board size.
+     */
     private changeCardsInRowAmount() {
         this.cardBoardRef.classList.toggle("row-of-four", this.boardSize === 16);
         this.cardBoardRef.classList.toggle("row-of-six", this.boardSize !== 16);

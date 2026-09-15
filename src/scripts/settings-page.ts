@@ -13,9 +13,6 @@ function initSettings() {
 /**
  * Adds decorative templates to the settings page.
  */
-/**
- * Adds decorative templates to the settings page.
- */
 function loadTemplates() {
     const headline1Ref = document.getElementById("headline1-id");
 
@@ -24,9 +21,6 @@ function loadTemplates() {
     }
 }
 
-/**
- * Initializes all settings selection forms.
- */
 /**
  * Creates handlers for all settings selection forms.
  */

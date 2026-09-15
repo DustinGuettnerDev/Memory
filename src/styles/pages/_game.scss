@@ -162,14 +162,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: var(--cardboard-gap);
     flex-wrap: wrap;
 }
 
 .cardboard.row-of-four {
-    width: 550px;
+    width: 650px;
 }
 
 .cardboard.row-of-six {
-    width: 800px;
+    width: 950px;
 }

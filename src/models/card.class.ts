@@ -14,6 +14,10 @@ export class Card {
         private back: string,
     ) {}
 
+    /**
+     * Renders the card HTML markup.
+     * @returns The generated card markup.
+     */
     render(): string {
         return createCard(this.front, this.back);
     }
