@@ -26,11 +26,11 @@
         backface-visibility: hidden;
     }
 
-    &:hover {
+    /*     &:hover {
         // rotates the whole card around its own vertical axis
         // this makes the card flip like a page or a card
         transform: rotateY(180deg);
-    }
+    } */
 
     &__back {
         // the back face starts rotated by 180deg, so it is ready to show when the card flips
@@ -41,4 +41,8 @@
         // the front face starts at 0deg, so it is visible at the beginning
         transform: rotateY(0deg);
     }
+}
+
+.selected-card {
+    transform: rotateY(180deg);
 }

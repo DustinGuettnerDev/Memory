@@ -8,9 +8,17 @@ import { Helper } from "./helper.class";
 export class Game {
     private readonly cardBoardRef: HTMLElement;
     private cardBackPool: string[] = [];
-    private cardFront: string = "";
+    private cardFront = "";
     private readonly cardPaths = cardPaths;
     private readonly cardsPairAmount = 2;
+    private playersTurn;
+    private gameEnd = false;
+    private lastTwoCards: HTMLElement[] = [];
+    private timesPickedACard = 0;
+    private score = {
+        blue: 0,
+        yellow: 0,
+    };
 
     /**
      * Creates and initializes a game.
@@ -20,21 +28,24 @@ export class Game {
      */
     constructor(
         private readonly gameTheme: "codeVibes" | "gaming",
-        private readonly playerColor: string,
+        playerColor: "blue" | "yellow",
         private readonly boardSize: number,
     ) {
         this.cardBoardRef = document.getElementById("cardboard-id")!;
         this.initGame();
+        this.playersTurn = playerColor;
     }
 
     /**
      * Initializes the game.
      */
-    private initGame() {
+    private async initGame() {
+        this.settAllScoreToZero();
         this.addCardLogos();
         this.cardBackPool = Helper.shuffleArray(this.cardBackPool);
         this.renderCards();
         this.changeCardsInRowAmount();
+        this.initCardButtons();
     }
 
     /**
@@ -85,5 +96,66 @@ export class Game {
     private changeCardsInRowAmount() {
         this.cardBoardRef.classList.toggle("row-of-four", this.boardSize === 16);
         this.cardBoardRef.classList.toggle("row-of-six", this.boardSize !== 16);
+    }
+
+    private async initCardButtons() {
+        this.cardBoardRef.addEventListener("click", (event) => {
+            const cardButtonRef = (event.target as HTMLElement).closest("button");
+            if (!cardButtonRef) return;
+
+            cardButtonRef.classList.add("selected-card"); // rotates a card
+            /*hier müssen noch alle cardbuttons deaktiviert werden und erst nach der zeit beim delay wieder 
+            aktiviert werden*/
+
+            this.timesPickedACard += 1;
+            this.lastTwoCards.push(cardButtonRef); //put the cards path in an array
+            this.changePlayerOrNextTurn();
+            console.log(this.playersTurn);
+        });
+    }
+
+    private async changePlayerOrNextTurn() {
+        if (this.timesPickedACard < 2) {
+            if (this.checkCardForTag(this.lastTwoCards)) {
+                this.clearSelectedCards();
+                this.getAPoint();
+            }
+        } else {
+            this.playersTurn === "blue" ? (this.playersTurn = "yellow") : (this.playersTurn = "blue");
+            await Helper.delay(2000);
+            this.resetSelectedCards();
+            this.clearSelectedCards();
+        }
+    }
+
+    private resetSelectedCards() {
+        this.lastTwoCards.forEach((el) => el.classList.remove("selected-card"));
+    }
+
+    private clearSelectedCards() {
+        this.timesPickedACard = 0;
+        this.lastTwoCards.length = 0;
+    }
+
+    private setScore(color: "blue" | "yellow" = this.playersTurn) {
+        document.getElementById(`playscore-${color}-count-id`)!.innerText = String(this.score[color]);
+    }
+
+    private getAPoint() {
+        this.score[this.playersTurn] += 1;
+        this.setScore(this.playersTurn);
+    }
+
+    private settAllScoreToZero() {
+        const array: ["blue", "yellow"] = ["blue", "yellow"];
+        array.forEach((el) => {
+            this.score[el] = 0;
+            this.setScore(el);
+        });
+    }
+
+    private checkCardForTag(array: HTMLElement[]) {
+        if (array[0] === array[1]) return true;
+        return false;
     }
 }

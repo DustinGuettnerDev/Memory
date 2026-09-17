@@ -38,4 +38,8 @@ export class Helper {
 
         return temporaryArray;
     }
+
+    static async delay(milliseconds: number) {
+        await new Promise((resolve) => setTimeout(resolve, milliseconds));
+    }
 }
