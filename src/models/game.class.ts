@@ -104,27 +104,25 @@ export class Game {
             if (!cardButtonRef) return;
 
             cardButtonRef.classList.add("selected-card"); // rotates a card
-            /*hier müssen noch alle cardbuttons deaktiviert werden und erst nach der zeit beim delay wieder 
-            aktiviert werden*/
-
             this.timesPickedACard += 1;
             this.lastTwoCards.push(cardButtonRef); //put the cards path in an array
-            this.changePlayerOrNextTurn();
-            console.log(this.playersTurn);
+            this.handleTurnResult();
         });
     }
 
-    private async changePlayerOrNextTurn() {
-        if (this.timesPickedACard < 2) {
-            if (this.checkCardForTag(this.lastTwoCards)) {
-                this.clearSelectedCards();
-                this.getAPoint();
-            }
-        } else {
+    private async handleTurnResult() {
+        if (this.isPairMatch(this.lastTwoCards)) {
+            this.clearSelectedCards();
+            this.getAPoint();
+        }
+
+        if (this.timesPickedACard >= 2) {
             this.playersTurn === "blue" ? (this.playersTurn = "yellow") : (this.playersTurn = "blue");
+            this.toggleCardButtons({ isDisabled: true });
             await Helper.delay(2000);
             this.resetSelectedCards();
             this.clearSelectedCards();
+            this.toggleCardButtons({ isDisabled: false });
         }
     }
 
@@ -154,8 +152,15 @@ export class Game {
         });
     }
 
-    private checkCardForTag(array: HTMLElement[]) {
-        if (array[0] === array[1]) return true;
+    private isPairMatch(array: HTMLElement[]) {
+        const cardPaths = array.map((el) => (el.querySelector(".card__back") as HTMLImageElement).src);
+        if (cardPaths[0] == cardPaths[1]) return true;
         return false;
+    }
+
+    private toggleCardButtons({ isDisabled }: { isDisabled: boolean }) {
+        document.querySelectorAll<HTMLButtonElement>("button.card").forEach((button) => {
+            button.disabled = isDisabled;
+        });
     }
 }

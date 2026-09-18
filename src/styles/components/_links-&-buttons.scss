@@ -15,6 +15,11 @@ button {
     border: 0;
 }
 
+a,
+button {
+    cursor: pointer;
+}
+
 // Primary link mixin
 @mixin primary-link(
     $gap: null,
@@ -30,7 +35,6 @@ button {
     background-color: var.$yellow-tone;
     gap: $gap;
     transition: transform 0.3s ease-in-out;
-    cursor: pointer;
 
     &::before,
     &::after {
@@ -88,7 +92,6 @@ button {
     box-sizing: border-box;
     height: $height;
     width: $width;
-    cursor: pointer;
 
     &:hover {
         background-color: $hover-background-color;
@@ -110,5 +113,4 @@ a.enabled,
 button.enabled {
     pointer-events: auto;
     opacity: 1;
-    cursor: pointer;
 }
