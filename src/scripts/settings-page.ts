@@ -10,7 +10,7 @@ function initSettings() {
 }
 
 /**
- * Adds decorative templates to the settings page.
+ * Adds the decorative headline ornament to the settings page.
  */
 function loadTemplates() {
     const headline1Ref = document.getElementById("headline1-id");
@@ -21,7 +21,7 @@ function loadTemplates() {
 }
 
 /**
- * Creates handlers for all settings selection forms.
+ * Creates a selection handler for each settings form.
  */
 function initForms() {
     new FormRadioSelectionHandler("settings-game-theme-form-id", "start-board-game-theme-id", "settings-game-theme");

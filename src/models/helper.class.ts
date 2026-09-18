@@ -3,19 +3,24 @@
  */
 export class Helper {
     /**
-     * Generates a random number up to the specified limit.
+     * Generates a random integer between zero and the specified limit.
+     * @param untilNumber - The highest possible random number.
+     * @returns A random integer within the specified range.
      */
-    static getRandomNumber(untillNumber: number): number {
-        return Math.round(Math.random() * untillNumber);
+    static getRandomNumber(untilNumber: number): number {
+        return Math.round(Math.random() * untilNumber);
     }
 
     /**
-     * Generates a random number that hasn't been used before.
+     * Generates a random integer that is not contained in the used indexes.
+     * @param usedIndex - Indexes that must not be returned.
+     * @param untilNumber - The highest possible random number.
+     * @returns An unused random integer within the specified range.
      */
-    static getRandomNumberNoDuplicates(usedIndex: number[], untillNumber: number): number {
-        let randomIndex = this.getRandomNumber(untillNumber);
+    static getRandomNumberNoDuplicates(usedIndex: number[], untilNumber: number): number {
+        let randomIndex = this.getRandomNumber(untilNumber);
         if (usedIndex.includes(randomIndex)) {
-            return this.getRandomNumberNoDuplicates(usedIndex, untillNumber);
+            return this.getRandomNumberNoDuplicates(usedIndex, untilNumber);
         }
         return randomIndex;
     }
@@ -39,6 +44,10 @@ export class Helper {
         return temporaryArray;
     }
 
+    /**
+     * Pauses execution for the specified number of milliseconds.
+     * @param milliseconds - The duration of the pause.
+     */
     static async delay(milliseconds: number) {
         await new Promise((resolve) => setTimeout(resolve, milliseconds));
     }

@@ -15,6 +15,7 @@ export class Game {
     private gameEnd = false;
     private lastTwoCards: HTMLElement[] = [];
     private timesPickedACard = 0;
+    private allCards;
     private score = {
         blue: 0,
         yellow: 0,
@@ -34,6 +35,7 @@ export class Game {
         this.cardBoardRef = document.getElementById("cardboard-id")!;
         this.initGame();
         this.playersTurn = playerColor;
+        this.allCards = document.querySelectorAll<HTMLButtonElement>("button.card");
     }
 
     /**
@@ -98,18 +100,24 @@ export class Game {
         this.cardBoardRef.classList.toggle("row-of-six", this.boardSize !== 16);
     }
 
+    /**
+     * Attaches click handlers to each generated card button.
+     */
     private async initCardButtons() {
         this.cardBoardRef.addEventListener("click", (event) => {
             const cardButtonRef = (event.target as HTMLElement).closest("button");
             if (!cardButtonRef) return;
 
-            cardButtonRef.classList.add("selected-card"); // rotates a card
+            cardButtonRef.classList.add("selected-card");
             this.timesPickedACard += 1;
-            this.lastTwoCards.push(cardButtonRef); //put the cards path in an array
+            this.lastTwoCards.push(cardButtonRef);
             this.handleTurnResult();
         });
     }
 
+    /**
+     * Evaluates the current turn and updates the player state, score, and card selection.
+     */
     private async handleTurnResult() {
         if (this.isPairMatch(this.lastTwoCards)) {
             this.clearSelectedCards();
@@ -126,24 +134,40 @@ export class Game {
         }
     }
 
+    /**
+     * Removes the selected-card class from the two most recently picked cards.
+     */
     private resetSelectedCards() {
         this.lastTwoCards.forEach((el) => el.classList.remove("selected-card"));
     }
 
+    /**
+     * Resets the temporary turn state after a comparison or delay.
+     */
     private clearSelectedCards() {
         this.timesPickedACard = 0;
         this.lastTwoCards.length = 0;
     }
 
+    /**
+     * Updates the score display for a player color.
+     * @param color - The player whose score should be rendered.
+     */
     private setScore(color: "blue" | "yellow" = this.playersTurn) {
         document.getElementById(`playscore-${color}-count-id`)!.innerText = String(this.score[color]);
     }
 
+    /**
+     * Adds one point to the current player and refreshes the score display.
+     */
     private getAPoint() {
         this.score[this.playersTurn] += 1;
         this.setScore(this.playersTurn);
     }
 
+    /**
+     * Resets both players' scores to zero and updates the UI.
+     */
     private settAllScoreToZero() {
         const array: ["blue", "yellow"] = ["blue", "yellow"];
         array.forEach((el) => {
@@ -152,15 +176,51 @@ export class Game {
         });
     }
 
+    /**
+     * Checks whether the last two selected cards show the same back image.
+     * @param array - The two selected card buttons.
+     * @returns True when both cards match.
+     */
     private isPairMatch(array: HTMLElement[]) {
         const cardPaths = array.map((el) => (el.querySelector(".card__back") as HTMLImageElement).src);
         if (cardPaths[0] == cardPaths[1]) return true;
         return false;
     }
 
+    /**
+     * Enables or disables all card buttons.
+     * @param isDisabled - Whether the buttons should be disabled.
+     */
     private toggleCardButtons({ isDisabled }: { isDisabled: boolean }) {
-        document.querySelectorAll<HTMLButtonElement>("button.card").forEach((button) => {
+        this.allCards.forEach((button) => {
             button.disabled = isDisabled;
         });
+    }
+
+    /**
+     * Checks whether every card has been marked as selected.
+     * @returns True when all cards in the board are selected.
+     */
+    private allCardsAreFound() {
+        return Array.from(this.allCards).every((card) => card.classList.contains("selected-card"));
+    }
+
+    /**
+     * Determines the winner based on the current score.
+     * @returns "blue", "yellow" or "draw".
+     */
+    private isWinner() {
+        const blueScore = this.score.blue;
+        const yellowScore = this.score.yellow;
+
+        if (blueScore === yellowScore) {
+            return "draw";
+        }
+
+        if (blueScore > yellowScore) {
+            return "blue";
+        }
+
+        return "yellow";
     }
 }

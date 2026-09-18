@@ -54,7 +54,7 @@ function addTextQuitDialog({ textBack, textQuit }: { textBack: string; textQuit:
 }
 
 /**
- * Initializes the quit dialog and its buttons.
+ * Registers the quit dialog interactions for opening, closing, and backdrop clicks.
  */
 function initButtons() {
     const quitGameButtonRef = document.getElementById("quit-game-button-id")!;

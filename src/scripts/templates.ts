@@ -27,6 +27,12 @@ export function createFigure1({
   `;
 }
 
+/**
+ * Creates the HTML markup for a memory card.
+ * @param front - The image path shown on the front of the card.
+ * @param back - The image path shown on the back of the card.
+ * @returns The generated card markup.
+ */
 export function createCard(front: string, back: string): string {
     return `<button class="card">
                     <img class="card__front" src="${front}" />
