@@ -1,3 +1,6 @@
 @use "abstract/main" as abstract;
 @use "base/main" as base;
 @use "components/main" as components;
+@use "pages/start-page" as startPage;
+@use "pages/settings" as settingsPage;
+@use "pages/game" as gamePage;
