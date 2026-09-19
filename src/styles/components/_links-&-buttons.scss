@@ -1,25 +1,6 @@
 @use "../abstract/mixins" as mx;
 @use "../abstract/variables" as var;
 
-// Base link styles
-a {
-    @include mx.flex-center-center;
-    border: 0;
-    text-decoration: none;
-    color: black;
-    border-radius: 5px;
-}
-
-button {
-    padding: 0;
-    border: 0;
-}
-
-a,
-button {
-    cursor: pointer;
-}
-
 // Primary link mixin
 @mixin primary-link(
     $gap: null,
@@ -67,6 +48,7 @@ button {
     }
 }
 
+// Primary button mixin
 @mixin primary-button(
     $background-color,
     $font-family,
@@ -99,18 +81,4 @@ button {
         box-shadow: $box-shadow;
         color: $hover-color;
     }
-}
-
-// Disabled/Enabled state for links and buttons
-a.disabled,
-button.disabled {
-    pointer-events: none;
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-a.enabled,
-button.enabled {
-    pointer-events: auto;
-    opacity: 1;
 }

@@ -1,3 +1,5 @@
+@use "../abstract/mixins" as mx;
+
 // Global page layout
 html {
     width: 100vw;
@@ -11,7 +13,25 @@ body {
     max-width: 1000px;
     width: 100%;
 }
-main {
-    height: 100%;
-    width: 100%;
+
+a {
+    @include mx.flex-center-center;
+    border: 0;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0;
+    border: 0;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+dialog {
+    border: 0;
 }

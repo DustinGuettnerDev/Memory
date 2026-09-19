@@ -6,7 +6,8 @@ import { Helper } from "./helper.class";
  * Manages the card pool and initialization of a memory game.
  */
 export class Game {
-    private readonly cardBoardRef: HTMLElement;
+    private readonly cardBoardRef;
+    private readonly gameOverRef;
     private cardBackPool: string[] = [];
     private cardFront = "";
     private readonly cardPaths = cardPaths;
@@ -16,6 +17,7 @@ export class Game {
     private lastTwoCards: HTMLElement[] = [];
     private timesPickedACard = 0;
     private allCards;
+    private winner: string = "";
     private score = {
         blue: 0,
         yellow: 0,
@@ -33,6 +35,7 @@ export class Game {
         private readonly boardSize: number,
     ) {
         this.cardBoardRef = document.getElementById("cardboard-id")!;
+        this.gameOverRef = document.getElementById("game-over-dialog-id")! as HTMLDialogElement;
         this.initGame();
         this.playersTurn = playerColor;
         this.allCards = document.querySelectorAll<HTMLButtonElement>("button.card");
@@ -119,19 +122,42 @@ export class Game {
      * Evaluates the current turn and updates the player state, score, and card selection.
      */
     private async handleTurnResult() {
-        if (this.isPairMatch(this.lastTwoCards)) {
-            this.clearSelectedCards();
-            this.getAPoint();
-        }
+        this.awardPointOnPairMatch();
+        await this.switchPlayerIfTurnComplete();
+        this.endGameIfAllCardsFound();
+    }
 
-        if (this.timesPickedACard >= 2) {
-            this.playersTurn === "blue" ? (this.playersTurn = "yellow") : (this.playersTurn = "blue");
-            this.toggleCardButtons({ isDisabled: true });
-            await Helper.delay(2000);
-            this.resetSelectedCards();
-            this.clearSelectedCards();
-            this.toggleCardButtons({ isDisabled: false });
-        }
+    /**
+     * Clears the selection and scores a point when the last two cards match.
+     */
+    private awardPointOnPairMatch() {
+        if (!this.isPairMatch(this.lastTwoCards)) return;
+        this.clearSelectedCards();
+        this.getAPoint();
+    }
+
+    /**
+     * Switches to the other player and resets the selection once two cards were picked.
+     */
+    private async switchPlayerIfTurnComplete() {
+        if (this.timesPickedACard < 2) return;
+
+        this.playersTurn === "blue" ? (this.playersTurn = "yellow") : (this.playersTurn = "blue");
+        this.toggleCardButtons({ isDisabled: true });
+        await Helper.delay(1000);
+        this.resetSelectedCards();
+        this.clearSelectedCards();
+        this.toggleCardButtons({ isDisabled: false });
+    }
+
+    /**
+     * Determines the winner and navigates to the game-over page once every card is found.
+     */
+    private endGameIfAllCardsFound() {
+        //if (!this.allCardsAreFound()) return;
+
+        this.winner = this.isWinner();
+        this.gameOverRef.showModal();
     }
 
     /**
@@ -154,7 +180,7 @@ export class Game {
      * @param color - The player whose score should be rendered.
      */
     private setScore(color: "blue" | "yellow" = this.playersTurn) {
-        document.getElementById(`playscore-${color}-count-id`)!.innerText = String(this.score[color]);
+        document.querySelectorAll<HTMLElement>(`.playscore__${color}-count`).forEach((el) => (el.innerText = String(this.score[color])));
     }
 
     /**

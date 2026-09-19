@@ -1,16 +1,16 @@
 :root {
     //colors
-    --color-accent: #4cc5af;
-    --color-accent-light: #94ddd0;
-    --color-dialog-surface: #e0faf5;
-    --color-dialog-surface-hover: #ccefe7;
-    --color-page: #2f3131;
-    --color-shadow-values: 84, 83, 60;
-    --color-surface: #415652;
+    --color-teal: #4cc5af;
+    --color-mint: #94ddd0;
+    --color-pale-mint: #e0faf5;
+    --color-light-teal: #ccefe7;
+    --color-charcoal: #2f3131;
+    --color-shadow-rgb: 84, 83, 60;
+    --color-dark-green: #415652;
     --color-white: white;
 
     //page
-    --page-background: var(--color-page);
+    --page-background: var(--color-charcoal);
 
     //header
     --header-background: transparent;
@@ -22,7 +22,7 @@
     //playscore
     --blue-icon: url("/assets/icons/game-page/theme/game-vibes/player-icon/blue.svg");
     --icon-size: 20px;
-    --playscore-background: var(--color-surface);
+    --playscore-background: var(--color-dark-green);
     --playscore-font-size: 24px;
     --playscore-font-weight: 700;
     --playscore-height: 60px;
@@ -36,18 +36,18 @@
     --current-icon-filter: none;
 
     //quit-game-button
-    --quit-background: var(--color-surface);
-    --quit-border: 1px solid var(--color-accent);
+    --quit-background: var(--color-dark-green);
+    --quit-border: 1px solid var(--color-teal);
     --quit-color: var(--color-white);
     --quit-font-size: 24px;
     --quit-font-weight: 700;
     --quit-height: 60px;
-    --quit-hover-background: var(--color-surface);
+    --quit-hover-background: var(--color-dark-green);
     --quit-hover-border-width: 3px;
     --quit-hover-color: var(--color-white);
     --quit-hover-icon-filter: none;
     --quit-radius: 0;
-    --quit-shadow: 4px 4px 4px 0px rgba(var(--color-shadow-values), 1);
+    --quit-shadow: 4px 4px 4px 0px rgba(var(--color-shadow-rgb), 1);
     --quit-transition: 0.1s;
     --quit-width: 200px;
 
@@ -58,14 +58,14 @@
     --dialog-text-size: 32px;
 
     //quit-game-dialog__back-to-game-button
-    --back-background: var(--color-accent);
-    --back-border: 2px solid var(--color-accent);
+    --back-background: var(--color-teal);
+    --back-border: 2px solid var(--color-teal);
     --back-color: var(--color-white);
     --back-font: "red-rose";
     --back-font-size: 20px;
     --back-font-weight: 700;
     --back-height: 60px;
-    --back-hover-background: var(--color-accent-light);
+    --back-hover-background: var(--color-mint);
     --back-hover-border-width: 3px;
     --back-hover-color: var(--color-white);
     --back-radius: 0;
@@ -73,18 +73,18 @@
     --back-width: 200px;
 
     //quit-game-dialog__exit-game-link
-    --exit-background: var(--color-dialog-surface);
-    --exit-border: 2px solid var(--color-accent);
-    --exit-color: var(--color-accent);
+    --exit-background: var(--color-pale-mint);
+    --exit-border: 2px solid var(--color-teal);
+    --exit-color: var(--color-teal);
     --exit-font: "red-rose";
     --exit-font-size: 20px;
     --exit-font-weight: 700;
     --exit-height: 60px;
-    --exit-hover-background: var(--color-dialog-surface-hover);
+    --exit-hover-background: var(--color-light-teal);
     --exit-hover-border-width: 3px;
-    --exit-hover-color: var(--color-accent);
+    --exit-hover-color: var(--color-teal);
     --exit-radius: 0;
-    --exit-shadow: 2px 2px 6px 0px rgba(var(--color-shadow-values), 0.2);
+    --exit-shadow: 2px 2px 6px 0px rgba(var(--color-shadow-rgb), 0.2);
     --exit-width: 200px;
 
     // card
@@ -92,4 +92,8 @@
 
     //cardboard
     --cardboard-gap: 16px;
+
+    //game over
+    --game-over-color: var(--color-teal);
+    --game-over-shadow: 2px 2px 4px rgba(var(--color-shadow-rgb), 1);
 }
