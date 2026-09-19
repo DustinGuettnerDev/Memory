@@ -1,3 +1,4 @@
+import "../styles/pages/_settings.scss";
 import { createFigure1 } from "../scripts/templates";
 import { FormRadioSelectionHandler } from "../models/form-radio-selection-handler.class";
 

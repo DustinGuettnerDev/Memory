@@ -1,3 +1,4 @@
+import "../styles/pages/_game.scss";
 import { importOutOfLocalStorage } from "./localStorage";
 import { Game } from "../models/game.class";
 let gameTheme = importOutOfLocalStorage("settings-game-theme");

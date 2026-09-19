@@ -1,1 +1,1 @@
-
+import "../styles/pages/_start-page.scss";
