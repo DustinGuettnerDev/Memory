@@ -20,14 +20,14 @@
     --radius: 0;
 
     //playscore
-    --blue-icon: url("/assets/icons/game-page/theme/game-vibes/player-icon/blue.svg");
+    --blue-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/blue.svg");
     --icon-size: 20px;
     --playscore-background: var(--color-dark-green);
     --playscore-font-size: 24px;
     --playscore-font-weight: 700;
     --playscore-height: 60px;
     --playscore-width: 280px;
-    --yellow-icon: url("/assets/icons/game-page/theme/game-vibes/player-icon/yellow.svg");
+    --orange-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/orange.svg");
 
     //current-player
     --current-background: none;
@@ -93,7 +93,23 @@
     //cardboard
     --cardboard-gap: 16px;
 
-    //game over
+    //game-over-dialog
     --game-over-color: var(--color-teal);
+    --game-over-headline1-font-size: 140px;
+    --game-over-headline1-font-weight: 700;
     --game-over-shadow: 2px 2px 4px rgba(var(--color-shadow-rgb), 1);
+    --game-over-text-font-size: 26px;
+    --game-over-text-weight: 400;
+
+    //game-results
+    --game-results-text-font-size: 40px;
+    --game-results-text-font-weight: 700;
+    --game-results-winning-player-font-size: 60px;
+    --game-results-winning-player-font-weight: 700;
+    --game-results-winning-player-text-shadow: none;
+    --game-results-winning-player-blue: #2bb1ff;
+    --game-results-winning-player-orange: #f58e39;
+    --game-results-blue-end: url("/assets/imgs/game-page/theme/code-vibes/blue-chess-pawm.svg");
+    --game-results-orange-end: url("/assets/imgs/game-page/theme/code-vibes/orange-chess-pawm.svg");
+    --game-results-draw-end: url("/assets/imgs/game-page/theme/code-vibes/draw-scale.svg");
 }

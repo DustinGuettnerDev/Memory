@@ -8,6 +8,8 @@ import { Helper } from "./helper.class";
 export class Game {
     private readonly cardBoardRef;
     private readonly gameOverRef;
+    private readonly gameOverWinningPlayerRef;
+    private readonly gameOverWinningsPlayerIconRef;
     private cardBackPool: string[] = [];
     private cardFront = "";
     private readonly cardPaths = cardPaths;
@@ -17,10 +19,12 @@ export class Game {
     private lastTwoCards: HTMLElement[] = [];
     private timesPickedACard = 0;
     private allCards;
-    private winner: string = "";
+    private winner = "";
+    private gameOverIcon = "";
+    private gameOverPlayerColor = "";
     private score = {
         blue: 0,
-        yellow: 0,
+        orange: 0,
     };
 
     /**
@@ -31,11 +35,13 @@ export class Game {
      */
     constructor(
         private readonly gameTheme: "codeVibes" | "gaming",
-        playerColor: "blue" | "yellow",
+        playerColor: "blue" | "orange",
         private readonly boardSize: number,
     ) {
         this.cardBoardRef = document.getElementById("cardboard-id")!;
         this.gameOverRef = document.getElementById("game-over-dialog-id")! as HTMLDialogElement;
+        this.gameOverWinningPlayerRef = document.getElementById("game-results-winning-player-id")!;
+        this.gameOverWinningsPlayerIconRef = document.getElementById("game-results-winning-player-icon-id")!;
         this.initGame();
         this.playersTurn = playerColor;
         this.allCards = document.querySelectorAll<HTMLButtonElement>("button.card");
@@ -142,7 +148,7 @@ export class Game {
     private async switchPlayerIfTurnComplete() {
         if (this.timesPickedACard < 2) return;
 
-        this.playersTurn === "blue" ? (this.playersTurn = "yellow") : (this.playersTurn = "blue");
+        this.playersTurn === "blue" ? (this.playersTurn = "orange") : (this.playersTurn = "blue");
         this.toggleCardButtons({ isDisabled: true });
         await Helper.delay(1000);
         this.resetSelectedCards();
@@ -151,12 +157,14 @@ export class Game {
     }
 
     /**
-     * Determines the winner and navigates to the game-over page once every card is found.
+     * Determines the winner and opens the game-over dialog once every card is found.
      */
     private endGameIfAllCardsFound() {
         //if (!this.allCardsAreFound()) return;
 
         this.winner = this.isWinner();
+        this.setGameOverImgPath();
+        this.setGameOverPlayerColor();
         this.gameOverRef.showModal();
     }
 
@@ -179,7 +187,7 @@ export class Game {
      * Updates the score display for a player color.
      * @param color - The player whose score should be rendered.
      */
-    private setScore(color: "blue" | "yellow" = this.playersTurn) {
+    private setScore(color: "blue" | "orange" = this.playersTurn) {
         document.querySelectorAll<HTMLElement>(`.playscore__${color}-count`).forEach((el) => (el.innerText = String(this.score[color])));
     }
 
@@ -195,7 +203,7 @@ export class Game {
      * Resets both players' scores to zero and updates the UI.
      */
     private settAllScoreToZero() {
-        const array: ["blue", "yellow"] = ["blue", "yellow"];
+        const array: ["blue", "orange"] = ["blue", "orange"];
         array.forEach((el) => {
             this.score[el] = 0;
             this.setScore(el);
@@ -233,20 +241,38 @@ export class Game {
 
     /**
      * Determines the winner based on the current score.
-     * @returns "blue", "yellow" or "draw".
+     * @returns "blue", "orange" or "draw".
      */
     private isWinner() {
         const blueScore = this.score.blue;
-        const yellowScore = this.score.yellow;
+        const orangeScore = this.score.orange;
 
-        if (blueScore === yellowScore) {
+        if (blueScore === orangeScore) {
             return "draw";
         }
 
-        if (blueScore > yellowScore) {
+        if (blueScore > orangeScore) {
             return "blue";
         }
 
-        return "yellow";
+        return "orange";
+    }
+
+    /**
+     * Applies the CSS class for the winner's result image.
+     */
+    private setGameOverImgPath() {
+        this.gameOverWinningsPlayerIconRef.classList.toggle("game-results__winning-player-icon-blue", this.winner === "blue");
+        this.gameOverWinningsPlayerIconRef.classList.toggle("game-results__winning-player-icon-orange", this.winner === "orange");
+        this.gameOverWinningsPlayerIconRef.classList.toggle("game-results__winning-player-icon-draw", this.winner === "draw");
+    }
+
+    /**
+     * Updates the winner label and applies the winner's color class.
+     */
+    private setGameOverPlayerColor() {
+        this.gameOverWinningPlayerRef.innerText = this.winner === "draw" ? "DRAW" : `${this.winner.toUpperCase()} PLAYER`;
+        this.gameOverWinningPlayerRef.classList.toggle("game-results__winning-player-blue", this.winner === "blue");
+        this.gameOverWinningPlayerRef.classList.toggle("game-results__winning-player-orange", this.winner === "orange");
     }
 }

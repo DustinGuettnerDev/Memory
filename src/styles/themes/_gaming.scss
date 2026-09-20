@@ -6,12 +6,11 @@
     --color-light-gray: #dcd9e1;
     --color-navy: #294f60;
     --color-slate: #535d75;
-    --color-charcoal: #2f3131;
     --color-shadow-rgb: 84, 83, 60;
     --color-white: white;
 
     //page
-    --page-background: var(--color-charcoal);
+    --page-background: var(--color-navy);
 
     //header
     --header-background: var(--color-slate);
@@ -28,7 +27,7 @@
     --playscore-font-weight: 700;
     --playscore-height: 50px;
     --playscore-width: 180px;
-    --yellow-icon: url("/assets/icons/game-page/theme/gaming/player-icon/yellow.svg");
+    --orange-icon: url("/assets/icons/game-page/theme/gaming/player-icon/orange.svg");
 
     //current-player
     --current-background: var(--color-blue);
@@ -96,6 +95,23 @@
     //cardboard
     --cardboard-gap: 0px;
 
-    //game over
+    //game-over-dialog
     --game-over-color: var(--color-pink);
+    --game-over-headline1-font-size: 140px;
+    --game-over-headline1-font-weight: 700;
+    --game-over-shadow: none;
+    --game-over-text-font-size: 26px;
+    --game-over-text-weight: 400;
+
+    //game-results
+    --game-results-text-font-size: 40px;
+    --game-results-text-font-weight: 700;
+    --game-results-winning-player-font-size: 60px;
+    --game-results-winning-player-font-weight: 700;
+    --game-results-winning-player-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    --game-results-winning-player-blue: #2298db;
+    --game-results-winning-player-orange: #ea6900;
+    --game-results-blue-end: url("/assets/imgs/game-page/theme/gaming/cup.svg");
+    --game-results-orange-end: url("/assets/imgs/game-page/theme/gaming/cup.svg");
+    --game-results-draw-end: url("/assets/imgs/game-page/theme/gaming/draw-scale.svg");
 }

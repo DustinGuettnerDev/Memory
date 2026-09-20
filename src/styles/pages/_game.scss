@@ -23,7 +23,7 @@ header {
     @include mx.add-font(var(--main-font), var(--playscore-font-size), var(--playscore-font-weight));
 
     &__blue,
-    &__yellow {
+    &__orange {
         @include mx.flex-center-center;
         gap: 5px;
     }
@@ -35,10 +35,10 @@ header {
         }
     }
 
-    &__yellow {
+    &__orange {
         color: #f58e39;
         &-icon {
-            @include mx.add-icon(var(--yellow-icon), var(--icon-size));
+            @include mx.add-icon(var(--orange-icon), var(--icon-size));
         }
     }
 }
@@ -179,28 +179,117 @@ header {
     width: 100vw;
     height: 100vh;
     background-color: var(--page-background);
+    position: relative;
 
     &[open] {
         @include mx.flex-center-center;
+        flex-direction: column; // wegmachen
     }
 }
 
 .game-over {
     @include mx.flex-center-center;
     flex-direction: column;
+    position: absolute;
+    font-family: var(--main-font);
 
     &__headline1 {
         @include typo.font-red-rose-140-700;
+        font-size: var(--game-over-headline1-font-size);
+        font-weight: var(--game-over-headline1-font-weight);
         color: var(--game-over-color);
         text-shadow: var(--game-over-shadow);
     }
 
     &__text {
         color: white;
-        @include typo.font-red-rose-26-400;
+        font-size: var(--game-over-text-font-size);
+        font-weight: var(--game-over-text-weight);
         margin-bottom: 16px;
     }
 }
 
 .game-results {
+    animation: vorhang 3s ease-in-out 2s 1 forwards;
+    transform: translateY(-100vh);
+    @include mx.flex-center-center;
+    gap: 56px;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--page-background);
+    font-family: var(--main-font);
+
+    @keyframes vorhang {
+        from {
+            transform: translateY(-100vh);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    &__winning-text {
+        @include mx.flex-center-center;
+        flex-direction: column;
+    }
+
+    &__text {
+        color: white;
+        font-size: var(--game-results-text-font-size);
+        font-weight: var(--game-results-text-font-weight);
+    }
+
+    &__winning-player {
+        font-size: var(--game-results-winning-player-font-size);
+        font-weight: var(--game-results-winning-player-font-weight);
+        text-shadow: var(--game-results-winning-player-text-shadow);
+
+        &-blue {
+            color: var(--game-results-winning-player-blue);
+        }
+
+        &-orange {
+            color: var(--game-results-winning-player-orange);
+        }
+
+        &-icon {
+            height: 300px;
+            width: 400px;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &-blue {
+                background-image: var(--game-results-blue-end);
+            }
+
+            &-orange {
+                background-image: var(--game-results-orange-end);
+            }
+
+            &-draw {
+                background-image: var(--game-results-draw-end);
+            }
+        }
+    }
+
+    &__back-to-start-button {
+        @include li_bu.primary-button(
+            $background-color: var(--quit-background),
+            $font-family: var(--main-font),
+            $font-size: var(--quit-font-size),
+            $font-weight: var(--quit-font-weight),
+            $color: var(--quit-color),
+            $border: var(--quit-border),
+            $border-radius: var(--quit-radius),
+            $height: var(--quit-height),
+            $width: var(--quit-width),
+            $border-hover-width: var(--quit-hover-border-width),
+            $box-shadow: var(--quit-shadow),
+            $hover-background-color: var(--quit-hover-background),
+            $hover-color: var(--quit-hover-color)
+        );
+    }
 }
