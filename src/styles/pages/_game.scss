@@ -20,7 +20,7 @@ header {
     gap: 20px;
     height: var(--playscore-height);
     width: var(--playscore-width);
-    @include mx.add-font(var(--main-font), var(--playscore-font-size), var(--playscore-font-weight));
+    @include mx.add-font(var(--main-font), var(--playscore-font-size), 700);
 
     &__blue,
     &__orange {
@@ -67,16 +67,16 @@ header {
         $background-color: var(--quit-background),
         $font-family: var(--main-font),
         $font-size: var(--quit-font-size),
-        $font-weight: var(--quit-font-weight),
-        $color: var(--quit-color),
+        $font-weight: 700,
+        $color: white,
         $border: var(--quit-border),
         $border-radius: var(--quit-radius),
         $height: var(--quit-height),
         $width: var(--quit-width),
-        $border-hover-width: var(--quit-hover-border-width),
+        $border-hover-width: 3px,
         $box-shadow: var(--quit-shadow),
         $hover-background-color: var(--quit-hover-background),
-        $hover-color: var(--quit-hover-color)
+        $hover-color: white
     );
     transition:
         border-width var(--quit-transition) ease-in-out,
@@ -121,8 +121,8 @@ header {
             $background-color: var(--back-background),
             $font-family: var(--back-font),
             $font-size: var(--back-font-size),
-            $font-weight: var(--back-font-weight),
-            $color: var(--back-color),
+            $font-weight: 700,
+            $color: white,
             $border: var(--back-border),
             $border-radius: var(--back-radius),
             $height: var(--back-height),
@@ -139,7 +139,7 @@ header {
             $background-color: var(--exit-background),
             $font-family: var(--exit-font),
             $font-size: var(--exit-font-size),
-            $font-weight: var(--exit-font-weight),
+            $font-weight: 700,
             $color: var(--exit-color),
             $border: var(--exit-border),
             $border-radius: var(--exit-radius),
@@ -195,16 +195,16 @@ header {
 
     &__headline1 {
         @include typo.font-red-rose-140-700;
-        font-size: var(--game-over-headline1-font-size);
-        font-weight: var(--game-over-headline1-font-weight);
+        font-size: 140px;
+        font-weight: 700;
         color: var(--game-over-color);
         text-shadow: var(--game-over-shadow);
     }
 
     &__text {
         color: white;
-        font-size: var(--game-over-text-font-size);
-        font-weight: var(--game-over-text-weight);
+        font-size: 26px;
+        font-weight: 400;
         margin-bottom: 16px;
     }
 }
@@ -238,21 +238,27 @@ header {
 
     &__text {
         color: white;
-        font-size: var(--game-results-text-font-size);
-        font-weight: var(--game-results-text-font-weight);
+        font-size: 40px;
+        font-weight: 700;
     }
 
     &__winning-player {
-        font-size: var(--game-results-winning-player-font-size);
-        font-weight: var(--game-results-winning-player-font-weight);
-        text-shadow: var(--game-results-winning-player-text-shadow);
+        font-size: 60px;
+        font-weight: 700;
+        text-shadow: var(--game-results-winner-shadow);
 
         &-blue {
-            color: var(--game-results-winning-player-blue);
+            color: var(--game-results-winner-blue-color);
         }
 
         &-orange {
-            color: var(--game-results-winning-player-orange);
+            color: var(--game-results-winner-orange-color);
+        }
+
+        &-draw {
+            color: var(--game-results-winner-draw-color);
+            font-size: 100px;
+            text-shadow: var(--game-results-winner-draw-shadow);
         }
 
         &-icon {
@@ -262,15 +268,16 @@ header {
             background-position: center;
 
             &-blue {
-                background-image: var(--game-results-blue-end);
+                background-image: var(--game-results-winner-blue-image);
             }
 
             &-orange {
-                background-image: var(--game-results-orange-end);
+                background-image: var(--game-results-winner-orange-image);
             }
 
             &-draw {
-                background-image: var(--game-results-draw-end);
+                background-image: var(--game-results-winner-draw-image);
+                filter: drop-shadow(var(--game-results-winner-draw-icon-shadow));
             }
         }
     }
@@ -280,16 +287,16 @@ header {
             $background-color: var(--quit-background),
             $font-family: var(--main-font),
             $font-size: var(--quit-font-size),
-            $font-weight: var(--quit-font-weight),
-            $color: var(--quit-color),
+            $font-weight: 700,
+            $color: white,
             $border: var(--quit-border),
             $border-radius: var(--quit-radius),
             $height: var(--quit-height),
             $width: var(--quit-width),
-            $border-hover-width: var(--quit-hover-border-width),
+            $border-hover-width: 3px,
             $box-shadow: var(--quit-shadow),
             $hover-background-color: var(--quit-hover-background),
-            $hover-color: var(--quit-hover-color)
+            $hover-color: white
         );
     }
 }

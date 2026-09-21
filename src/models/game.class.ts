@@ -8,8 +8,10 @@ import { Helper } from "./helper.class";
 export class Game {
     private readonly cardBoardRef;
     private readonly gameOverRef;
-    private readonly gameOverWinningPlayerRef;
-    private readonly gameOverWinningsPlayerIconRef;
+    private readonly gameResultsWinningPlayerRef;
+    private readonly gameResultsWinningPlayerIconRef;
+    private readonly gameResultsTextRef;
+    private readonly gameResultsBackButtonRef;
     private cardBackPool: string[] = [];
     private cardFront = "";
     private readonly cardPaths = cardPaths;
@@ -40,8 +42,10 @@ export class Game {
     ) {
         this.cardBoardRef = document.getElementById("cardboard-id")!;
         this.gameOverRef = document.getElementById("game-over-dialog-id")! as HTMLDialogElement;
-        this.gameOverWinningPlayerRef = document.getElementById("game-results-winning-player-id")!;
-        this.gameOverWinningsPlayerIconRef = document.getElementById("game-results-winning-player-icon-id")!;
+        this.gameResultsWinningPlayerRef = document.getElementById("game-results-winning-player-id")!;
+        this.gameResultsWinningPlayerIconRef = document.getElementById("game-results-winning-player-icon-id")!;
+        this.gameResultsTextRef = document.getElementById("game-results-text-id")!;
+        this.gameResultsBackButtonRef = document.getElementById("game-results-back-to-start-button-id")!;
         this.initGame();
         this.playersTurn = playerColor;
         this.allCards = document.querySelectorAll<HTMLButtonElement>("button.card");
@@ -163,8 +167,10 @@ export class Game {
         //if (!this.allCardsAreFound()) return;
 
         this.winner = this.isWinner();
-        this.setGameOverImgPath();
-        this.setGameOverPlayerColor();
+        this.setGameResultsImgPath();
+        this.setGameResultsPlayerColor();
+        this.setGameResultsText();
+        this.setGameResultsButtonText();
         this.gameOverRef.showModal();
     }
 
@@ -261,18 +267,38 @@ export class Game {
     /**
      * Applies the CSS class for the winner's result image.
      */
-    private setGameOverImgPath() {
-        this.gameOverWinningsPlayerIconRef.classList.toggle("game-results__winning-player-icon-blue", this.winner === "blue");
-        this.gameOverWinningsPlayerIconRef.classList.toggle("game-results__winning-player-icon-orange", this.winner === "orange");
-        this.gameOverWinningsPlayerIconRef.classList.toggle("game-results__winning-player-icon-draw", this.winner === "draw");
+    private setGameResultsImgPath() {
+        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon-blue", this.winner === "blue");
+        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon-orange", this.winner === "orange");
+        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon-draw", this.winner === "draw");
     }
 
     /**
      * Updates the winner label and applies the winner's color class.
      */
-    private setGameOverPlayerColor() {
-        this.gameOverWinningPlayerRef.innerText = this.winner === "draw" ? "DRAW" : `${this.winner.toUpperCase()} PLAYER`;
-        this.gameOverWinningPlayerRef.classList.toggle("game-results__winning-player-blue", this.winner === "blue");
-        this.gameOverWinningPlayerRef.classList.toggle("game-results__winning-player-orange", this.winner === "orange");
+    private setGameResultsPlayerColor() {
+        this.gameResultsWinningPlayerRef.innerText = this.winner === "draw" ? "DRAW" : `${this.winner.toUpperCase()} PLAYER`;
+        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player-blue", this.winner === "blue");
+        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player-orange", this.winner === "orange");
+        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player-draw", this.winner === "draw");
+    }
+
+    /**
+     * Updates the game results text if its a draw or somebody won.
+     */
+    private setGameResultsText() {
+        this.winner === "draw" ? (this.gameResultsTextRef.innerText = "It`s a") : (this.gameResultsTextRef.innerText = "The winner is");
+    }
+
+    /**
+     * Updates the back-button text if the game-theme is codeVibes oder gaming
+     */
+    private setGameResultsButtonText() {
+        if (this.gameTheme === "codeVibes") {
+            this.gameResultsBackButtonRef.innerText = "Back to start";
+            return;
+        }
+
+        this.gameResultsBackButtonRef.innerText = "Home";
     }
 }

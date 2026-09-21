@@ -24,7 +24,6 @@
     --icon-size: 20px;
     --playscore-background: var(--color-dark-green);
     --playscore-font-size: 24px;
-    --playscore-font-weight: 700;
     --playscore-height: 60px;
     --playscore-width: 280px;
     --orange-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/orange.svg");
@@ -38,13 +37,9 @@
     //quit-game-button
     --quit-background: var(--color-dark-green);
     --quit-border: 1px solid var(--color-teal);
-    --quit-color: var(--color-white);
     --quit-font-size: 24px;
-    --quit-font-weight: 700;
     --quit-height: 60px;
     --quit-hover-background: var(--color-dark-green);
-    --quit-hover-border-width: 3px;
-    --quit-hover-color: var(--color-white);
     --quit-hover-icon-filter: none;
     --quit-radius: 0;
     --quit-shadow: 4px 4px 4px 0px rgba(var(--color-shadow-rgb), 1);
@@ -60,10 +55,8 @@
     //quit-game-dialog__back-to-game-button
     --back-background: var(--color-teal);
     --back-border: 2px solid var(--color-teal);
-    --back-color: var(--color-white);
     --back-font: "red-rose";
     --back-font-size: 20px;
-    --back-font-weight: 700;
     --back-height: 60px;
     --back-hover-background: var(--color-mint);
     --back-hover-border-width: 3px;
@@ -78,7 +71,6 @@
     --exit-color: var(--color-teal);
     --exit-font: "red-rose";
     --exit-font-size: 20px;
-    --exit-font-weight: 700;
     --exit-height: 60px;
     --exit-hover-background: var(--color-light-teal);
     --exit-hover-border-width: 3px;
@@ -95,21 +87,15 @@
 
     //game-over-dialog
     --game-over-color: var(--color-teal);
-    --game-over-headline1-font-size: 140px;
-    --game-over-headline1-font-weight: 700;
-    --game-over-shadow: 2px 2px 4px rgba(var(--color-shadow-rgb), 1);
-    --game-over-text-font-size: 26px;
-    --game-over-text-weight: 400;
+    --game-over-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
 
     //game-results
-    --game-results-text-font-size: 40px;
-    --game-results-text-font-weight: 700;
-    --game-results-winning-player-font-size: 60px;
-    --game-results-winning-player-font-weight: 700;
-    --game-results-winning-player-text-shadow: none;
-    --game-results-winning-player-blue: #2bb1ff;
-    --game-results-winning-player-orange: #f58e39;
-    --game-results-blue-end: url("/assets/imgs/game-page/theme/code-vibes/blue-chess-pawm.svg");
-    --game-results-orange-end: url("/assets/imgs/game-page/theme/code-vibes/orange-chess-pawm.svg");
-    --game-results-draw-end: url("/assets/imgs/game-page/theme/code-vibes/draw-scale.svg");
+    --game-results-winner-shadow: none;
+    --game-results-winner-draw-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
+    --game-results-winner-blue-color: #2bb1ff;
+    --game-results-winner-orange-color: #f58e39;
+    --game-results-winner-draw-color: var(--color-teal);
+    --game-results-winner-blue-image: url("/assets/imgs/game-page/theme/code-vibes/blue-chess-pawm.svg");
+    --game-results-winner-orange-image: url("/assets/imgs/game-page/theme/code-vibes/orange-chess-pawm.svg");
+    --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/code-vibes/draw-scale.svg");
 }

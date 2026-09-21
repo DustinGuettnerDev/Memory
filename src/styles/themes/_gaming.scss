@@ -24,7 +24,6 @@
     --icon-size: 28px;
     --playscore-background: var(--color-white);
     --playscore-font-size: 30px;
-    --playscore-font-weight: 700;
     --playscore-height: 50px;
     --playscore-width: 180px;
     --orange-icon: url("/assets/icons/game-page/theme/gaming/player-icon/orange.svg");
@@ -39,13 +38,9 @@
     //quit-game-button
     --quit-background: transparent;
     --quit-border: 2px solid var(--color-pink);
-    --quit-color: var(--color-white);
     --quit-font-size: 20px;
-    --quit-font-weight: 700;
     --quit-height: 50px;
     --quit-hover-background: transparent;
-    --quit-hover-border-width: 3px;
-    --quit-hover-color: var(--color-white);
     --quit-hover-icon-filter: brightness(0) saturate(100%) invert(28%) sepia(83%) saturate(2959%) hue-rotate(328deg) brightness(86%)
         contrast(112%);
     --quit-radius: 15px;
@@ -62,10 +57,8 @@
     //quit-game-dialog__back-to-game-button
     --back-background: var(--color-pink);
     --back-border: 2px solid var(--color-pink);
-    --back-color: var(--color-white);
     --back-font: orbitron;
     --back-font-size: 16px;
-    --back-font-weight: 700;
     --back-height: 50px;
     --back-hover-background: var(--color-white);
     --back-hover-color: var(--color-pink);
@@ -80,7 +73,6 @@
     --exit-color: var(--color-pink);
     --exit-font: orbitron;
     --exit-font-size: 16px;
-    --exit-font-weight: 700;
     --exit-height: 50px;
     --exit-hover-background: var(--color-light-gray);
     --exit-hover-border-width: 3px;
@@ -97,21 +89,16 @@
 
     //game-over-dialog
     --game-over-color: var(--color-pink);
-    --game-over-headline1-font-size: 140px;
-    --game-over-headline1-font-weight: 700;
     --game-over-shadow: none;
-    --game-over-text-font-size: 26px;
-    --game-over-text-weight: 400;
 
     //game-results
-    --game-results-text-font-size: 40px;
-    --game-results-text-font-weight: 700;
-    --game-results-winning-player-font-size: 60px;
-    --game-results-winning-player-font-weight: 700;
-    --game-results-winning-player-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    --game-results-winning-player-blue: #2298db;
-    --game-results-winning-player-orange: #ea6900;
-    --game-results-blue-end: url("/assets/imgs/game-page/theme/gaming/cup.svg");
-    --game-results-orange-end: url("/assets/imgs/game-page/theme/gaming/cup.svg");
-    --game-results-draw-end: url("/assets/imgs/game-page/theme/gaming/draw-scale.svg");
+    --game-results-winner-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    --game-results-winner-draw-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    --game-results-winner-draw-icon-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    --game-results-winner-blue-color: #2298db;
+    --game-results-winner-orange-color: #ea6900;
+    --game-results-winner-draw-color: var(--color-pink);
+    --game-results-winner-blue-image: url("/assets/imgs/game-page/theme/gaming/cup.svg");
+    --game-results-winner-orange-image: url("/assets/imgs/game-page/theme/gaming/cup.svg");
+    --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/gaming/draw-scale.svg");
 }
