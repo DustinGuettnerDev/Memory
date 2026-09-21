@@ -284,18 +284,18 @@ header {
 
     &__back-to-start-button {
         @include li_bu.primary-button(
-            $background-color: var(--quit-background),
-            $font-family: var(--main-font),
-            $font-size: var(--quit-font-size),
+            $background-color: var(--game-results-back-button-background),
+            $font-family: var(--game-results-back-button-font),
+            $font-size: var(--game-results-back-button-font-size),
             $font-weight: 700,
             $color: white,
-            $border: var(--quit-border),
-            $border-radius: var(--quit-radius),
-            $height: var(--quit-height),
-            $width: var(--quit-width),
+            $border: var(--game-results-back-button-border),
+            $border-radius: var(--game-results-back-button-radius),
+            $height: var(--game-results-back-button-height),
+            $width: var(--game-results-back-button-width),
             $border-hover-width: 3px,
-            $box-shadow: var(--quit-shadow),
-            $hover-background-color: var(--quit-hover-background),
+            $box-shadow: var(--game-results-back-button-shadow),
+            $hover-background-color: var(--game-results-back-button-hover-background),
             $hover-color: white
         );
     }

@@ -18,6 +18,14 @@
     //shared
     --main-font: red-rose;
     --radius: 0;
+    --common-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
+    --button-background: var(--color-dark-green);
+    --button-border: 1px solid var(--color-teal);
+    --button-font-size: 24px;
+    --button-height: 60px;
+    --button-hover-background: var(--color-dark-green);
+    --button-radius: 0;
+    --button-width: 200px;
 
     //playscore
     --blue-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/blue.svg");
@@ -35,16 +43,16 @@
     --current-icon-filter: none;
 
     //quit-game-button
-    --quit-background: var(--color-dark-green);
-    --quit-border: 1px solid var(--color-teal);
-    --quit-font-size: 24px;
-    --quit-height: 60px;
-    --quit-hover-background: var(--color-dark-green);
+    --quit-background: var(--button-background);
+    --quit-border: var(--button-border);
+    --quit-font-size: var(--button-font-size);
+    --quit-height: var(--button-height);
+    --quit-hover-background: var(--button-hover-background);
     --quit-hover-icon-filter: none;
-    --quit-radius: 0;
+    --quit-radius: var(--button-radius);
     --quit-shadow: 4px 4px 4px 0px rgba(var(--color-shadow-rgb), 1);
     --quit-transition: 0.1s;
-    --quit-width: 200px;
+    --quit-width: var(--button-width);
 
     //quit-game-dialog
     --dialog-color: black;
@@ -87,15 +95,26 @@
 
     //game-over-dialog
     --game-over-color: var(--color-teal);
-    --game-over-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
+    --game-over-shadow: var(--common-shadow);
 
     //game-results
     --game-results-winner-shadow: none;
-    --game-results-winner-draw-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
+    --game-results-winner-draw-shadow: var(--common-shadow);
     --game-results-winner-blue-color: #2bb1ff;
     --game-results-winner-orange-color: #f58e39;
     --game-results-winner-draw-color: var(--color-teal);
     --game-results-winner-blue-image: url("/assets/imgs/game-page/theme/code-vibes/blue-chess-pawm.svg");
     --game-results-winner-orange-image: url("/assets/imgs/game-page/theme/code-vibes/orange-chess-pawm.svg");
     --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/code-vibes/draw-scale.svg");
+
+    //game-results-back-button
+    --game-results-back-button-background: var(--button-background);
+    --game-results-back-button-border: var(--button-border);
+    --game-results-back-button-font: var(--main-font);
+    --game-results-back-button-font-size: var(--button-font-size);
+    --game-results-back-button-height: var(--button-height);
+    --game-results-back-button-hover-background: var(--button-hover-background);
+    --game-results-back-button-radius: var(--button-radius);
+    --game-results-back-button-shadow: none;
+    --game-results-back-button-width: var(--button-width);
 }

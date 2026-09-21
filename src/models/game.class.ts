@@ -61,6 +61,7 @@ export class Game {
         this.renderCards();
         this.changeCardsInRowAmount();
         this.initCardButtons();
+        this.initGameResultsBackButton();
     }
 
     /**
@@ -300,5 +301,11 @@ export class Game {
         }
 
         this.gameResultsBackButtonRef.innerText = "Home";
+    }
+
+    private initGameResultsBackButton() {
+        this.gameResultsBackButtonRef.addEventListener("click", () => {
+            window.location.href = "settings.html";
+        });
     }
 }
