@@ -45,4 +45,4 @@ export const cardPaths = {
             "/assets/imgs/game-page/theme/code-vibes/cards/back/vue.svg",
         ],
     },
-} as const;
+};

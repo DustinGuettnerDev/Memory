@@ -8,6 +8,7 @@
     --color-slate: #535d75;
     --color-shadow-rgb: 84, 83, 60;
     --color-white: white;
+    --color-orange: #f58e39;
 
     //page
     --page-background: var(--color-navy);
@@ -26,35 +27,29 @@
     --button-hover-background: transparent;
     --button-radius: 15px;
     --button-width: 180px;
+    --blue-icon: url("/assets/icons/game-page/theme/gaming/player-icon/blue.svg");
+    --orange-icon: url("/assets/icons/game-page/theme/gaming/player-icon/orange.svg");
 
     //playscore
-    --blue-icon: url("/assets/icons/game-page/theme/gaming/player-icon/blue.svg");
     --icon-size: 28px;
     --playscore-background: var(--color-white);
     --playscore-font-size: 30px;
     --playscore-height: 50px;
     --playscore-width: 180px;
-    --orange-icon: url("/assets/icons/game-page/theme/gaming/player-icon/orange.svg");
 
     //current-player
-    --current-background: var(--color-blue);
+    --current-background-blue: var(--color-blue);
+    --current-background-orange: var(--color-orange);
     --current-font-size: 32px;
     --current-font-weight: 700;
     --current-icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7498%) hue-rotate(137deg) brightness(101%)
         contrast(98%);
 
     //quit-game-button
-    --quit-background: var(--button-background);
-    --quit-border: var(--button-border);
-    --quit-font-size: var(--button-font-size);
-    --quit-height: var(--button-height);
-    --quit-hover-background: var(--button-hover-background);
     --quit-hover-icon-filter: brightness(0) saturate(100%) invert(28%) sepia(83%) saturate(2959%) hue-rotate(328deg) brightness(86%)
         contrast(112%);
-    --quit-radius: var(--button-radius);
     --quit-shadow: 3px 3px 4px 2px rgba(var(--color-shadow-rgb), 0.2);
     --quit-transition: 0;
-    --quit-width: var(--button-width);
 
     //quit-game-dialog
     --dialog-color: var(--color-navy);
@@ -100,6 +95,8 @@
     --game-over-shadow: none;
 
     //game-results
+    --game-results-animation-duration: 1.5s;
+    --game-results-start-position: 100vh;
     --game-results-winner-shadow: var(--common-shadow);
     --game-results-winner-draw-shadow: var(--common-shadow);
     --game-results-winner-draw-icon-shadow: var(--common-shadow);
@@ -111,13 +108,5 @@
     --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/gaming/draw-scale.svg");
 
     //game-results-back-button
-    --game-results-back-button-background: var(--button-background);
-    --game-results-back-button-border: var(--button-border);
-    --game-results-back-button-font: var(--main-font);
-    --game-results-back-button-font-size: var(--button-font-size);
-    --game-results-back-button-height: var(--button-height);
-    --game-results-back-button-hover-background: var(--button-hover-background);
-    --game-results-back-button-radius: var(--button-radius);
     --game-results-back-button-shadow: var(--common-shadow);
-    --game-results-back-button-width: var(--button-width);
 }

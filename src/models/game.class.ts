@@ -12,6 +12,8 @@ export class Game {
     private readonly gameResultsWinningPlayerIconRef;
     private readonly gameResultsTextRef;
     private readonly gameResultsBackButtonRef;
+    private readonly currentPlayerIconRef;
+    private readonly currentplayerIconBackgroundWrapperRef;
     private cardBackPool: string[] = [];
     private cardFront = "";
     private readonly cardPaths = cardPaths;
@@ -46,8 +48,10 @@ export class Game {
         this.gameResultsWinningPlayerIconRef = document.getElementById("game-results-winning-player-icon-id")!;
         this.gameResultsTextRef = document.getElementById("game-results-text-id")!;
         this.gameResultsBackButtonRef = document.getElementById("game-results-back-to-start-button-id")!;
-        this.initGame();
+        this.currentPlayerIconRef = document.getElementById("current-player-icon-id")!;
+        this.currentplayerIconBackgroundWrapperRef = document.getElementById("current-player-icon-background-wrapper-id")!;
         this.playersTurn = playerColor;
+        this.initGame();
         this.allCards = document.querySelectorAll<HTMLButtonElement>("button.card");
     }
 
@@ -62,6 +66,7 @@ export class Game {
         this.changeCardsInRowAmount();
         this.initCardButtons();
         this.initGameResultsBackButton();
+        this.setCurrentPlayerIcon();
     }
 
     /**
@@ -97,6 +102,22 @@ export class Game {
     }
 
     /**
+     * set Player Icon
+     */
+    private setCurrentPlayerIcon() {
+        this.currentPlayerIconRef.classList.toggle(`current-player__icon--blue`, this.playersTurn === "blue");
+        this.currentPlayerIconRef.classList.toggle(`current-player__icon--orange`, this.playersTurn === "orange");
+        this.currentplayerIconBackgroundWrapperRef.classList.toggle(
+            "current-player__icon-background-wrapper--blue",
+            this.playersTurn === "blue",
+        );
+        this.currentplayerIconBackgroundWrapperRef.classList.toggle(
+            "current-player__icon-background-wrapper--orange",
+            this.playersTurn === "orange",
+        );
+    }
+
+    /**
      * Renders all memory cards onto the board.
      */
     private renderCards() {
@@ -110,8 +131,8 @@ export class Game {
      * Applies the correct row layout depending on board size.
      */
     private changeCardsInRowAmount() {
-        this.cardBoardRef.classList.toggle("row-of-four", this.boardSize === 16);
-        this.cardBoardRef.classList.toggle("row-of-six", this.boardSize !== 16);
+        this.cardBoardRef.classList.toggle("cardboard--row-of-four", this.boardSize === 16);
+        this.cardBoardRef.classList.toggle("cardboard--row-of-six", this.boardSize !== 16);
     }
 
     /**
@@ -122,7 +143,7 @@ export class Game {
             const cardButtonRef = (event.target as HTMLElement).closest("button");
             if (!cardButtonRef) return;
 
-            cardButtonRef.classList.add("selected-card");
+            cardButtonRef.classList.add("card--selected");
             this.timesPickedACard += 1;
             this.lastTwoCards.push(cardButtonRef);
             this.handleTurnResult();
@@ -159,6 +180,7 @@ export class Game {
         this.resetSelectedCards();
         this.clearSelectedCards();
         this.toggleCardButtons({ isDisabled: false });
+        this.setCurrentPlayerIcon();
     }
 
     /**
@@ -176,10 +198,10 @@ export class Game {
     }
 
     /**
-     * Removes the selected-card class from the two most recently picked cards.
+     * Removes the selected modifier from the two most recently picked cards.
      */
     private resetSelectedCards() {
-        this.lastTwoCards.forEach((el) => el.classList.remove("selected-card"));
+        this.lastTwoCards.forEach((el) => el.classList.remove("card--selected"));
     }
 
     /**
@@ -195,7 +217,9 @@ export class Game {
      * @param color - The player whose score should be rendered.
      */
     private setScore(color: "blue" | "orange" = this.playersTurn) {
-        document.querySelectorAll<HTMLElement>(`.playscore__${color}-count`).forEach((el) => (el.innerText = String(this.score[color])));
+        document
+            .querySelectorAll<HTMLElement>(`.playscore__player--${color} .playscore__player-count`)
+            .forEach((el) => (el.innerText = String(this.score[color])));
     }
 
     /**
@@ -243,7 +267,7 @@ export class Game {
      * @returns True when all cards in the board are selected.
      */
     private allCardsAreFound() {
-        return Array.from(this.allCards).every((card) => card.classList.contains("selected-card"));
+        return Array.from(this.allCards).every((card) => card.classList.contains("card--selected"));
     }
 
     /**
@@ -269,9 +293,9 @@ export class Game {
      * Applies the CSS class for the winner's result image.
      */
     private setGameResultsImgPath() {
-        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon-blue", this.winner === "blue");
-        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon-orange", this.winner === "orange");
-        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon-draw", this.winner === "draw");
+        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon--blue", this.winner === "blue");
+        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon--orange", this.winner === "orange");
+        this.gameResultsWinningPlayerIconRef.classList.toggle("game-results__winning-player-icon--draw", this.winner === "draw");
     }
 
     /**
@@ -279,9 +303,9 @@ export class Game {
      */
     private setGameResultsPlayerColor() {
         this.gameResultsWinningPlayerRef.innerText = this.winner === "draw" ? "DRAW" : `${this.winner.toUpperCase()} PLAYER`;
-        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player-blue", this.winner === "blue");
-        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player-orange", this.winner === "orange");
-        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player-draw", this.winner === "draw");
+        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player--blue", this.winner === "blue");
+        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player--orange", this.winner === "orange");
+        this.gameResultsWinningPlayerRef.classList.toggle("game-results__winning-player--draw", this.winner === "draw");
     }
 
     /**

@@ -22,24 +22,25 @@ header {
     width: var(--playscore-width);
     @include mx.add-font(var(--main-font), var(--playscore-font-size), 700);
 
-    &__blue,
-    &__orange {
+    &__player {
         @include mx.flex-center-center;
         gap: 5px;
     }
 
-    &__blue {
+    &__player--blue {
         color: #2bb1ff;
-        &-icon {
-            @include mx.add-icon(var(--blue-icon), var(--icon-size));
-        }
     }
 
-    &__orange {
+    &__player--orange {
         color: #f58e39;
-        &-icon {
-            @include mx.add-icon(var(--orange-icon), var(--icon-size));
-        }
+    }
+
+    &__player-icon--blue {
+        @include mx.add-icon(var(--blue-icon), var(--icon-size));
+    }
+
+    &__player-icon--orange {
+        @include mx.add-icon(var(--orange-icon), var(--icon-size));
     }
 }
 
@@ -50,32 +51,46 @@ header {
     @include mx.flex-center-center;
 
     &__icon {
-        @include mx.add-icon(var(--blue-icon), var(--icon-size));
-        filter: var(--current-icon-filter);
         position: relative;
         top: 1px;
+        filter: var(--current-icon-filter);
 
-        &-background {
-            background-color: var(--current-background);
+        &--blue {
+            @include mx.add-icon(var(--blue-icon), var(--icon-size));
+        }
+
+        &--orange {
+            @include mx.add-icon(var(--orange-icon), var(--icon-size));
+        }
+
+        &-background-wrapper {
             padding: 5px;
+
+            &--blue {
+                background-color: var(--current-background-blue);
+            }
+
+            &--orange {
+                background-color: var(--current-background-orange);
+            }
         }
     }
 }
 
 .quit-game-button {
     @include li_bu.primary-button(
-        $background-color: var(--quit-background),
+        $background-color: var(--button-background),
         $font-family: var(--main-font),
-        $font-size: var(--quit-font-size),
+        $font-size: var(--button-font-size),
         $font-weight: 700,
         $color: white,
-        $border: var(--quit-border),
-        $border-radius: var(--quit-radius),
-        $height: var(--quit-height),
-        $width: var(--quit-width),
+        $border: var(--button-border),
+        $border-radius: var(--button-radius),
+        $height: var(--button-height),
+        $width: var(--button-width),
         $border-hover-width: 3px,
         $box-shadow: var(--quit-shadow),
-        $hover-background-color: var(--quit-hover-background),
+        $hover-background-color: var(--button-hover-background),
         $hover-color: white
     );
     transition:
@@ -167,11 +182,11 @@ header {
     flex-wrap: wrap;
 }
 
-.cardboard.row-of-four {
+.cardboard--row-of-four {
     width: 650px;
 }
 
-.cardboard.row-of-six {
+.cardboard--row-of-six {
     width: 980px;
 }
 
@@ -183,7 +198,7 @@ header {
 
     &[open] {
         @include mx.flex-center-center;
-        flex-direction: column; // wegmachen
+        flex-direction: column;
     }
 }
 
@@ -210,8 +225,8 @@ header {
 }
 
 .game-results {
-    animation: vorhang 3s ease-in-out 2s 1 forwards;
-    transform: translateY(-100vh);
+    animation: vorhang var(--game-results-animation-duration) ease-in-out 2s 1 forwards;
+    transform: translateY(var(--game-results-start-position));
     @include mx.flex-center-center;
     gap: 56px;
     flex-direction: column;
@@ -223,7 +238,7 @@ header {
 
     @keyframes vorhang {
         from {
-            transform: translateY(-100vh);
+            transform: translateY(var(--game-results-start-position));
         }
 
         to {
@@ -247,15 +262,15 @@ header {
         font-weight: 700;
         text-shadow: var(--game-results-winner-shadow);
 
-        &-blue {
+        &--blue {
             color: var(--game-results-winner-blue-color);
         }
 
-        &-orange {
+        &--orange {
             color: var(--game-results-winner-orange-color);
         }
 
-        &-draw {
+        &--draw {
             color: var(--game-results-winner-draw-color);
             font-size: 100px;
             text-shadow: var(--game-results-winner-draw-shadow);
@@ -267,15 +282,15 @@ header {
             background-repeat: no-repeat;
             background-position: center;
 
-            &-blue {
+            &--blue {
                 background-image: var(--game-results-winner-blue-image);
             }
 
-            &-orange {
+            &--orange {
                 background-image: var(--game-results-winner-orange-image);
             }
 
-            &-draw {
+            &--draw {
                 background-image: var(--game-results-winner-draw-image);
                 filter: drop-shadow(var(--game-results-winner-draw-icon-shadow));
             }
@@ -284,18 +299,18 @@ header {
 
     &__back-to-start-button {
         @include li_bu.primary-button(
-            $background-color: var(--game-results-back-button-background),
-            $font-family: var(--game-results-back-button-font),
-            $font-size: var(--game-results-back-button-font-size),
+            $background-color: var(--button-background),
+            $font-family: var(--main-font),
+            $font-size: var(--button-font-size),
             $font-weight: 700,
             $color: white,
-            $border: var(--game-results-back-button-border),
-            $border-radius: var(--game-results-back-button-radius),
-            $height: var(--game-results-back-button-height),
-            $width: var(--game-results-back-button-width),
+            $border: var(--button-border),
+            $border-radius: var(--button-radius),
+            $height: var(--button-height),
+            $width: var(--button-width),
             $border-hover-width: 3px,
             $box-shadow: var(--game-results-back-button-shadow),
-            $hover-background-color: var(--game-results-back-button-hover-background),
+            $hover-background-color: var(--button-hover-background),
             $hover-color: white
         );
     }

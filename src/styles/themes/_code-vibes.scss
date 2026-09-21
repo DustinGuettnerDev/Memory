@@ -26,33 +26,28 @@
     --button-hover-background: var(--color-dark-green);
     --button-radius: 0;
     --button-width: 200px;
+    --blue-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/blue.svg");
+    --orange-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/orange.svg");
 
     //playscore
-    --blue-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/blue.svg");
     --icon-size: 20px;
     --playscore-background: var(--color-dark-green);
     --playscore-font-size: 24px;
     --playscore-height: 60px;
     --playscore-width: 280px;
-    --orange-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/orange.svg");
 
     //current-player
+    --current-background-blue: none;
+    --current-background-orange: none;
     --current-background: none;
     --current-font-size: 26px;
     --current-font-weight: 400;
     --current-icon-filter: none;
 
     //quit-game-button
-    --quit-background: var(--button-background);
-    --quit-border: var(--button-border);
-    --quit-font-size: var(--button-font-size);
-    --quit-height: var(--button-height);
-    --quit-hover-background: var(--button-hover-background);
     --quit-hover-icon-filter: none;
-    --quit-radius: var(--button-radius);
     --quit-shadow: 4px 4px 4px 0px rgba(var(--color-shadow-rgb), 1);
     --quit-transition: 0.1s;
-    --quit-width: var(--button-width);
 
     //quit-game-dialog
     --dialog-color: black;
@@ -98,6 +93,8 @@
     --game-over-shadow: var(--common-shadow);
 
     //game-results
+    --game-results-animation-duration: 3s;
+    --game-results-start-position: -100vh;
     --game-results-winner-shadow: none;
     --game-results-winner-draw-shadow: var(--common-shadow);
     --game-results-winner-blue-color: #2bb1ff;
@@ -108,13 +105,5 @@
     --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/code-vibes/draw-scale.svg");
 
     //game-results-back-button
-    --game-results-back-button-background: var(--button-background);
-    --game-results-back-button-border: var(--button-border);
-    --game-results-back-button-font: var(--main-font);
-    --game-results-back-button-font-size: var(--button-font-size);
-    --game-results-back-button-height: var(--button-height);
-    --game-results-back-button-hover-background: var(--button-hover-background);
-    --game-results-back-button-radius: var(--button-radius);
     --game-results-back-button-shadow: none;
-    --game-results-back-button-width: var(--button-width);
 }
