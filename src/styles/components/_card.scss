@@ -6,11 +6,8 @@
     position: relative;
     margin-right: var(--card-margin-right);
 
-    // makes the child elements stay in the same 3D coordinate system
-    // without this, the children are treated as flat 2D elements and the flip looks wrong
     transform-style: preserve-3d;
 
-    // animation time for the card flip
     transition: transform 1s ease;
 
     & img {
@@ -21,24 +18,14 @@
         border-radius: var(--radius);
         object-fit: cover;
 
-        // hides the back side of the img when the element is rotated away from the viewer
-        // otherwise the backside would be mirrored and visible
         backface-visibility: hidden;
     }
 
-    /*     &:hover {
-        // rotates the whole card around its own vertical axis
-        // this makes the card flip like a page or a card
-        transform: rotateY(180deg);
-    } */
-
     &__back {
-        // the back face starts rotated by 180deg, so it is ready to show when the card flips
         transform: rotateY(180deg);
     }
 
     &__front {
-        // the front face starts at 0deg, so it is visible at the beginning
         transform: rotateY(0deg);
     }
 }

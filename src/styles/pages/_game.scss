@@ -3,6 +3,7 @@
 @use "../base/typography" as typo;
 @use "../abstract/functions" as fct;
 
+// Game page layout
 .game-page-body {
     background-color: var(--page-background);
 }
@@ -13,6 +14,7 @@
     height: 100vh;
 }
 
+// Scoreboard and header
 .game-page__header {
     @include mx.flex-space-around-center;
     background-color: var(--header-background);
@@ -20,6 +22,7 @@
     border-radius: var(--radius);
 }
 
+// Player scores
 .playscore {
     background-color: var(--playscore-background);
     border-radius: var(--radius);
@@ -51,6 +54,7 @@
     }
 }
 
+// Current player indicator
 .current-player {
     @include mx.add-font(var(--main-font), var(--current-font-size), var(--current-font-weight));
     color: white;
@@ -84,6 +88,7 @@
     }
 }
 
+// Quit game controls
 .quit-game-button {
     @include li_bu.primary-button(
         $background-color: var(--button-background),
@@ -115,6 +120,7 @@
     }
 }
 
+// Quit game dialog
 .quit-game-dialog {
     @include mx.add-font(var(--dialog-font), var(--dialog-text-size), var(--dialog-text-weight));
     color: var(--dialog-color);
@@ -175,6 +181,7 @@
     }
 }
 
+// Cardboard layout
 .cardboard-wrapper {
     display: flex;
     justify-content: center;
@@ -198,6 +205,7 @@
     max-width: calc(6 * var(--card-width));
 }
 
+// Game-over dialog
 .game-over-dialog {
     width: 100vw;
     height: 100vh;
@@ -211,6 +219,7 @@
     }
 }
 
+// Game-over content
 .game-over {
     @include mx.flex-center-center;
     flex-direction: column;
@@ -233,6 +242,7 @@
     }
 }
 
+// Game results content
 .game-results {
     animation: curtain var(--game-results-animation-duration) ease-in-out 2s 1 forwards;
     transform: translateY(var(--game-results-start-position));

@@ -1,10 +1,9 @@
 @use "../abstract/functions" as fct;
 @use "../abstract/mixins" as mx;
-@use "../abstract/variables" as var;
 @use "../base/typography" as typo;
 @use "../components/links-&-buttons" as li_bu;
 
-// Page background and layout
+// Start page layout
 .start-page-body {
     @include mx.flex-center-center;
     background-color: #2f3131;
@@ -14,7 +13,7 @@
     background-position: left bottom;
 }
 
-// Start page content
+// Start page content and navigation
 .start-page {
     flex-direction: column;
     display: flex;
@@ -24,6 +23,7 @@
 .headline1 {
     @include typo.font-red-rose-140-700;
     color: white;
+    margin-top: 0;
 
     &__addition {
         font-size: fct.px-to-rem(48);

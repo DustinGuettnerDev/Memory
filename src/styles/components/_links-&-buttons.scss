@@ -1,7 +1,7 @@
 @use "../abstract/mixins" as mx;
 @use "../abstract/variables" as var;
 
-// Primary link mixin
+// Link styles
 @mixin primary-link(
     $gap: null,
     $before-content: null,
@@ -48,7 +48,7 @@
     }
 }
 
-// Primary button mixin
+// Button styles
 @mixin primary-button(
     $background-color,
     $font-family,

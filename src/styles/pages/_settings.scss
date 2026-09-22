@@ -4,7 +4,7 @@
 @use "../abstract/functions" as fct;
 @use "../components/links-&-buttons" as li_bu;
 
-// Settings mixins
+// Settings component mixins
 @mixin add-icon-to-selection-headline($path) {
     position: relative;
     font-weight: 700;
@@ -36,7 +36,7 @@
     }
 }
 
-// Page layout
+// Settings page layout
 .content-wrapper {
     display: flex;
     justify-content: space-between;
@@ -47,7 +47,7 @@
     @include typo.font-red-rose-54-700;
 }
 
-// Settings selection
+// Settings selection controls
 .settings-selection {
     @include typo.font-almarai-20-400;
     padding-left: 40px;
@@ -72,7 +72,7 @@
     @include settings-section("/assets/icons/settings-page/board.svg", 48px);
 }
 
-// Settings preview
+// Settings preview and start board
 .settings-preview {
     display: flex;
     justify-content: center;

@@ -16,16 +16,12 @@ export class Game {
     private readonly currentplayerIconBackgroundWrapperRef;
     private cardBackPool: string[] = [];
     private cardFront = "";
-    private readonly cardPaths = cardPaths;
     private readonly cardsPairAmount = 2;
     private playersTurn;
-    private gameEnd = false;
     private lastTwoCards: HTMLElement[] = [];
     private timesPickedACard = 0;
     private allCards;
     private winner = "";
-    private gameOverIcon = "";
-    private gameOverPlayerColor = "";
     private score = {
         blue: 0,
         orange: 0,
@@ -318,7 +314,7 @@ export class Game {
     }
 
     /**
-     * Updates the back-button text if the game-theme is codeVibes oder gaming
+     * Updates the result button label for the active game theme.
      */
     private setGameResultsButtonText() {
         if (this.gameTheme === "codeVibes") {
@@ -329,6 +325,9 @@ export class Game {
         this.gameResultsBackButtonRef.innerText = "Home";
     }
 
+    /**
+     * Registers navigation from the game results back to the settings page.
+     */
     private initGameResultsBackButton() {
         this.gameResultsBackButtonRef.addEventListener("click", () => {
             window.location.href = "settings.html";

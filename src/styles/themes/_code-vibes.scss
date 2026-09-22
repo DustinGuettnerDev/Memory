@@ -1,7 +1,7 @@
 @use "../abstract/functions" as fct;
 
 :root {
-    //colors
+    // Theme colors
     --color-teal: #4cc5af;
     --color-mint: #94ddd0;
     --color-pale-mint: #e0faf5;
@@ -11,13 +11,13 @@
     --color-dark-green: #415652;
     --color-white: white;
 
-    //page
+    // Page colors and typography
     --page-background: var(--color-charcoal);
 
-    //header
+    // Header
     --header-background: transparent;
 
-    //shared
+    // Shared controls
     --main-font: red-rose;
     --radius: 0;
     --common-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
@@ -31,33 +31,32 @@
     --blue-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/blue.svg");
     --orange-icon: url("/assets/icons/game-page/theme/code-vibes/player-icon/orange.svg");
 
-    //playscore
+    // Player scores
     --icon-size: 20px;
     --playscore-background: var(--color-dark-green);
     --playscore-font-size: #{fct.px-to-rem(24)};
     --playscore-height: 60px;
     --playscore-width: 280px;
 
-    //current-player
-    --current-background-blue: none;
-    --current-background-orange: none;
-    --current-background: none;
+    // Current player
+    --current-background-blue: transparent;
+    --current-background-orange: transparent;
     --current-font-size: #{fct.px-to-rem(26)};
     --current-font-weight: 400;
     --current-icon-filter: none;
 
-    //quit-game-button
+    // Quit button
     --quit-hover-icon-filter: none;
     --quit-shadow: 2px 2px 4px 0px rgba(var(--color-shadow-rgb), 1);
     --quit-transition: 0.1s;
 
-    //quit-game-dialog
+    // Quit dialog
     --dialog-color: black;
     --dialog-font: "red-rose";
     --dialog-text-weight: 700;
     --dialog-text-size: #{fct.px-to-rem(32)};
 
-    //quit-game-dialog__back-to-game-button
+    // Quit dialog back button
     --back-background: var(--color-teal);
     --back-border: 2px solid var(--color-teal);
     --back-font: "red-rose";
@@ -70,7 +69,7 @@
     --back-shadow: 0;
     --back-width: 200px;
 
-    //quit-game-dialog__exit-game-link
+    // Quit dialog exit link
     --exit-background: var(--color-pale-mint);
     --exit-border: 2px solid var(--color-teal);
     --exit-color: var(--color-teal);
@@ -84,18 +83,18 @@
     --exit-shadow: 2px 2px 6px 0px rgba(var(--color-shadow-rgb), 0.2);
     --exit-width: 200px;
 
-    //cardboard
+    // Cardboard
     --cardboard-gap: 10px;
 
-    //card
+    // Cards
     --card-margin-right: 0px;
     --card-width: 120px;
 
-    //game-over-dialog
+    // Game-over dialog
     --game-over-color: var(--color-teal);
     --game-over-shadow: var(--common-shadow);
 
-    //game-results
+    // Game results
     --game-results-animation-duration: 3s;
     --game-results-start-position: -100vh;
     --game-results-winner-shadow: none;
@@ -107,6 +106,6 @@
     --game-results-winner-orange-image: url("/assets/imgs/game-page/theme/code-vibes/orange-chess-pawm.svg");
     --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/code-vibes/draw-scale.svg");
 
-    //game-results-back-button
+    // Game results button
     --game-results-back-button-shadow: none;
 }

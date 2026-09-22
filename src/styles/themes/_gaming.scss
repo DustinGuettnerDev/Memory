@@ -1,7 +1,7 @@
 @use "../abstract/functions" as fct;
 
 :root {
-    //colors
+    // Theme colors
     --color-pink: #ed1b76;
     --color-blue: #1faafc;
     --color-pale-pink: #f0e4ef;
@@ -12,13 +12,13 @@
     --color-white: white;
     --color-orange: #f58e39;
 
-    //page
+    // Page colors and typography
     --page-background: var(--color-navy);
 
-    //header
+    // Header
     --header-background: var(--color-slate);
 
-    //shared
+    // Shared controls
     --main-font: orbitron;
     --radius: 15px;
     --common-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -32,14 +32,14 @@
     --blue-icon: url("/assets/icons/game-page/theme/gaming/player-icon/blue.svg");
     --orange-icon: url("/assets/icons/game-page/theme/gaming/player-icon/orange.svg");
 
-    //playscore
+    // Player scores
     --icon-size: 28px;
     --playscore-background: var(--color-white);
     --playscore-font-size: #{fct.px-to-rem(30)};
     --playscore-height: 50px;
     --playscore-width: 180px;
 
-    //current-player
+    // Current player
     --current-background-blue: var(--color-blue);
     --current-background-orange: var(--color-orange);
     --current-font-size: #{fct.px-to-rem(32)};
@@ -47,19 +47,19 @@
     --current-icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7498%) hue-rotate(137deg) brightness(101%)
         contrast(98%);
 
-    //quit-game-button
+    // Quit button
     --quit-hover-icon-filter: brightness(0) saturate(100%) invert(28%) sepia(83%) saturate(2959%) hue-rotate(328deg) brightness(86%)
         contrast(112%);
     --quit-shadow: 3px 3px 4px 2px rgba(var(--color-shadow-rgb), 0.2);
     --quit-transition: 0;
 
-    //quit-game-dialog
+    // Quit dialog
     --dialog-color: var(--color-navy);
     --dialog-font: orbitron;
     --dialog-text-size: #{fct.px-to-rem(28)};
     --dialog-text-weight: 700;
 
-    //quit-game-dialog__back-to-game-button
+    // Quit dialog back button
     --back-background: var(--color-pink);
     --back-border: 2px solid var(--color-pink);
     --back-font: orbitron;
@@ -72,7 +72,7 @@
     --back-shadow: 4px 4px 6px 0px rgba(var(--color-shadow-rgb), 0.2);
     --back-width: 180px;
 
-    //quit-game-dialog__exit-game-link
+    // Quit dialog exit link
     --exit-background: var(--color-pale-pink);
     --exit-border: 2px solid var(--color-pink);
     --exit-color: var(--color-pink);
@@ -86,18 +86,18 @@
     --exit-shadow: 4px 4px 6px 0px rgba(var(--color-shadow-rgb), 0.2);
     --exit-width: 180px;
 
-    //cardboard
+    // Cardboard
     --cardboard-gap: 0px;
 
-    //card
+    // Cards
     --card-margin-right: -10px;
     --card-width: 100px;
 
-    //game-over-dialog
+    // Game-over dialog
     --game-over-color: var(--color-pink);
     --game-over-shadow: none;
 
-    //game-results
+    // Game results
     --game-results-animation-duration: 1.5s;
     --game-results-start-position: 100vh;
     --game-results-winner-shadow: var(--common-shadow);
@@ -110,6 +110,6 @@
     --game-results-winner-orange-image: url("/assets/imgs/game-page/theme/gaming/cup.svg");
     --game-results-winner-draw-image: url("/assets/imgs/game-page/theme/gaming/draw-scale.svg");
 
-    //game-results-back-button
+    // Game results button
     --game-results-back-button-shadow: var(--common-shadow);
 }
