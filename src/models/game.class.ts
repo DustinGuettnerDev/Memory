@@ -187,7 +187,7 @@ export class Game {
      * Determines the winner and opens the game-over dialog once every card is found.
      */
     private endGameIfAllCardsFound() {
-        //if (!this.allCardsAreFound()) return;
+        if (!this.allCardsAreFound()) return;
 
         this.winner = this.isWinner();
         this.setGameResultsImgPath();
@@ -195,6 +195,7 @@ export class Game {
         this.setGameResultsText();
         this.setGameResultsButtonText();
         this.gameOverRef.showModal();
+        this.gameOverRef.scrollTop = 0;
     }
 
     /**

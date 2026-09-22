@@ -4,7 +4,7 @@
     width: 150px;
     background: 0;
     position: relative;
-    margin-bottom: var(--card-margin-bottom);
+    margin-right: var(--card-margin-right);
 
     // makes the child elements stay in the same 3D coordinate system
     // without this, the children are treated as flat 2D elements and the flip looks wrong

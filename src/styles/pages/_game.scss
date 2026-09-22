@@ -225,7 +225,8 @@ header {
 }
 
 .game-results {
-    animation: vorhang var(--game-results-animation-duration) ease-in-out 2s 1 forwards;
+    // fehler hier: bei gaming funktioniert es nicht das es von unten kommt
+    animation: curtain var(--game-results-animation-duration) ease-in-out 2s 1 forwards;
     transform: translateY(var(--game-results-start-position));
     @include mx.flex-center-center;
     gap: 56px;
@@ -236,7 +237,7 @@ header {
     background-color: var(--page-background);
     font-family: var(--main-font);
 
-    @keyframes vorhang {
+    @keyframes curtain {
         from {
             transform: translateY(var(--game-results-start-position));
         }
