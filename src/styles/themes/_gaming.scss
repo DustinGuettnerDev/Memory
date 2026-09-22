@@ -1,3 +1,5 @@
+@use "../abstract/functions" as fct;
+
 :root {
     //colors
     --color-pink: #ed1b76;
@@ -22,7 +24,7 @@
     --common-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     --button-background: transparent;
     --button-border: 2px solid var(--color-pink);
-    --button-font-size: 20px;
+    --button-font-size: #{fct.px-to-rem(20)};
     --button-height: 50px;
     --button-hover-background: transparent;
     --button-radius: 15px;
@@ -33,14 +35,14 @@
     //playscore
     --icon-size: 28px;
     --playscore-background: var(--color-white);
-    --playscore-font-size: 30px;
+    --playscore-font-size: #{fct.px-to-rem(30)};
     --playscore-height: 50px;
     --playscore-width: 180px;
 
     //current-player
     --current-background-blue: var(--color-blue);
     --current-background-orange: var(--color-orange);
-    --current-font-size: 32px;
+    --current-font-size: #{fct.px-to-rem(32)};
     --current-font-weight: 700;
     --current-icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7498%) hue-rotate(137deg) brightness(101%)
         contrast(98%);
@@ -54,14 +56,14 @@
     //quit-game-dialog
     --dialog-color: var(--color-navy);
     --dialog-font: orbitron;
-    --dialog-text-size: 28px;
+    --dialog-text-size: #{fct.px-to-rem(28)};
     --dialog-text-weight: 700;
 
     //quit-game-dialog__back-to-game-button
     --back-background: var(--color-pink);
     --back-border: 2px solid var(--color-pink);
     --back-font: orbitron;
-    --back-font-size: 16px;
+    --back-font-size: #{fct.px-to-rem(16)};
     --back-height: 50px;
     --back-hover-background: var(--color-white);
     --back-hover-color: var(--color-pink);
@@ -75,7 +77,7 @@
     --exit-border: 2px solid var(--color-pink);
     --exit-color: var(--color-pink);
     --exit-font: orbitron;
-    --exit-font-size: 16px;
+    --exit-font-size: #{fct.px-to-rem(16)};
     --exit-height: 50px;
     --exit-hover-background: var(--color-light-gray);
     --exit-hover-border-width: 3px;
@@ -88,7 +90,8 @@
     --cardboard-gap: 0px;
 
     //card
-    --card-margin-right: -12px;
+    --card-margin-right: -10px;
+    --card-width: 100px;
 
     //game-over-dialog
     --game-over-color: var(--color-pink);

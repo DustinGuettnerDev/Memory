@@ -1,13 +1,14 @@
 @use "../abstract/mixins" as mx;
 @use "../base/typography" as typo;
 @use "../abstract/variables" as var;
+@use "../abstract/functions" as fct;
 @use "../components/links-&-buttons" as li_bu;
 
 // Settings mixins
 @mixin add-icon-to-selection-headline($path) {
     position: relative;
     font-weight: 700;
-    font-size: 24px;
+    font-size: fct.px-to-rem(24);
 
     &::before {
         content: "";

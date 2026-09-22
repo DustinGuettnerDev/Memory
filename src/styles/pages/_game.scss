@@ -1,12 +1,19 @@
 @use "../abstract/mixins" as mx;
 @use "../components/links-&-buttons" as li_bu;
 @use "../base/typography" as typo;
+@use "../abstract/functions" as fct;
 
-body {
+.game-page-body {
     background-color: var(--page-background);
 }
 
-header {
+.game-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.game-page__header {
     @include mx.flex-space-around-center;
     background-color: var(--header-background);
     padding: 20px;
@@ -171,7 +178,8 @@ header {
 .cardboard-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 200px;
+    align-items: center;
+    flex: 1;
 }
 
 .cardboard {
@@ -183,11 +191,11 @@ header {
 }
 
 .cardboard--row-of-four {
-    width: 650px;
+    max-width: calc(4 * var(--card-width));
 }
 
 .cardboard--row-of-six {
-    width: 980px;
+    max-width: calc(6 * var(--card-width));
 }
 
 .game-over-dialog {
@@ -195,6 +203,7 @@ header {
     height: 100vh;
     background-color: var(--page-background);
     position: relative;
+    overflow-y: hidden;
 
     &[open] {
         @include mx.flex-center-center;
@@ -210,7 +219,7 @@ header {
 
     &__headline1 {
         @include typo.font-red-rose-140-700;
-        font-size: 140px;
+        font-size: fct.px-to-rem(140);
         font-weight: 700;
         color: var(--game-over-color);
         text-shadow: var(--game-over-shadow);
@@ -218,14 +227,13 @@ header {
 
     &__text {
         color: white;
-        font-size: 26px;
+        font-size: fct.px-to-rem(26);
         font-weight: 400;
         margin-bottom: 16px;
     }
 }
 
 .game-results {
-    // fehler hier: bei gaming funktioniert es nicht das es von unten kommt
     animation: curtain var(--game-results-animation-duration) ease-in-out 2s 1 forwards;
     transform: translateY(var(--game-results-start-position));
     @include mx.flex-center-center;
@@ -254,12 +262,12 @@ header {
 
     &__text {
         color: white;
-        font-size: 40px;
+        font-size: fct.px-to-rem(40);
         font-weight: 700;
     }
 
     &__winning-player {
-        font-size: 60px;
+        font-size: fct.px-to-rem(60);
         font-weight: 700;
         text-shadow: var(--game-results-winner-shadow);
 
@@ -273,7 +281,7 @@ header {
 
         &--draw {
             color: var(--game-results-winner-draw-color);
-            font-size: 100px;
+            font-size: fct.px-to-rem(100);
             text-shadow: var(--game-results-winner-draw-shadow);
         }
 

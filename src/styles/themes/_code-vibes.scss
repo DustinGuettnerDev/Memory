@@ -1,3 +1,5 @@
+@use "../abstract/functions" as fct;
+
 :root {
     //colors
     --color-teal: #4cc5af;
@@ -21,7 +23,7 @@
     --common-shadow: -1px 1px 4px rgba(148, 221, 208, 0.5);
     --button-background: var(--color-dark-green);
     --button-border: 1px solid var(--color-teal);
-    --button-font-size: 24px;
+    --button-font-size: #{fct.px-to-rem(24)};
     --button-height: 60px;
     --button-hover-background: var(--color-dark-green);
     --button-radius: 0;
@@ -32,7 +34,7 @@
     //playscore
     --icon-size: 20px;
     --playscore-background: var(--color-dark-green);
-    --playscore-font-size: 24px;
+    --playscore-font-size: #{fct.px-to-rem(24)};
     --playscore-height: 60px;
     --playscore-width: 280px;
 
@@ -40,26 +42,26 @@
     --current-background-blue: none;
     --current-background-orange: none;
     --current-background: none;
-    --current-font-size: 26px;
+    --current-font-size: #{fct.px-to-rem(26)};
     --current-font-weight: 400;
     --current-icon-filter: none;
 
     //quit-game-button
     --quit-hover-icon-filter: none;
-    --quit-shadow: 4px 4px 4px 0px rgba(var(--color-shadow-rgb), 1);
+    --quit-shadow: 2px 2px 4px 0px rgba(var(--color-shadow-rgb), 1);
     --quit-transition: 0.1s;
 
     //quit-game-dialog
     --dialog-color: black;
     --dialog-font: "red-rose";
     --dialog-text-weight: 700;
-    --dialog-text-size: 32px;
+    --dialog-text-size: #{fct.px-to-rem(32)};
 
     //quit-game-dialog__back-to-game-button
     --back-background: var(--color-teal);
     --back-border: 2px solid var(--color-teal);
     --back-font: "red-rose";
-    --back-font-size: 20px;
+    --back-font-size: #{fct.px-to-rem(20)};
     --back-height: 60px;
     --back-hover-background: var(--color-mint);
     --back-hover-border-width: 3px;
@@ -73,7 +75,7 @@
     --exit-border: 2px solid var(--color-teal);
     --exit-color: var(--color-teal);
     --exit-font: "red-rose";
-    --exit-font-size: 20px;
+    --exit-font-size: #{fct.px-to-rem(20)};
     --exit-height: 60px;
     --exit-hover-background: var(--color-light-teal);
     --exit-hover-border-width: 3px;
@@ -83,10 +85,11 @@
     --exit-width: 200px;
 
     //cardboard
-    --cardboard-gap: 16px;
+    --cardboard-gap: 10px;
 
     //card
     --card-margin-right: 0px;
+    --card-width: 120px;
 
     //game-over-dialog
     --game-over-color: var(--color-teal);

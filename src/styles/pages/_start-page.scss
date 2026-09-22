@@ -5,7 +5,7 @@
 @use "../components/links-&-buttons" as li_bu;
 
 // Page background and layout
-body {
+.start-page-body {
     @include mx.flex-center-center;
     background-color: #2f3131;
     position: relative;
