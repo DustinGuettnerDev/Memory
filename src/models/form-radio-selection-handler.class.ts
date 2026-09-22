@@ -16,15 +16,15 @@ export class FormRadioSelectionHandler {
         gaming: "/assets/imgs/settings-page/theme/gaming-preview.png",
     };
 
-    private formRef: HTMLElement;
-    private labelArray: NodeListOf<HTMLLabelElement>;
-    private outputRef: HTMLElement;
-    private startBoardThemeRef: HTMLElement;
-    private startBoardPlayerRef: HTMLElement;
-    private startBoardSizeRef: HTMLElement;
-    private startBoardRef: HTMLElement;
-    private previewImageRef: HTMLImageElement;
-    private startLinkRef: HTMLElement;
+    private readonly formRef;
+    private readonly labelArray;
+    private readonly outputRef;
+    private readonly startBoardThemeRef;
+    private readonly startBoardPlayerRef;
+    private readonly startBoardSizeRef;
+    private readonly startBoardRef;
+    private readonly previewImageRef;
+    private readonly startLinkRef;
 
     /**
      * Creates a handler for one settings radio form.
@@ -85,7 +85,7 @@ export class FormRadioSelectionHandler {
         this.labelArray.forEach((element) => {
             element.querySelector(".figure1")?.remove();
         });
-        clickedLabel?.insertAdjacentHTML("beforeend", createFigure1({}));
+        clickedLabel?.insertAdjacentHTML("beforeend", createFigure1({ reverse: true }));
     }
 
     /**
@@ -106,6 +106,7 @@ export class FormRadioSelectionHandler {
      * Enables the link used to start the game.
      */
     private activateStartLink() {
+        this.startLinkRef.classList.remove("disabled");
         this.startLinkRef.classList.add("enabled");
     }
 

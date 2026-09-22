@@ -24,6 +24,7 @@
     @include typo.font-red-rose-140-700;
     color: white;
     margin-top: 0;
+    white-space: nowrap;
 
     &__addition {
         font-size: fct.px-to-rem(48);
