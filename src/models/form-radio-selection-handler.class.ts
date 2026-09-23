@@ -85,7 +85,7 @@ export class FormRadioSelectionHandler {
         this.labelArray.forEach((element) => {
             element.querySelector(".figure1")?.remove();
         });
-        clickedLabel?.insertAdjacentHTML("beforeend", createFigure1({ reverse: true }));
+        clickedLabel?.insertAdjacentHTML("beforeend", createFigure1({ reverse: true, lineWidth: 40 }));
     }
 
     /**
