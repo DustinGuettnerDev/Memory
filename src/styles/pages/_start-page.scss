@@ -44,3 +44,41 @@
     height: 95px;
     width: 240px;
 }
+
+@media (min-width: 1400px) {
+    .start-link {
+        width: 290px;
+        height: 100px;
+
+        &::before {
+            transform: scale(1.2);
+            top: 2px;
+        }
+
+        &:hover::before {
+            transform: scale(1.2) rotate(-30deg);
+        }
+    }
+
+    .headline1 {
+        font-size: 8.25rem;
+    }
+}
+
+@media (max-width: 1400px) {
+    .headline1 {
+        //font-size: 8.25rem;
+    }
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-width: 700px) {
+}
+
+@media (max-width: 400px) {
+}
+
+@media (max-height: 770px) {
+}

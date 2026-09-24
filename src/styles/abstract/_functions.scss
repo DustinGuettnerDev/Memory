@@ -2,3 +2,12 @@
 @function px-to-rem($px, $base: 16) {
     @return calc(($px/$base) * 1rem);
 }
+
+@function fluid-font-size($font-start, $font-end, $min-width: 350px, $max-width: 1920px) {
+    $font-diff: $font-end - $font-start;
+    $width-diff: $max-width - $min-width;
+    $slope: $font-diff / $width-diff;
+    $intercept: $font-start - ($slope * $min-width);
+
+    @return clamp($font-start, calc(#{$intercept} + #{$slope * 100}vw), $font-end);
+}
