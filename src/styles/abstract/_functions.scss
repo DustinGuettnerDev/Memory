@@ -3,7 +3,8 @@
     @return calc(($px/$base) * 1rem);
 }
 
-@function fluid-font-size($font-start, $font-end, $min-width: 350px, $max-width: 1920px) {
+// Fluid font size between two viewport widths
+@function fluid-font-size($font-start, $font-end, $min-width: 350px, $max-width: 1400px) {
     $font-diff: $font-end - $font-start;
     $width-diff: $max-width - $min-width;
     $slope: $font-diff / $width-diff;
