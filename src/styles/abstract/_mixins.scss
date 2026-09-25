@@ -22,4 +22,7 @@
     height: $size;
     width: $size;
     background-image: $url;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }

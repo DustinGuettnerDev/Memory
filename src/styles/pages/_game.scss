@@ -334,3 +334,42 @@
         );
     }
 }
+
+@media (min-width: 1200px) {
+}
+@media (max-width: 1200px) {
+}
+@media (max-width: 900px) {
+    .current-player {
+        font-size: 20px;
+    }
+
+    .quit-game-button {
+        height: 40px;
+    }
+
+    .playscore {
+        height: 40px;
+        width: 140px;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .current-player {
+        &__icon-background-wrapper {
+            padding: 4px;
+        }
+
+        &__icon {
+            &--orange,
+            --blue {
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+}
+@media (max-width: 700px) {
+}
+@media (max-width: 400px) {
+}
