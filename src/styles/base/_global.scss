@@ -37,20 +37,3 @@ button {
 dialog {
     border: 0;
 }
-@media (min-width: 1400px) {
-    html {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 900px) {
-    html {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 400px) {
-    html {
-        font-size: 13px;
-    }
-}

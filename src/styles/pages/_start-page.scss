@@ -22,7 +22,7 @@
 
 .headline1 {
     @include typo.font-red-rose-140-700;
-    @include fct.fluid-font-size(5rem, 8, 75rem);
+    font-size: fct.fluid-size(5rem, 75rem);
     color: white;
     margin-top: 0;
     white-space: nowrap;
