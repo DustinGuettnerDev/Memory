@@ -74,6 +74,7 @@
     box-sizing: border-box;
     height: $height;
     width: $width;
+    text-align: center;
 
     &:hover {
         background-color: $hover-background-color;
