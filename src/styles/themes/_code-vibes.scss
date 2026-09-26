@@ -84,11 +84,11 @@
     --exit-width: 200px;
 
     // Cardboard
-    --cardboard-gap: 10px;
+    --cardboard-gap: #{fct.fluid-size(6px, 10px)};
 
     // Cards
-    --card-margin-right: 0px;
-    --card-width: 120px;
+    --card-size: #{fct.fluid-size(40px, 100px)};
+    --card-margin: 0;
 
     // Game-over dialog
     --game-over-color: var(--color-teal);

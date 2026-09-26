@@ -1,13 +1,11 @@
 // Link and button state utilities
-a.disabled,
-button.disabled {
+a.disabled {
     pointer-events: none;
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-a.enabled,
-button.enabled {
+a.enabled {
     pointer-events: auto;
     opacity: 1;
 }

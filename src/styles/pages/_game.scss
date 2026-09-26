@@ -11,12 +11,15 @@
 .game-page {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 // Scoreboard and header
 .game-page__header {
     @include mx.flex-space-around-center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     background-color: var(--header-background);
     padding: 20px;
     border-radius: var(--radius);
@@ -89,6 +92,10 @@
 }
 
 // Quit game controls
+.quit-game-button-wrapper {
+    background-color: var(--header-background);
+}
+
 .quit-game-button {
     @include li_bu.primary-button(
         $background-color: var(--button-background),
@@ -190,19 +197,16 @@
 }
 
 .cardboard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
     gap: var(--cardboard-gap);
-    flex-wrap: wrap;
 }
 
 .cardboard--row-of-four {
-    max-width: calc(4 * var(--card-width));
+    grid-template-columns: repeat(4, auto);
 }
 
 .cardboard--row-of-six {
-    max-width: calc(6 * var(--card-width));
+    grid-template-columns: repeat(6, auto);
 }
 
 // Game-over dialog
@@ -335,27 +339,65 @@
     }
 }
 
-@media (min-width: 1200px) {
-}
 @media (max-width: 1200px) {
 }
 @media (max-width: 900px) {
-    .current-player {
-        font-size: 20px;
+    .game-page__header {
+        flex-direction: column;
+        gap: 18px;
+        margin-inline: -32px;
+        border-radius: 0;
     }
 
-    .quit-game-button {
-        height: 40px;
+    .current-player {
+        order: 0;
     }
 
     .playscore {
-        height: 40px;
-        width: 140px;
-        gap: 15px;
-        justify-content: center;
+        order: 1;
+    }
+
+    .quit-game-button-wrapper {
+        order: 2;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        @include mx.flex-center-center;
+    }
+}
+@media (max-width: 700px) {
+}
+@media (max-width: 450px) {
+    .quit-game-button {
+        height: 35px;
+        width: 155px;
+        font-size: 1.125rem;
+
+        &__icon {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    .playscore {
+        height: 35px;
+        width: 135px;
+        justify-content: space-around;
+
+        &__player-icon {
+            display: none;
+        }
+
+        &__color-name {
+            display: none;
+        }
     }
 
     .current-player {
+        font-size: 26px;
         &__icon-background-wrapper {
             padding: 4px;
         }
@@ -368,8 +410,4 @@
             }
         }
     }
-}
-@media (max-width: 700px) {
-}
-@media (max-width: 400px) {
 }
