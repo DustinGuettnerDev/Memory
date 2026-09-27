@@ -1,4 +1,4 @@
-import{r as e}from"./main-DFuZIc-u.js";function t({lineWidth:e=80,lineHeight:t=3,reverse:n=!1,shift:r=0,rotate:i=0}){return`
+import{r as e}from"./main-BY9beTCi.js";function t({lineWidth:e=80,lineHeight:t=3,reverse:n=!1,shift:r=0,rotate:i=0}){return`
     <div class="figure1" style="width: calc(${e}px + 15px); transform: translateX(${r}px) rotate(${i}deg);">
       <div class="figure1__line" style="order:${n?1:2}; width:${e}px; height:${t}px;"></div>
       <div class="figure1__square" style="order:${n?2:1};"></div>
