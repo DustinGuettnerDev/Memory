@@ -120,7 +120,8 @@
         @include mx.add-icon(url("/assets/icons/game-page/quit-button/quit.svg"), 25px);
     }
 
-    &:hover {
+    &:hover,
+    &:active {
         .quit-game-button__icon {
             filter: var(--quit-hover-icon-filter);
         }
@@ -368,7 +369,7 @@
     .quit-game-button {
         height: 35px;
         width: 155px;
-        font-size: 1.125rem;
+        font-size: fct.px-to-rem(18);
 
         &__icon {
             height: 20px;
@@ -376,8 +377,12 @@
         }
     }
 
+    .quit-game-dialog__text {
+        font-size: fct.px-to-rem(20);
+    }
+
     .quit-game-dialog__wrapper {
-        padding: 24px;
+        padding: 16px;
     }
 
     .playscore {

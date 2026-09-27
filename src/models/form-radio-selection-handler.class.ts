@@ -5,12 +5,6 @@ import { saveInLocalStorage } from "../scripts/localStorage";
  * Handles form radio selection logic for settings.
  */
 export class FormRadioSelectionHandler {
-    private static readonly settingsObject: Record<string, string> = {
-        "settings-game-theme": "codeVibes",
-        "settings-player-color": "blue",
-        "settings-board-size": "16",
-    };
-
     private static readonly gameThemePathObject: Record<string, string> = {
         codeVibes: "/assets/imgs/settings-page/theme/code-vibes-preview.png",
         gaming: "/assets/imgs/settings-page/theme/gaming-preview.png",
@@ -73,7 +67,6 @@ export class FormRadioSelectionHandler {
      * Stores the selected value and updates the preview text.
      */
     private setValues(actualValue: string, clickedLabel: HTMLLabelElement) {
-        FormRadioSelectionHandler.settingsObject[this.key] = actualValue;
         saveInLocalStorage(this.key, actualValue);
         this.outputRef.innerText = clickedLabel.innerText;
     }
@@ -89,7 +82,7 @@ export class FormRadioSelectionHandler {
     }
 
     /**
-     * Replaces preview dividers after all settings are selected.
+     * Updates the start board ornaments and enables its link after all settings are selected.
      */
     private checkIfAllSettingsAreSet() {
         if (

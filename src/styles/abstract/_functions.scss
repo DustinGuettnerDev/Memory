@@ -14,3 +14,8 @@
 
     @return clamp($start, calc(#{$intercept} + #{($slope * 100) * 1vw}), $end);
 }
+
+// Converts pixel bounds to rem and fluidly scales the font size.
+@function fluid-font-size($start, $end, $min-width: 350px, $max-width: 1400px) {
+    @return fluid-size(px-to-rem($start / 1px), px-to-rem($end / 1px), $min-width, $max-width);
+}

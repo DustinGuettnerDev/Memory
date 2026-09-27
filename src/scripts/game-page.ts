@@ -1,10 +1,17 @@
 import "../styles/pages/_game.scss";
+import { defaultGameSettings, supportedBoardSizes } from "../constants/game-settings";
 import { importOutOfLocalStorage } from "./localStorage";
 import { Game } from "../models/game.class";
-let gameTheme = importOutOfLocalStorage("settings-game-theme");
-let playerColor = importOutOfLocalStorage("settings-player-color");
-let boardSize = Number(importOutOfLocalStorage("settings-board-size"));
 
+const storedGameTheme = importOutOfLocalStorage("settings-game-theme");
+const storedPlayerColor = importOutOfLocalStorage("settings-player-color");
+const storedBoardSize = importOutOfLocalStorage("settings-board-size");
+const gameTheme = storedGameTheme === "gaming" || storedGameTheme === "codeVibes" ? storedGameTheme : defaultGameSettings.theme;
+const playerColor = storedPlayerColor === "orange" || storedPlayerColor === "blue" ? storedPlayerColor : defaultGameSettings.playerColor;
+const boardSize =
+    typeof storedBoardSize === "string"
+        ? (supportedBoardSizes.find((size) => String(size) === storedBoardSize) ?? defaultGameSettings.boardSize)
+        : defaultGameSettings.boardSize;
 const exitButtonRef = document.getElementById("exit-game-link-id");
 const backButtonRef = document.getElementById("back-to-game-button-id");
 
@@ -20,7 +27,7 @@ async function initGame() {
 }
 
 /**
- * Loads the stylesheet for the selected game theme.
+ * Loads the selected theme stylesheet and applies its theme-specific UI settings.
  * @param gameTheme - The theme name stored in local storage.
  */
 async function addTheme(gameTheme: string) {

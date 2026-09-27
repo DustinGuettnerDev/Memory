@@ -35,7 +35,8 @@
         top: $after-position;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
         transform: scale(1.1);
 
         &::before {
@@ -76,7 +77,8 @@
     width: $width;
     text-align: center;
 
-    &:hover {
+    &:hover,
+    &:active {
         background-color: $hover-background-color;
         border-width: $border-hover-width;
         box-shadow: $box-shadow;

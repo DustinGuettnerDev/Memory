@@ -109,3 +109,14 @@
     // Game results button
     --game-results-back-button-shadow: none;
 }
+
+@media (max-width: 450px) {
+    :root {
+        --back-font-size: #{fct.px-to-rem(16)};
+        --back-height: 40px;
+        --back-width: 120px;
+        --exit-font-size: #{fct.px-to-rem(16)};
+        --exit-height: 40px;
+        --exit-width: 120px;
+    }
+}

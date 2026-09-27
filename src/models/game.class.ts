@@ -98,19 +98,13 @@ export class Game {
     }
 
     /**
-     * set Player Icon
+     * Updates the current player's icon and its background color.
      */
     private setCurrentPlayerIcon() {
         this.currentPlayerIconRef.classList.toggle(`current-player__icon--blue`, this.playersTurn === "blue");
         this.currentPlayerIconRef.classList.toggle(`current-player__icon--orange`, this.playersTurn === "orange");
-        this.currentplayerIconBackgroundWrapperRef.classList.toggle(
-            "current-player__icon-background-wrapper--blue",
-            this.playersTurn === "blue",
-        );
-        this.currentplayerIconBackgroundWrapperRef.classList.toggle(
-            "current-player__icon-background-wrapper--orange",
-            this.playersTurn === "orange",
-        );
+        this.currentplayerIconBackgroundWrapperRef.classList.toggle("current-player__icon-background-wrapper--blue", this.playersTurn === "blue");
+        this.currentplayerIconBackgroundWrapperRef.classList.toggle("current-player__icon-background-wrapper--orange", this.playersTurn === "orange");
     }
 
     /**
@@ -137,7 +131,7 @@ export class Game {
     private async initCardButtons() {
         this.cardBoardRef.addEventListener("click", (event) => {
             const cardButtonRef = (event.target as HTMLElement).closest("button");
-            if (!cardButtonRef) return;
+            if (!cardButtonRef || cardButtonRef.disabled || cardButtonRef.classList.contains("card--selected")) return;
 
             cardButtonRef.classList.add("card--selected");
             this.timesPickedACard += 1;
@@ -307,7 +301,7 @@ export class Game {
     }
 
     /**
-     * Updates the game results text if its a draw or somebody won.
+     * Sets the result message for a draw or a win.
      */
     private setGameResultsText() {
         this.winner === "draw" ? (this.gameResultsTextRef.innerText = "It`s a") : (this.gameResultsTextRef.innerText = "The winner is");

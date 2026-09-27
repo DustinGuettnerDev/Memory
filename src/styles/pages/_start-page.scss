@@ -21,19 +21,20 @@
 }
 
 .headline1 {
-    @include typo.font-red-rose-140-700;
-    font-size: fct.fluid-size(5rem, 75rem);
+    @include typo.font-red-rose-base;
+    font-size: fct.fluid-font-size(40px, 140px);
     color: white;
     margin-top: 0;
     white-space: nowrap;
 
     &__addition {
-        font-size: fct.px-to-rem(48);
+        font-size: fct.fluid-font-size(20px, 64px);
     }
 }
 
 .start-link {
-    @include typo.font-red-rose-40-700;
+    @include typo.font-red-rose-base;
+    font-size: fct.fluid-font-size(32px, 50px);
     @include li_bu.primary-link(
         $gap: 20px,
         $before-content: "/assets/icons/start-page/controller.svg",
@@ -42,24 +43,16 @@
         $after-content: "\2192",
         $after-animation: scale(1.2)
     );
-}
+    width: fct.fluid-size(160px, 280px);
+    height: fct.fluid-size(60px, 95px);
+    gap: fct.fluid-size(4px, 20px);
 
-@media (min-width: 1400px) {
-    .start-link {
-        width: 290px;
-        height: 100px;
-
-        &::before {
-            transform: scale(1.2);
-            top: 2px;
-        }
-
-        &:hover::before {
-            transform: scale(1.2) rotate(-30deg);
-        }
+    &::before {
+        transform: scale(fct.fluid-size(0.7, 1.1));
     }
 
-    .headline1 {
-        font-size: 8.25rem;
+    &:hover::before,
+    &:active::before {
+        transform: rotate(-30deg) scale(fct.fluid-size(0.9, 1.3));
     }
 }
