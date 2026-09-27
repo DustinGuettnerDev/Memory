@@ -400,7 +400,7 @@
     }
 
     .current-player {
-        font-size: 26px;
+        font-size: fct.px-to-rem(26);
         &__icon-background-wrapper {
             padding: 4px;
         }

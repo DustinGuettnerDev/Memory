@@ -6,6 +6,10 @@
 // Start page layout
 .start-page-body {
     @include mx.flex-center-center;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    height: auto;
     background-color: #2f3131;
     position: relative;
     background-image: url("/assets/imgs/start-page/controller.svg");
@@ -18,6 +22,36 @@
     flex-direction: column;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+}
+
+.legal-footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 24px 0;
+
+    &__link {
+        @include typo.font-almarai-base;
+        font-size: fct.px-to-rem(16);
+        color: white;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        transition: color 0.2s ease;
+
+        &:hover,
+        &:active {
+            color: #f0ea6e;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #f0ea6e;
+            outline-offset: 4px;
+        }
+    }
 }
 
 .headline1 {
@@ -54,5 +88,11 @@
     &:hover::before,
     &:active::before {
         transform: rotate(-30deg) scale(fct.fluid-size(0.9, 1.3));
+    }
+}
+
+@media (max-width: 700px) {
+    .start-page-body .legal-footer {
+        padding-bottom: 8px;
     }
 }

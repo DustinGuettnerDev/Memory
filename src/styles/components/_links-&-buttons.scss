@@ -1,6 +1,5 @@
 @use "../abstract/mixins" as mx;
 @use "../abstract/variables" as var;
-
 // Link styles
 @mixin primary-link(
     $gap: null,

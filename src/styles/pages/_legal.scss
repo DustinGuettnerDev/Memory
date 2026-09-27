@@ -1,0 +1,110 @@
+@use "../abstract/functions" as fct;
+@use "../base/typography" as typo;
+@use "../components/links-&-buttons" as li_bu;
+
+.legal-page-body {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 28px;
+    background-color: #2f3131;
+    color: #f4f4f4;
+    font-family: "almarai", sans-serif;
+    font-size: fct.fluid-font-size(16px, 18px);
+    line-height: 1.65;
+}
+
+.legal-page {
+    max-width: 720px;
+    margin: 0 auto;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    h1 {
+        @include typo.font-red-rose-base;
+        font-size: fct.fluid-font-size(40px, 56px);
+        line-height: 1.15;
+        margin: 0;
+    }
+
+    h2 {
+        @include typo.font-red-rose-base;
+        font-size: fct.px-to-rem(24);
+        color: #f0ea6e;
+        margin: 32px 0 8px;
+    }
+
+    p,
+    ul {
+        margin-top: 0;
+    }
+
+    &__notice {
+        border-left: 3px solid #f0ea6e;
+        padding-left: 16px;
+    }
+
+    &__back-link {
+        @include li_bu.primary-button(
+            $background-color: #f0ea6e,
+            $font-family: "red-rose",
+            $font-size: fct.px-to-rem(16),
+            $font-weight: 700,
+            $color: #2f3131,
+            $border: 1px solid #f0ea6e,
+            $border-radius: 4px,
+            $height: 36px,
+            $width: fit-content,
+            $border-hover-width: 1px,
+            $box-shadow: none,
+            $hover-background-color: #e4dc5b,
+            $hover-color: #2f3131
+        );
+        margin-left: auto;
+        padding: 0 16px;
+        text-decoration: none;
+        transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+
+        &:hover,
+        &:active {
+            transform: scale(1.1);
+        }
+
+        &:focus-visible {
+            outline: 2px solid #f0ea6e;
+            outline-offset: 4px;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .legal-page {
+        text-align: center;
+
+        &__header {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__back-link {
+            margin-left: 0;
+            height: 30px;
+            padding: 0 10px;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style-position: inside;
+        }
+    }
+}
