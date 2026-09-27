@@ -134,6 +134,7 @@ export class Game {
             if (!cardButtonRef || cardButtonRef.disabled || cardButtonRef.classList.contains("card--selected")) return;
 
             cardButtonRef.classList.add("card--selected");
+            cardButtonRef.setAttribute("aria-label", `Memory card, revealed: ${cardButtonRef.dataset.cardName}`);
             this.timesPickedACard += 1;
             this.lastTwoCards.push(cardButtonRef);
             this.handleTurnResult();
@@ -193,7 +194,10 @@ export class Game {
      * Removes the selected modifier from the two most recently picked cards.
      */
     private resetSelectedCards() {
-        this.lastTwoCards.forEach((el) => el.classList.remove("card--selected"));
+        this.lastTwoCards.forEach((element) => {
+            element.classList.remove("card--selected");
+            element.setAttribute("aria-label", "Memory card, face down");
+        });
     }
 
     /**

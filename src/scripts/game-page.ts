@@ -21,7 +21,6 @@ const backButtonRef = document.getElementById("back-to-game-button-id");
 async function initGame() {
     initButtons();
     await addTheme(gameTheme);
-    await import("../styles/pages/_game.scss");
     new Game(gameTheme, playerColor, boardSize);
     console.log(boardSize, playerColor, gameTheme);
 }

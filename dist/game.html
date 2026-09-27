@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Memory - Game</title>
+      <script type="module" crossorigin src="/assets/game-sygXL_eg.js"></script>
+      <link rel="modulepreload" crossorigin href="/assets/main-DFuZIc-u.js">
+      <link rel="modulepreload" crossorigin href="/assets/localStorage-Bkul-W4T.js">
+      <link rel="stylesheet" crossorigin href="/assets/main-Ir95B2YU.css">
+      <link rel="stylesheet" crossorigin href="/assets/game-D3OBkfLy.css">
+    </head>
+    <body class="game-page-body">
+        <main class="game-page">
+            <h1 class="visually-hidden">Memory game</h1>
+            <header class="game-page__header">
+                <section class="playscore">
+                    <div class="playscore__player playscore__player--blue">
+                        <div class="playscore__player-icon playscore__player-icon--blue"></div>
+                        <div class="playscore__color-name">Blue</div>
+                        <div class="playscore__player-count"></div>
+                    </div>
+                    <div class="playscore__player playscore__player--orange">
+                        <div class="playscore__player-icon playscore__player-icon--orange"></div>
+                        <div class="playscore__color-name">Orange</div>
+                        <div class="playscore__player-count"></div>
+                    </div>
+                </section>
+
+                <section class="current-player">
+                    Current player:
+                    <div id="current-player-icon-background-wrapper-id" class="current-player__icon-background-wrapper">
+                        <div id="current-player-icon-id" class="current-player__icon"></div>
+                    </div>
+                </section>
+
+                <div class="quit-game-button-wrapper">
+                    <button id="quit-game-button-id" class="quit-game-button">
+                        <div class="quit-game-button__icon"></div>
+                        Exit game
+                    </button>
+                </div>
+            </header>
+
+            <dialog id="quit-game-dialog-id" class="quit-game-dialog">
+                <div class="quit-game-dialog__wrapper">
+                    <p class="quit-game-dialog__text">
+                        Are you sure you want to quit<br />
+                        the game
+                    </p>
+                    <div class="quit-game-dialog__menu">
+                        <button id="back-to-game-button-id" class="quit-game-dialog__back-to-game-button">Back to game</button>
+                        <a id="exit-game-link-id" href="settings.html" class="quit-game-dialog__exit-game-link">Exit game</a>
+                    </div>
+                </div>
+            </dialog>
+
+            <div class="cardboard-wrapper">
+                <section id="cardboard-id" class="cardboard"></section>
+            </div>
+        </main>
+
+        <dialog id="game-over-dialog-id" class="game-over-dialog">
+            <section class="game-over">
+                <h1 class="game-over__headline1">Game over</h1>
+                <div class="game-over__text">Final score</div>
+                <section class="playscore">
+                    <div class="playscore__player playscore__player--blue">
+                        <div class="playscore__player-icon playscore__player-icon--blue"></div>
+                        <div class="playscore__color-name">Blue</div>
+                        <div class="playscore__player-count"></div>
+                    </div>
+                    <div class="playscore__player playscore__player--orange">
+                        <div class="playscore__player-icon playscore__player-icon--orange"></div>
+                        <div class="playscore__color-name">Orange</div>
+                        <div class="playscore__player-count"></div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="game-results">
+                <div class="game-results__winning-text">
+                    <div id="game-results-text-id" class="game-results__text">The winner is</div>
+                    <div id="game-results-winning-player-id" class="game-results__winning-player">BLUE PLAYER</div>
+                </div>
+                <div id="game-results-winning-player-icon-id" class="game-results__winning-player-icon"></div>
+                <button id="game-results-back-to-start-button-id" class="game-results__back-to-start-button">Back to start</button>
+            </section>
+        </dialog>
+
+    </body>
+</html>

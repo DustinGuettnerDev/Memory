@@ -34,8 +34,15 @@ export function createFigure1({
  * @returns The generated card markup.
  */
 export function createCard(front: string, back: string): string {
-    return `<button class="card">
-                    <img class="card__front" src="${front}" />
-                    <img class="card__back" src="${back}" />
+    const cardName =
+        back
+            .split("/")
+            .pop()
+            ?.replace(/\.[^.]+$/, "")
+            .replace(/[-_]/g, " ") ?? "symbol";
+
+    return `<button class="card" type="button" aria-label="Memory card, face down" data-card-name="${cardName}">
+          <img class="card__front" src="${front}" alt="" aria-hidden="true" />
+          <img class="card__back" src="${back}" alt="" aria-hidden="true" />
                 </button>`;
 }
