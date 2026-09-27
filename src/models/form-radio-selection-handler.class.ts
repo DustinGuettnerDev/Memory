@@ -6,8 +6,8 @@ import { saveInLocalStorage } from "../scripts/localStorage";
  */
 export class FormRadioSelectionHandler {
     private static readonly gameThemePathObject: Record<string, string> = {
-        codeVibes: "/assets/imgs/settings-page/theme/code-vibes-preview.png",
-        gaming: "/assets/imgs/settings-page/theme/gaming-preview.png",
+        codeVibes: "assets/imgs/settings-page/theme/code-vibes-preview.png",
+        gaming: "assets/imgs/settings-page/theme/gaming-preview.png",
     };
 
     private readonly formRef;
