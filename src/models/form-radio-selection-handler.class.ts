@@ -42,6 +42,7 @@ export class FormRadioSelectionHandler {
         this.startLinkRef = document.getElementById("start-board-button-id")!;
 
         this.initStartLink();
+        this.initOrnamentHover();
         this.formRef.addEventListener("change", (event) => this.handleChange(event));
     }
 
@@ -79,6 +80,25 @@ export class FormRadioSelectionHandler {
             element.querySelector(".figure1")?.remove();
         });
         clickedLabel?.insertAdjacentHTML("beforeend", createFigure1({ reverse: true, lineWidth: 40 }));
+    }
+
+    /**
+     * Shows the selection ornament while hovering over an unselected setting.
+     */
+    private initOrnamentHover() {
+        this.labelArray.forEach((label) => {
+            label.addEventListener("mouseenter", () => {
+                if (!label.querySelector(".figure1")) {
+                    label.insertAdjacentHTML("beforeend", createFigure1({ reverse: true, lineWidth: 40 }));
+                }
+            });
+
+            label.addEventListener("mouseleave", () => {
+                if (!label.querySelector("input:checked")) {
+                    label.querySelector(".figure1")?.remove();
+                }
+            });
+        });
     }
 
     /**

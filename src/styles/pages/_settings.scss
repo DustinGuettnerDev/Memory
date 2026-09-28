@@ -30,10 +30,36 @@
         margin-top: $margin-top;
     }
 
+    &__radio {
+        accent-color: black;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid black;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        top: -1px;
+
+        &:hover,
+        &:checked {
+            background: radial-gradient(circle, black 0 3px, transparent 4px);
+        }
+    }
+
     &__label {
         display: flex;
         align-items: center;
         gap: 8px;
+        height: 20px;
+        cursor: pointer;
+
+        &:hover,
+        &:has(input:checked) {
+            font-weight: 600;
+            transform-origin: left;
+        }
     }
 }
 
