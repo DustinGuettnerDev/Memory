@@ -145,7 +145,7 @@ export class Game {
      * Evaluates the current turn and updates the player state, score, and card selection.
      */
     private async handleTurnResult() {
-        this.awardPointOnPairMatch();
+        await this.awardPointOnPairMatch();
         await this.switchPlayerIfTurnComplete();
         this.endGameIfAllCardsFound();
     }
@@ -153,10 +153,31 @@ export class Game {
     /**
      * Clears the selection and scores a point when the last two cards match.
      */
-    private awardPointOnPairMatch() {
+    private async awardPointOnPairMatch() {
         if (!this.isPairMatch(this.lastTwoCards)) return;
+        this.toggleCardButtons({ isDisabled: true });
+        await this.flipFinished(this.lastTwoCards[1]);
         this.clearSelectedCards();
         this.getAPoint();
+        this.toggleCardButtons({ isDisabled: false });
+    }
+
+    /**
+     * Resolves when the card's flip transition finishes.
+     * @param card - The card whose flip transition is being observed.
+     * @returns A promise that resolves when the transition ends.
+     */
+    private flipFinished(card: HTMLElement) {
+        return new Promise<void>((resolve) => {
+            function onTransitionEnd(event: TransitionEvent) {
+                if (event.target !== card || event.propertyName !== "transform") return;
+
+                card.removeEventListener("transitionend", onTransitionEnd);
+                resolve();
+            }
+
+            card.addEventListener("transitionend", onTransitionEnd);
+        });
     }
 
     /**

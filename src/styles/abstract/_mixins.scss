@@ -17,11 +17,15 @@
     font-weight: $font-weight;
 }
 
+@mixin add-background-image($url, $size: contain, $repeat: no-repeat, $position: center) {
+    background-image: $url;
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+
 @mixin add-icon($url, $size: 20px) {
     height: $size;
     width: $size;
-    background-image: $url;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    @include add-background-image($url);
 }
