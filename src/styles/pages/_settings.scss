@@ -134,6 +134,7 @@
         );
         height: 55px;
         width: 120px;
+        margin-left: 10px;
     }
 
     &__line {
@@ -150,6 +151,16 @@
 
     &__text {
         white-space: nowrap;
+    }
+
+    &__game-theme {
+        width: 156px;
+    }
+    &__player-color {
+        width: 66px;
+    }
+    &__board-size {
+        width: 72px;
     }
 }
 
