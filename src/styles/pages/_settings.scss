@@ -122,11 +122,18 @@
     width: 500px;
     text-align: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 15px;
     border-radius: 5px;
+
+    > * {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
 
     &__button {
         @include typo.font-red-rose-20-700;
+        flex-shrink: 0;
+        flex-grow: 0;
         @include li_bu.primary-link(
             $gap: 10px,
             $before-content: "/assets/icons/settings-page/play.svg",
@@ -141,12 +148,12 @@
     &__line {
         background-color: var.$yellow-tone;
         height: 70px;
-        width: 8px;
         transform: rotate(15deg);
+        width: 8px;
     }
 
     &__line-wrapper {
-        width: 35px;
+        width: 20px;
         @include mx.flex-center-center;
     }
 
@@ -161,7 +168,7 @@
         width: 66px;
     }
     &__board-size {
-        width: 72px;
+        width: 91px;
     }
 }
 
@@ -208,9 +215,18 @@
 
     .start-board {
         font-size: fct.px-to-rem(16);
-        width: 350px;
         height: 70px;
-        padding: 0 10px;
+        width: 350px;
+
+        &__game-theme {
+            width: 82px;
+        }
+        &__player-color {
+            width: 55px;
+        }
+        &__board-size {
+            width: 40px;
+        }
 
         &__text {
             white-space: normal;
@@ -220,6 +236,7 @@
         &__button {
             font-size: fct.px-to-rem(16);
             margin-left: 8px;
+            width: 90px;
         }
 
         &__line-wrapper {
@@ -262,6 +279,16 @@
         width: auto;
         margin-top: 0;
         padding: 0 16px;
+
+        &__game-theme {
+            width: 125px;
+        }
+        &__player-color {
+            width: 53px;
+        }
+        &__board-size {
+            width: 73px;
+        }
     }
 
     .content-wrapper {
@@ -302,6 +329,16 @@
             height: 50px;
             width: 80px;
             gap: 4px;
+        }
+
+        &__game-theme {
+            width: 52px;
+        }
+        &__player-color {
+            width: 50px;
+        }
+        &__board-size {
+            width: 50px;
         }
     }
 
