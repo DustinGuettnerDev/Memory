@@ -19,6 +19,10 @@ export class FormRadioSelectionHandler {
     private readonly startBoardRef;
     private readonly previewImageRef;
     private readonly startLinkRef;
+    protected readonly labelCodeVibes;
+    protected readonly labelGaming;
+    protected lastPreviewTheme = "codeVibes";
+    protected selectedValue: string | null = null;
 
     /**
      * Creates a handler for one settings radio form.
@@ -40,35 +44,53 @@ export class FormRadioSelectionHandler {
         this.startBoardRef = document.getElementById("start-board-id")!;
         this.previewImageRef = document.getElementById("preview-img-id") as HTMLImageElement;
         this.startLinkRef = document.getElementById("start-board-button-id")!;
+        this.labelCodeVibes = document.getElementById("settings-game-theme-label-codeVibes-id") as HTMLLabelElement;
+        this.labelGaming = document.getElementById("settings-game-theme-label-gaming-id") as HTMLLabelElement;
 
         this.initStartLink();
         this.initOrnamentHover();
+        this.initRadioButtonListener();
+    }
+
+    /**
+     * Registers change handling for the form and preview hover handling for themes.
+     */
+    protected initRadioButtonListener() {
         this.formRef.addEventListener("change", (event) => this.handleChange(event));
+    }
+
+    /**
+     * Temporarily previews a theme while its label is hovered.
+     */
+    protected initPreviewHoverListener(label: HTMLLabelElement) {
+        label.addEventListener("mouseenter", () => {
+            const themeValue = label.querySelector("input")!.value;
+            this.updatePreviewImg(themeValue);
+        });
+        label.addEventListener("mouseleave", () => {
+            this.updatePreviewImg(this.lastPreviewTheme);
+        });
     }
 
     /**
      * Handles a changed radio button.
      */
-    private handleChange(event: Event) {
+    protected handleChange(event: Event) {
         if (!(event.target instanceof HTMLInputElement)) return;
 
-        const actualValue = event.target.value;
+        this.selectedValue = event.target.value;
         const clickedLabel = event.target.closest("label")!;
 
-        this.setValues(actualValue, clickedLabel);
+        this.setValues(this.selectedValue, clickedLabel);
         this.addOrnamentToSelectedSetting(clickedLabel);
         this.checkIfAllSettingsAreSet();
-
-        if (this.key === "settings-game-theme") {
-            this.updatePreviewImg(actualValue);
-        }
     }
 
     /**
      * Stores the selected value and updates the preview text.
      */
-    private setValues(actualValue: string, clickedLabel: HTMLLabelElement) {
-        saveInLocalStorage(this.key, actualValue);
+    private setValues(selectedValue: string, clickedLabel: HTMLLabelElement) {
+        saveInLocalStorage(this.key, selectedValue);
         this.outputRef.innerText = clickedLabel.innerText;
     }
 
@@ -140,7 +162,7 @@ export class FormRadioSelectionHandler {
     /**
      * Updates the theme preview image for the selected game theme.
      */
-    private updatePreviewImg(gameThemeValue: string) {
+    protected updatePreviewImg(gameThemeValue: string) {
         this.previewImageRef.src = FormRadioSelectionHandler.gameThemePathObject[gameThemeValue];
     }
 

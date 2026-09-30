@@ -1,6 +1,7 @@
 import "../styles/pages/_settings.scss";
 import { createFigure1 } from "../scripts/templates";
 import { FormRadioSelectionHandler } from "../models/form-radio-selection-handler.class";
+import { FormRadioSelectionThemeHandler } from "../models/form-radio-selection-theme-handler.class";
 
 /**
  * Initializes the settings page.
@@ -25,7 +26,7 @@ function loadTemplates() {
  * Creates a selection handler for each settings form.
  */
 function initForms() {
-    new FormRadioSelectionHandler("settings-game-theme-form-id", "start-board-game-theme-id", "settings-game-theme");
+    new FormRadioSelectionThemeHandler("settings-game-theme-form-id", "start-board-game-theme-id", "settings-game-theme");
     new FormRadioSelectionHandler("settings-player-color-form-id", "start-board-player-color-id", "settings-player-color");
     new FormRadioSelectionHandler("settings-board-size-form-id", "start-board-board-size-id", "settings-board-size");
 }
